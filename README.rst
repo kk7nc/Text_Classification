@@ -304,6 +304,9 @@ Recommender Systems
 
 
 
+=========
+Citations
+=========
 .. code::
 
     @inproceedings{Kowsari2018Text_Classification,
