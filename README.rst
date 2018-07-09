@@ -218,8 +218,6 @@ Random Multimodel Deep Learning (RMDL)
 Referenced paper : `RMDL: Random Multimodel Deep Learning for
 Classification <https://www.researchgate.net/publication/324922651_RMDL_Random_Multimodel_Deep_Learning_for_Classification>`__
 
-Random Multimodel Deep Learning (RMDL):
-=======================================
 
 A new ensemble, deep learning approach for classification. Deep
 learning models have achieved state-of-the-art results across many domains.
@@ -237,19 +235,18 @@ classifier at middle, and one Deep RNN classifier at right (each unit could be L
 
 
 Installation
-=============
 
 There are pip and git for RMDL installation:
 
 Using pip
-----------
+
 
 .. code:: python
 
         pip install RMDL
 
 Using git
----------
+
 .. code:: bash
 
     git clone --recursive https://github.com/kk7nc/RMDL.git
@@ -274,7 +271,7 @@ Or:
     conda install --file requirements.txt
 
 Documentation:
-==============
+
 
 The exponential growth in the number of complex datasets every year requires  more enhancement in
 machine learning methods to provide  robust and accurate data classification. Lately, deep learning
@@ -310,7 +307,6 @@ Classification <https://arxiv.org/abs/1709.08267>`__
 |HDLTex|
 
 Documentation:
-===============
 
 Increasingly large document collections require improved information processing methods for searching, retrieving, and organizing  text. Central to these information processing methods is document classification, which has become an important application for supervised learning. Recently the performance of traditional supervised classifiers has degraded as the number of documents has increased. This is because along with growth in the number of documents has come an increase in the number of categories. This paper approaches this problem differently from current document classification methods that view the problem as multi-class classification. Instead we perform hierarchical classification using an approach we call Hierarchical Deep Learning for Text classification (HDLTex). HDLTex employs stacks of deep learning architectures to provide specialized understanding at each level of the document hierarchy.
 
