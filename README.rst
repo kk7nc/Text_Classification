@@ -303,6 +303,18 @@ data types and classification problems.
 Hierarchical Deep Learning for Text (HDLTex)
 --------------------------------------------
 
+Refrenced paper : `HDLTex: Hierarchical Deep Learning for Text
+Classification <https://arxiv.org/abs/1709.08267>`__
+
+
+|HDLTex|
+
+Documentation:
+===============
+
+Increasingly large document collections require improved information processing methods for searching, retrieving, and organizing  text. Central to these information processing methods is document classification, which has become an important application for supervised learning. Recently the performance of traditional supervised classifiers has degraded as the number of documents has increased. This is because along with growth in the number of documents has come an increase in the number of categories. This paper approaches this problem differently from current document classification methods that view the problem as multi-class classification. Instead we perform hierarchical classification using an approach we call Hierarchical Deep Learning for Text classification (HDLTex). HDLTex employs stacks of deep learning architectures to provide specialized understanding at each level of the document hierarchy.
+
+
 
 ------------------------------------------------
 Semi-supervised learning for Text classification
@@ -402,4 +414,4 @@ Citations
     }
 
 .. |RMDL| image:: http://kowsari.net/onewebmedia/RMDL.jpg
-
+.. |HDLTex| image:: http://kowsari.net/____impro/1/onewebmedia/HDLTex.png?etag=W%2F%22c90cd-59c4019b%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=821%2B326&extract=0%2B0%2B821%2B325?raw=false
