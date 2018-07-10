@@ -54,6 +54,45 @@ Here is python code for Tokenization:
 Stop words
 -----------
 
+
+Text and document classification over social media such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of these data points.
+
+Here is an exmple from  `geeksforgeeks <https://www.geeksforgeeks.org/removing-stop-words-nltk-python/>`__
+
+.. code:: python
+
+  from nltk.corpus import stopwords
+  from nltk.tokenize import word_tokenize
+
+  example_sent = "This is a sample sentence, showing off the stop words filtration."
+
+  stop_words = set(stopwords.words('english'))
+
+  word_tokens = word_tokenize(example_sent)
+
+  filtered_sentence = [w for w in word_tokens if not w in stop_words]
+
+  filtered_sentence = []
+
+  for w in word_tokens:
+      if w not in stop_words:
+          filtered_sentence.append(w)
+
+  print(word_tokens)
+  print(filtered_sentence)
+
+
+
+Output:
+
+.. code::
+
+  ['This', 'is', 'a', 'sample', 'sentence', ',', 'showing', 
+  'off', 'the', 'stop', 'words', 'filtration', '.']
+  ['This', 'sample', 'sentence', ',', 'showing', 'stop',
+  'words', 'filtration', '.']
+
+
 ---------------
 Capitalization
 ---------------
