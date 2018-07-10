@@ -106,7 +106,9 @@ Text and document data points have a diversity of capitalization to became a sen
   print(text.lower())
 
 Output:
+
 .. code:: python
+
   "The United States of America (USA) or America, is a federal republic composed of 50 states"
   "the united states of america (usa) or america, is a federal republic composed of 50 states"
 
