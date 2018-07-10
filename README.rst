@@ -97,6 +97,19 @@ Output:
 Capitalization
 ---------------
 
+Text and document data points have a diversity of capitalization to became a sentence; substantially, several sentences together create a document. The most common approach of capitalization method could be to reduce everything to lower case. This technique makes all words in text and document in same space, but it is caused to a significant problem for meaning of some words such as "US" to "us" which first one represent the country of United States of America and second one is pronouns word; thus, for solving this problem, we could use slang and abbreviation converters.
+
+.. code:: python
+
+  text = "The United States of America (USA) or America, is a federal republic composed of 50 states"
+  print(text)
+  print(text.lower())
+
+Output:
+.. code:: python
+  "The United States of America (USA) or America, is a federal republic composed of 50 states"
+  "the united states of america (usa) or america, is a federal republic composed of 50 states"
+
 -----------------------
 Slang and Abbreviation
 -----------------------
@@ -104,6 +117,9 @@ Slang and Abbreviation
 ---------------
 Noise Removal
 ---------------
+
+
+
 
 -------------------
 Spelling Correction
