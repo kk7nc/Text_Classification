@@ -21,10 +21,32 @@ Text and Document Feature Extraction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Text Cleaning and Pre-processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 -------------
 Tokenization
 -------------
+
+Tokenization is a part of pre-process to break a stream of text up into words, phrases, symbols, or other meaningful elements called tokens.  The main goal of this step is the exploration of the words in a sentence. In text mining beside of text classification, it;'s necessitate a parser which processes the tokenization of the documents; for example:
+
+sentence:
+
+.. code::
+
+  After sleeping for four hours, he decided to sleep for another four
+
+
+In this case, the tokens are as follows:
+
+.. code::
+
+    {'After', 'sleeping', 'for', 'four', 'hours', 'he', 'decided', 'to', 'sleep', 'for', 'another', 'four'}
+
+
+.. code::
+
+  from nltk.tokenize import word_tokenize
+  text = "After sleeping for four hours, he decided to sleep for another four"
+  tokens = word_tokenize(text)
+  print(tokens)
 
 -----------
 Stop words
