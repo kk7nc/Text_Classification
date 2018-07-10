@@ -41,7 +41,9 @@ In this case, the tokens are as follows:
     {'After', 'sleeping', 'for', 'four', 'hours', 'he', 'decided', 'to', 'sleep', 'for', 'another', 'four'}
 
 
-.. code::
+Here is python code for Tokenization:
+
+.. code:: python
 
   from nltk.tokenize import word_tokenize
   text = "After sleeping for four hours, he decided to sleep for another four"
