@@ -257,8 +257,23 @@ Term frequency
 -----------------------------------------
 Term Frequency-Inverse Document Frequency
 -----------------------------------------
+The mathematical representation of weight of a term in a document by Tf-idf is given:
+
+.. image:: docs/eq/tf-idf.gif
+   :width: 10px
+   
+Where N is number of documents and df(t) is the number of documents containing the term t in the corpus. The first part would improve recall and the later would improve the precision of the word embedding. Although tf-idf tries to overcome the problem of common terms in document, it still suffers from some other descriptive limitations. Namely, tf-idf cannot account for the similarity between words in the document since each word is presented as an index. In the recent years, with development of more complex models such as neural nets, new methods has been presented that can incorporate concepts such as similarity of words and part of speech tagging. This work uses, word2vec and Glove, two of the most common methods that have been successfully used for deep learning techniques.
 
 
+.. code:: python
+
+  from sklearn.feature_extraction.text import TfidfTransformer
+  def loadData(X_train, X_test,MAX_NB_WORDS=75000):
+      vectorizer_x = TfidfVectorizer(max_features=MAX_NB_WORDS)
+      X_train = vectorizer_x.fit_transform(X_train).toarray()
+      X_test = vectorizer_x.transform(X_test).toarray()
+      print("tf-idf with",str(np.array(X_train).shape[1]),"features")
+      return (X_train,X_test)
 
 ========================
 Dimensionality Reduction
