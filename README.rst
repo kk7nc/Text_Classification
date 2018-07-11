@@ -532,6 +532,60 @@ Area under curve~(AUC)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 
+==========================
+Text and Document Datasets
+==========================
+
+~~~~~
+IMDB
+~~~~~
+
+- `IMDB Dataset <http://ai.stanford.edu/~amaas/data/sentiment/>`__
+
+  * This dataset contains 50,000 documents with 2 categories.
+
+~~~~~~~~~~~~~
+Reters-21578
+~~~~~~~~~~~~~
+
+- `Reters-21578 Dataset <https://keras.io/datasets/>`__
+
+  * This dataset contains 21,578 documents with 90 categories.
+
+~~~~~~~~~~~~~
+20Newsgroups
+~~~~~~~~~~~~~
+
+- `20Newsgroups Dataset <https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups>`__
+
+  * This dataset contains 20,000 documents with 20 categories.
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+Web of Science Dataset
+~~~~~~~~~~~~~~~~~~~~~~
+
+-  Web of Science Dataset (DOI:
+   `10.17632/9rw3vkcfy4.2 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__)
+
+   -  Web of Science Dataset
+      `WOS-11967 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
+
+      -  This dataset contains 11,967 documents with 35 categories which
+         include 7 parents categories.
+
+   -  Web of Science Dataset
+      `WOS-46985 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
+
+      -  This dataset contains 46,985 documents with 134 categories
+         which include 7 parents categories.
+
+   -  Web of Science Dataset
+      `WOS-5736 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
+
+      -  This dataset contains 5,736 documents with 11 categories which
+         include 3 parents categories.
+         
 ===========
 Application
 ===========
