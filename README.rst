@@ -116,24 +116,117 @@ Output:
 Slang and Abbreviation
 -----------------------
 
+Slang and Abbreviation is another problem as pre-processing step for cleaning text datasets. An abbreviation  is a shortened form of a word or phrase which contain mostly first letters form the words such as SVM stand for  Support Vector Machine. Slang is a version of language of an informal talk or text that has different meaning such as "lost the plot", it essentially means that they've gone mad. The common method for dealing with these words is convert them to formal language.
+
 ---------------
 Noise Removal
 ---------------
 
 
+The other issue of text cleaning as pre-processing step is noise removal which most of text and document datasets contains many unnecessary characters such as punctuation, special character. It's important to know the punctuation is critical for us to understand the meaning of the sentence, but it could have effect for classification algorithms.
+
+
+Here is simple code to remove standard noise from text:
+
+
+.. code:: python
+
+  def text_cleaner(text):
+      rules = [
+          {r'>\s+': u'>'},  # remove spaces after a tag opens or closes
+          {r'\s+': u' '},  # replace consecutive spaces
+          {r'\s*<br\s*/?>\s*': u'\n'},  # newline after a <br>
+          {r'</(div)\s*>\s*': u'\n'},  # newline after </p> and </div> and <h1/>...
+          {r'</(p|h\d)\s*>\s*': u'\n\n'},  # newline after </p> and </div> and <h1/>...
+          {r'<head>.*<\s*(/head|body)[^>]*>': u''},  # remove <head> to </head>
+          {r'<a\s+href="([^"]+)"[^>]*>.*</a>': r'\1'},  # show links instead of texts
+          {r'[ \t]*<[^<]*?/?>': u''},  # remove remaining tags
+          {r'^\s+': u''}  # remove spaces at the beginning
+      ]
+      for rule in rules:
+      for (k, v) in rule.items():
+          regex = re.compile(k)
+          text = regex.sub(v, text)
+      text = text.rstrip()
+      return text.lower()
+    
 
 
 -------------------
 Spelling Correction
 -------------------
 
+
+One of the optional part of the pre-processing step is spelling correction which is happened in texts and documents. Many algorithm, techniques, and methods have been addressed this problem in NLP. Many techniques and methods are available for researchers such as hashing-based and context-sensitive spelling correction techniques, or  spelling correction using trie and damerau-levenshtein distance bigram.
+
+
+.. code:: python
+
+  from autocorrect import spell
+
+  print spell('caaaar')
+  print spell(u'mussage')
+  print spell(u'survice')
+  print spell(u'hte')
+
+Result:
+
+.. code::
+
+    caesar
+    message
+    service
+    the
+
+
 ------------
 Stemming
 ------------
 
+
+Text Stemming is modifying to obtain variant word forms using different linguistic processes such as affixation (addition of affixes). For example, the stem of the word "studying" is "study", to which -ing.
+
+
+Here is an example of Stemming from `NLTK <https://pythonprogramming.net/stemming-nltk-tutorial/>`__
+
+.. code:: python
+
+    from nltk.stem import PorterStemmer
+    from nltk.tokenize import sent_tokenize, word_tokenize
+
+    ps = PorterStemmer()
+
+    example_words = ["python","pythoner","pythoning","pythoned","pythonly"]
+    
+    for w in example_words:
+    print(ps.stem(w))
+
+
+Result:
+
+.. code::
+
+  python
+  python
+  python
+  python
+  pythonli
+
 -------------
 Lemmatization
 -------------
+
+
+Text lemmatization is process in NLP to replaces the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (lemma).
+
+
+.. code:: python
+
+  from nltk.stem import WordNetLemmatizer
+
+  lemmatizer = WordNetLemmatizer()
+
+  print(lemmatizer.lemmatize("cats"))
 
 ~~~~~~~~~~~~~~
 Word Embedding
