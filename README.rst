@@ -14,6 +14,9 @@ Table of Contents
 Introduction
 ============
 
+
+|line|
+
 ====================================
 Text and Document Feature Extraction
 ====================================
@@ -653,4 +656,5 @@ Citations
     }
 
 .. |RMDL| image:: http://kowsari.net/onewebmedia/RMDL.jpg
+.. |line| image:: docs/pic/line.png
 .. |HDLTex| image:: http://kowsari.net/____impro/1/onewebmedia/HDLTex.png?etag=W%2F%22c90cd-59c4019b%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=821%2B326&extract=0%2B0%2B821%2B325?raw=false
