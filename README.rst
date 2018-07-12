@@ -602,38 +602,25 @@ Domain is majaor domain which include 7 labales: {Computer Science,Electrical En
 area is subdomain or area of the paper such as CS-> computer graphics which contain 134 labels.
 keywords : is authors keyword of the papers
 
-Web of Science Dataset WOS-11967
--This dataset contains 11,967 documents with 35 categories which include 7 parents categories.
+-  Web of Science Dataset `WOS-11967 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
+..
 
-Web of Science Dataset WOS-46985
--This dataset contains 46,985 documents with 134 categories which include 7 parents categories.
+  This dataset contains 11,967 documents with 35 categories which include 7 parents categories.
 
-Web of Science Dataset WOS-5736
--This dataset contains 5,736 documents with 11 categories which include 3 parents categories.
+-  Web of Science Dataset `WOS-46985 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
+      
+..
+
+  This dataset contains 46,985 documents with 134 categories which include 7 parents categories.
+
+-  Web of Science Dataset `WOS-5736 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
+
+..
+  
+  This dataset contains 5,736 documents with 11 categories which include 3 parents categories.
 
 Referenced paper: HDLTex: Hierarchical Deep Learning for Text Classification
 
-
--  Web of Science Dataset (DOI:
-   `10.17632/9rw3vkcfy4.2 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__)
-
-   -  Web of Science Dataset
-      `WOS-11967 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
-
-      -  This dataset contains 11,967 documents with 35 categories which
-         include 7 parents categories.
-
-   -  Web of Science Dataset
-      `WOS-46985 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
-
-      -  This dataset contains 46,985 documents with 134 categories
-         which include 7 parents categories.
-
-   -  Web of Science Dataset
-      `WOS-5736 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
-
-      -  This dataset contains 5,736 documents with 11 categories which
-         include 3 parents categories.
          
 ===========
 Application
