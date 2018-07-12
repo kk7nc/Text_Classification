@@ -15,7 +15,7 @@ Introduction
 ============
 
 
-|line|
+----
 
 ====================================
 Text and Document Feature Extraction
@@ -278,6 +278,9 @@ Where N is number of documents and df(t) is the number of documents containing t
       print("tf-idf with",str(np.array(X_train).shape[1]),"features")
       return (X_train,X_test)
 
+
+----
+
 ========================
 Dimensionality Reduction
 ========================
@@ -313,7 +316,7 @@ Autoencoder
 T-distributed Stochastic Neighbor Embedding (T-SNE)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+----
 
 ===============================
 Text Classification Techniques
@@ -510,6 +513,7 @@ Semi-supervised learning for Text classification
 
 
 
+----
 
 ==========
 Evaluation
