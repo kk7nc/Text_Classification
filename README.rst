@@ -14,6 +14,8 @@ Table of Contents
 Introduction
 ============
 
+.. image:: docs/pic/Overview.png
+
 
 ====================================
 Text and Document Feature Extraction
@@ -236,6 +238,10 @@ Text lemmatization is process in NLP to replaces the suffix of a word with a dif
 Word Embedding
 ~~~~~~~~~~~~~~
 
+
+.. image:: docs/pic/CBOW.png
+
+
 --------
 Word2Vec
 --------
@@ -243,6 +249,8 @@ Word2Vec
 ----------------------------------------------
 Global Vectors for Word Representation (GloVe)
 ----------------------------------------------
+
+
 
 --------
 FastText
@@ -307,9 +315,15 @@ Non-negative Matrix Factorization (NMF)
 Random Projection
 ~~~~~~~~~~~~~~~~~
 
+.. image:: docs/pic/Random%20Projection.png
+
 ~~~~~~~~~~~
 Autoencoder
 ~~~~~~~~~~~
+
+.. image:: docs/pic/Autoencoder.png
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 T-distributed Stochastic Neighbor Embedding (T-SNE)
@@ -352,6 +366,8 @@ Naive Bayes Classifier
 K-nearest Neighbor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. image:: docs/pic/KNN.png
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Support Vector Machine~(SVM)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -363,6 +379,8 @@ Decision Tree
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Random Forest
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: docs/pic/RF.png
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Conditional Random Field (CRF)
@@ -376,18 +394,21 @@ Deep Learning
 Deep Neural Networks
 -----------------------------------------
 
+.. image:: docs/pic/DNN.png
 
 -----------------------------------------
 Recurrent Neural Networks (RNN)
 -----------------------------------------
 
+.. image:: docs/pic/RNN.png
 
+.. image:: docs/pic/LSTM.png
 
 -----------------------------------------
 Convolutional Neural Networks (CNN)
 -----------------------------------------
 
-
+.. image:: docs/pic/CNN.png
 
 -----------------------------------------
 Deep Belief Network (DBN)
@@ -399,6 +420,7 @@ Deep Belief Network (DBN)
 Hierarchical Attention Networks
 -----------------------------------------
 
+.. image:: docs/pic/HAN.png
 
 ---------------------------------------------
 Recurrent Convolutional Neural Networks (RCNN)
@@ -524,6 +546,8 @@ Evaluation
 F1 Score
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+.. image:: docs/pic/F1.png
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Matthew correlation coefficient (MCC)
