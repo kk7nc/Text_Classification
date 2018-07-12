@@ -552,25 +552,91 @@ IMDB
 
 - `IMDB Dataset <http://ai.stanford.edu/~amaas/data/sentiment/>`__
 
-  * This dataset contains 50,000 documents with 2 categories.
+Dataset of 25,000 movies reviews from IMDB, labeled by sentiment (positive/negative). Reviews have been preprocessed, and each review is encoded as a sequence of word indexes (integers). For convenience, words are indexed by overall frequency in the dataset, so that for instance the integer "3" encodes the 3rd most frequent word in the data. This allows for quick filtering operations such as: "only consider the top 10,000 most common words, but eliminate the top 20 most common words".
+
+As a convention, "0" does not stand for a specific word, but instead is used to encode any unknown word.
+
+
+.. code:: python
+
+
+  from keras.datasets import imdb
+
+  (x_train, y_train), (x_test, y_test) = imdb.load_data(path="imdb.npz",
+                                                        num_words=None,
+                                                        skip_top=0,
+                                                        maxlen=None,
+                                                        seed=113,
+                                                        start_char=1,
+                                                        oov_char=2,
+                                                        index_from=3)
 
 ~~~~~~~~~~~~~
-Reters-21578
+Reuters-21578
 ~~~~~~~~~~~~~
 
 - `Reters-21578 Dataset <https://keras.io/datasets/>`__
 
-  * This dataset contains 21,578 documents with 90 categories.
 
+Dataset of 11,228 newswires from Reuters, labeled over 46 topics. As with the IMDB dataset, each wire is encoded as a sequence of word indexes (same conventions).
+
+
+.. code:: python
+
+  from keras.datasets import reuters
+
+  (x_train, y_train), (x_test, y_test) = reuters.load_data(path="reuters.npz",
+                                                           num_words=None,
+                                                           skip_top=0,
+                                                           maxlen=None,
+                                                           test_split=0.2,
+                                                           seed=113,
+                                                           start_char=1,
+                                                           oov_char=2,
+                                                           index_from=3)
+                                                         
+                                                         
 ~~~~~~~~~~~~~
 20Newsgroups
 ~~~~~~~~~~~~~
 
 - `20Newsgroups Dataset <https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups>`__
 
-  * This dataset contains 20,000 documents with 20 categories.
+The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.
+
+This module contains two loaders. The first one, sklearn.datasets.fetch_20newsgroups, returns a list of the raw texts that can be fed to text feature extractors such as sklearn.feature_extraction.text.CountVectorizer with custom parameters so as to extract feature vectors. The second one, sklearn.datasets.fetch_20newsgroups_vectorized, returns ready-to-use features, i.e., it is not necessary to use a feature extractor.
 
 
+.. code:: python
+
+  from sklearn.datasets import fetch_20newsgroups
+  newsgroups_train = fetch_20newsgroups(subset='train')
+
+  from pprint import pprint
+  pprint(list(newsgroups_train.target_names))
+  
+  ['alt.atheism',
+   'comp.graphics',
+   'comp.os.ms-windows.misc',
+   'comp.sys.ibm.pc.hardware',
+   'comp.sys.mac.hardware',
+   'comp.windows.x',
+   'misc.forsale',
+   'rec.autos',
+   'rec.motorcycles',
+   'rec.sport.baseball',
+   'rec.sport.hockey',
+   'sci.crypt',
+   'sci.electronics',
+   'sci.med',
+   'sci.space',
+   'soc.religion.christian',
+   'talk.politics.guns',
+   'talk.politics.mideast',
+   'talk.politics.misc',
+   'talk.religion.misc']
+ 
+ 
 ~~~~~~~~~~~~~~~~~~~~~~
 Web of Science Dataset
 ~~~~~~~~~~~~~~~~~~~~~~
