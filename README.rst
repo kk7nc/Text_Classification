@@ -14,9 +14,12 @@ Table of Contents
 Introduction
 ============
 
-.. image:: docs/pic/Overview.png
-
-
+.. figure:: docs/pic/Overview.png
+    :width: 200px
+    :align: center
+    :height: 100px
+    
+    
 ====================================
 Text and Document Feature Extraction
 ====================================
