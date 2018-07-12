@@ -14,10 +14,8 @@ Table of Contents
 Introduction
 ============
 
-.. figure:: docs/pic/Overview.png
-    :width: 200px
-    :align: center
-    :height: 100px
+.. figure:: docs/pic/Overview.png 
+
     
     
 ====================================
