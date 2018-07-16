@@ -315,16 +315,78 @@ Non-negative Matrix Factorization (NMF)
 ~~~~~~~~~~~~~~~~~
 Random Projection
 ~~~~~~~~~~~~~~~~~
+Random projection or random feature is technique for dimensionality reduction which is mostly used for very large volume dataset or very high dimensional feature space. Text and document, especially with weighted feature extraction, generate huge number of features.
+Many researchers addressed Random Projection for text data for text mining, text classification and/or dimensionality reduction.
+we start to review some random projection techniques. 
+
 
 .. image:: docs/pic/Random%20Projection.png
+
+.. code:: python
+      import numpy as np
+      from sklearn import random_projection
+      X = np.random.rand(100, 10000)
+      transformer = random_projection.GaussianRandomProjection()
+      X_new = transformer.fit_transform(X)
+      X_new.shape
+      (100, 3947)
+
 
 ~~~~~~~~~~~
 Autoencoder
 ~~~~~~~~~~~
 
+
+Autoencoder is a neural network technique that is trained to attempt to copy its input to its output. The autoencoder as dimensional reduction methods have achieved great success via the powerful reprehensibility of neural networks. The main idea is one hidden layer between input and output layers has fewer units which could be used as reduced dimension of feature space. Specially for texts, documents, and sequences that contains many features, autoencoder could help to process of data faster and more efficient.
+
+
 .. image:: docs/pic/Autoencoder.png
 
 
+
+.. code:: python
+
+  from keras.layers import Input, Dense
+  from keras.models import Model
+
+  # this is the size of our encoded representations
+  encoding_dim = 1500  
+
+  # this is our input placeholder
+  input = Input(shape=(n,))
+  # "encoded" is the encoded representation of the input
+  encoded = Dense(encoding_dim, activation='relu')(input)
+  # "decoded" is the lossy reconstruction of the input
+  decoded = Dense(n, activation='sigmoid')(encoded)
+
+  # this model maps an input to its reconstruction
+  autoencoder = Model(input, decoded)
+
+  # this model maps an input to its encoded representation
+  encoder = Model(input, encoded)
+  
+
+  encoded_input = Input(shape=(encoding_dim,))
+  # retrieve the last layer of the autoencoder model
+  decoder_layer = autoencoder.layers[-1]
+  # create the decoder model
+  decoder = Model(encoded_input, decoder_layer(encoded_input))
+  
+  autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
+  
+  
+
+Load data:
+
+
+.. code:: python
+
+  autoencoder.fit(x_train, x_train,
+                  epochs=50,
+                  batch_size=256,
+                  shuffle=True,
+                  validation_data=(x_test, x_test))
+                  
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 T-distributed Stochastic Neighbor Embedding (T-SNE)
@@ -342,6 +404,24 @@ Text Classification Techniques
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Rocchio classification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The first version of Rocchio algorithm is introduced by rocchio in 1971 to use relevance feedback in querying full-text databases. Since then many researchers addressed and developed this technique for text and document classification. This method uses TF-IDF weights for each informative word instead of a set of Boolean features. Using a training set of documents, Rocchio's algorithm builds a prototype vector for each class which is an average vector over all training document vectors that belongs to a certain class. Then, it will assign each test document to a class with maximum similarity that between test document and each of prototype vectors.
+
+
+When in nearest centroid classifier, we used for text as input data for classification with tf-idf vectors, this classifier is known as the Rocchio classifier.
+
+.. code:: python
+  from sklearn.neighbors.nearest_centroid import NearestCentroid
+  import numpy as np
+  X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
+  y = np.array([1, 1, 1, 2, 2, 2])
+  clf = NearestCentroid()
+  clf.fit(X, y)
+
+
+
+
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Boosting and Bagging
