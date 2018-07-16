@@ -280,13 +280,13 @@ Where N is number of documents and df(t) is the number of documents containing t
 
 .. code:: python
 
-  from sklearn.feature_extraction.text import TfidfTransformer
-  def loadData(X_train, X_test,MAX_NB_WORDS=75000):
-      vectorizer_x = TfidfVectorizer(max_features=MAX_NB_WORDS)
-      X_train = vectorizer_x.fit_transform(X_train).toarray()
-      X_test = vectorizer_x.transform(X_test).toarray()
-      print("tf-idf with",str(np.array(X_train).shape[1]),"features")
-      return (X_train,X_test)
+    from sklearn.feature_extraction.text import TfidfTransformer
+    def loadData(X_train, X_test,MAX_NB_WORDS=75000):
+        vectorizer_x = TfidfVectorizer(max_features=MAX_NB_WORDS)
+        X_train = vectorizer_x.fit_transform(X_train).toarray()
+        X_test = vectorizer_x.transform(X_test).toarray()
+        print("tf-idf with",str(np.array(X_train).shape[1]),"features")
+        return (X_train,X_test)
 
 ========================
 Dimensionality Reduction
@@ -323,6 +323,7 @@ we start to review some random projection techniques.
 .. image:: docs/pic/Random%20Projection.png
 
 .. code:: python
+
       import numpy as np
       from sklearn import random_projection
       X = np.random.rand(100, 10000)
@@ -410,6 +411,7 @@ The first version of Rocchio algorithm is introduced by rocchio in 1971 to use r
 When in nearest centroid classifier, we used for text as input data for classification with tf-idf vectors, this classifier is known as the Rocchio classifier.
 
 .. code:: python
+
   from sklearn.neighbors.nearest_centroid import NearestCentroid
   import numpy as np
   X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
