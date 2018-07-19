@@ -445,6 +445,34 @@ Logistic Regression
 Naive Bayes Classifier
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Naïve Bayes text classification has been used in industry
+and academia for a long time (introduced by Thomas Bayes
+between 1701-1761) ; however, this technique
+is studied since 1950s for text and document categorization. Naive Bayes Classifier (NBC) is generative
+model which is the most traditional method of text categorization
+which is widely used in Information Retrieval. Many researchers addressed and developed this technique
+for their applications. We start the most basic version
+of NBC which developed by using term-frequency (Bag of
+Word) fetaure extraction technique by counting number of
+words in documents
+
+
+.. code:: python
+
+  from sklearn.naive_bayes import MultinomialNB
+  clf = MultinomialNB().fit(X_train_tfidf, twenty_train.target)
+
+
+  docs_new = ['God is love', 'OpenGL on the GPU is fast']
+  X_new_counts = count_vect.transform(docs_new)
+  X_new_tfidf = tfidf_transformer.transform(X_new_counts)
+
+  predicted = clf.predict(X_new_tfidf)
+
+  for doc, category in zip(docs_new, predicted):
+      print('%r => %s' % (doc, twenty_train.target_names[category]))
+ 
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 K-nearest Neighbor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
