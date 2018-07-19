@@ -476,8 +476,24 @@ words in documents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 K-nearest Neighbor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+R
+In machine learning, the k-nearest neighbors algorithm (kNN)
+is a non-parametric technique used for classification.
+This method is used in Natural-language processing (NLP)
+as text classification in many researches in past
+decad
 
 .. image:: docs/pic/KNN.png
+
+.. code:: python
+
+  #load data 
+  from sklearn.neighbors import KNeighborsClassifier
+  neigh = KNeighborsClassifier(n_neighbors=number_of_classes)
+  neigh.fit(Xtrain, ytrain)
+  new_y  = neigh.predict(Xtext)
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Support Vector Machine~(SVM)
