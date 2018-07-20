@@ -1,20 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @kk7nc Sign out
-14
-72 25 kk7nc/RMDL
- Code  Issues 1  Pull requests 0  Projects 0  Wiki  Insights  Settings
-RMDL/RMDL/Download/Download_WOS.py
-97366d9  on Jun 4
-@kk7nc kk7nc bug fixes
-     
-64 lines (44 sloc)  1.88 KB
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 RMDL: Random Multimodel Deep Learning for Classification
  * Copyright (C) 2018  Kamran Kowsari <kk7nc@virginia.edu>
@@ -77,16 +60,3 @@ def download_and_extract():
 
         tarfile.open(filepath, 'r').extractall(dest_directory)
     return path
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About
-Press h to open a hovercard with more details.
