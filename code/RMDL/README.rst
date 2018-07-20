@@ -4,7 +4,7 @@
 Referenced paper : `RMDL: Random Multimodel Deep Learning for
 Classification <https://www.researchgate.net/publication/324922651_RMDL_Random_Multimodel_Deep_Learning_for_Classification>`__
 
-.. image:: /docs/pic/GitHub-Mark-64px.png
+.. image:: /docs/pic/github-logo.png
   :target: https://github.com/kk7nc/RMDL
 
 Random Multimodel Deep Learning (RMDL):
