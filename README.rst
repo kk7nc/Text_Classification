@@ -445,6 +445,24 @@ T-distributed Stochastic Neighbor Embedding (T-SNE)
 
 
 
+T-distributed Stochastic Neighbor Embedding (T-SNE) is a nonlinear dimensionality reduction method for embedding high-dimensional data for which is mostly used for visualization in a low-dimensional space. This approach is based on `G. Hinton and ST. Roweis <https://www.cs.toronto.edu/~fritz/absps/sne.pdf>`__ . SNE works by converting the high dimensional Euclidean distances into conditional probabilities which represent similarities.
+
+ `Example <http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>`__:
+
+
+.. code:: python
+
+   import numpy as np
+   from sklearn.manifold import TSNE
+   X = np.array([[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 1]])
+   X_embedded = TSNE(n_components=2).fit_transform(X)
+   X_embedded.shape
+
+
+Example of Glove and T-SNE for text:
+
+.. image:: docs/pic/TSNE.png
+
 ===============================
 Text Classification Techniques
 ===============================
