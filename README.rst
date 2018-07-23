@@ -3,6 +3,16 @@
 Text Classification Algorithms: A Survey
 ################################################
 
+.. image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
+    :target: https://github.com/kk7nc/Text_Classification/pulls
+.. image:: https://badges.frapsoft.com/os/v2/open-source.png?v=103
+    :target: https://github.com/ellerbrock/open-source-badge/
+.. image:: https://img.shields.io/pypi/l/ansicolortags.svg
+      :target: https://github.com/kk7nc/Text_Classification/blob/master/LICENSE
+.. image:: https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg
+      :target: https://github.com/kk7nc/Text_Classification/graphs/contributors
+      
+      
 ##################
 Table of Contents
 ##################
