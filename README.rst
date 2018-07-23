@@ -1,6 +1,6 @@
 
 ################################################
-Text Classification Algorithm: A Brief Overview
+Text Classification Algorithms: A Survey
 ################################################
 
 ##################
