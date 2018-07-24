@@ -35,9 +35,16 @@ Text and Document Feature Extraction
 ----
 
 
+Text feature extraction and pre-processing for classification algorithm is very significant. In this section, we start to talk about text cleaning which most of documents have a lot of noise. In this part we discuss about two main methods of text feature extractions which are word embedding and weighted word.
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Text Cleaning and Pre-processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In Natural Language Processing (NLP), most of the text and document datasets contains many unnecessary words such as Stopwords, miss-spelling, slang, and etc. In this section, we briefly explain some techniques and method for text cleaning and pre-processing text datasets. In many algorithm, especially statistical and probabilistic learning algorithm, noise and unnecessary features could have bad effect on performance of the system, so one of the solution could be illumination and remove these features as pre-processing step.
+
+
 -------------
 Tokenization
 -------------
