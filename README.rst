@@ -489,6 +489,7 @@ Text Classification Techniques
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Rocchio classification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The first version of Rocchio algorithm is introduced by rocchio in 1971 to use relevance feedback in querying full-text databases. Since then many researchers addressed and developed this technique for text and document classification. This method uses TF-IDF weights for each informative word instead of a set of Boolean features. Using a training set of documents, Rocchio's algorithm builds a prototype vector for each class which is an average vector over all training document vectors that belongs to a certain class. Then, it will assign each test document to a class with maximum similarity that between test document and each of prototype vectors.
 
 
@@ -582,6 +583,24 @@ decad
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Support Vector Machine (SVM)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+The original version of SVM was introduced by Vapnik and  Chervonenkis in 1963. The early 1990s, nonlinear version was addressed by BE. Boser et al.. Original version of SVM was designed for binary classification problem, but Many researchers work on multi-class problem using this authoritative technique.
+
+
+The advantages of support vector machines are based on scikit-learn page:
+
+* Effective in high dimensional spaces.
+* Still effective in cases where number of dimensions is greater than the number of samples.
+* Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient.
+* Versatile: different Kernel functions can be specified for the decision function. Common kernels are provided, but it is also possible to specify custom kernels.
+
+
+The disadvantages of support vector machines include:
+
+* If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
+* SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation (see Scores and probabilities, below).
+
 
 
 .. image:: docs/pic/SVM.png
