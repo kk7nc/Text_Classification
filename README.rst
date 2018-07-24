@@ -374,9 +374,11 @@ Dimensionality Reduction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Principal Component Analysis (PCA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Principle component analysis~(PCA) is the most popular technique in multivariate analysis and dimensionality reduction. PCA is a method to identify a subspace in which the data approximately lies. This means finding new variables that are uncorrelated and maximizing the variance to preserve as much variability as possible.
 
 
 Example of PCA on text dataset (20newsgroups) from  tf-idf with 75000 features to 2000 components:
+
 .. code:: python
 
     from sklearn.feature_extraction.text import TfidfVectorizer
