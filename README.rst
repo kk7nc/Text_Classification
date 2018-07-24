@@ -1099,6 +1099,41 @@ run DNN and see our result:
     print(metrics.classification_report(y_test, predicted))
 
 
+Model summary:
+
+::
+
+    _________________________________________________________________
+    Layer (type)                 Output Shape              Param #   
+    =================================================================
+    dense_1 (Dense)              (None, 512)               38400512  
+    _________________________________________________________________
+    dropout_1 (Dropout)          (None, 512)               0         
+    _________________________________________________________________
+    dense_2 (Dense)              (None, 512)               262656    
+    _________________________________________________________________
+    dropout_2 (Dropout)          (None, 512)               0         
+    _________________________________________________________________
+    dense_3 (Dense)              (None, 512)               262656    
+    _________________________________________________________________
+    dropout_3 (Dropout)          (None, 512)               0         
+    _________________________________________________________________
+    dense_4 (Dense)              (None, 512)               262656    
+    _________________________________________________________________
+    dropout_4 (Dropout)          (None, 512)               0         
+    _________________________________________________________________
+    dense_5 (Dense)              (None, 512)               262656    
+    _________________________________________________________________
+    dropout_5 (Dropout)          (None, 512)               0         
+    _________________________________________________________________
+    dense_6 (Dense)              (None, 20)                10260     
+    =================================================================
+    Total params: 39,461,396
+    Trainable params: 39,461,396
+    Non-trainable params: 0
+    _________________________________________________________________
+
+
 
 Output:
 
@@ -1303,6 +1338,302 @@ Convolutional Neural Networks (CNN)
 -----------------------------------------
 
 .. image:: docs/pic/CNN.png
+
+import packages:
+
+.. code:: python
+
+
+    from keras.layers import Dropout, Dense,Input,Embedding,Flatten, MaxPooling1D, Conv1D
+    from keras.models import Sequential,Model
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    import numpy as np
+    from sklearn import metrics
+    from keras.preprocessing.text import Tokenizer
+    from keras.preprocessing.sequence import pad_sequences
+    from sklearn.datasets import fetch_20newsgroups
+    from keras.layers.merge import Concatenate
+
+
+
+convert text to word embedding (Using GloVe):
+
+.. code:: python
+
+    def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=500):
+        np.random.seed(7)
+        text = np.concatenate((X_train, X_test), axis=0)
+        text = np.array(text)
+        tokenizer = Tokenizer(num_words=MAX_NB_WORDS)
+        tokenizer.fit_on_texts(text)
+        sequences = tokenizer.texts_to_sequences(text)
+        word_index = tokenizer.word_index
+        text = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
+        print('Found %s unique tokens.' % len(word_index))
+        indices = np.arange(text.shape[0])
+        # np.random.shuffle(indices)
+        text = text[indices]
+        print(text.shape)
+        X_train = text[0:len(X_train), ]
+        X_test = text[len(X_train):, ]
+        embeddings_index = {}
+        f = open("C:\\Users\\kamran\\Documents\\GitHub\\RMDL\\Examples\\Glove\\glove.6B.50d.txt", encoding="utf8")
+        for line in f:
+            values = line.split()
+            word = values[0]
+            try:
+                coefs = np.asarray(values[1:], dtype='float32')
+            except:
+                pass
+            embeddings_index[word] = coefs
+        f.close()
+        print('Total %s word vectors.' % len(embeddings_index))
+        return (X_train, X_test, word_index,embeddings_index)
+
+
+Build a RNN Model for Text:
+
+.. code:: python
+
+    def Build_Model_CNN_Text(word_index, embeddings_index, nclasses, MAX_SEQUENCE_LENGTH=500, EMBEDDING_DIM=50, dropout=0.5):
+
+        """
+            def buildModel_CNN(word_index, embeddings_index, nclasses, MAX_SEQUENCE_LENGTH=500, EMBEDDING_DIM=50, dropout=0.5):
+            word_index in word index ,
+            embeddings_index is embeddings index, look at data_helper.py
+            nClasses is number of classes,
+            MAX_SEQUENCE_LENGTH is maximum lenght of text sequences,
+            EMBEDDING_DIM is an int value for dimention of word embedding look at data_helper.py
+        """
+
+        model = Sequential()
+        embedding_matrix = np.random.random((len(word_index) + 1, EMBEDDING_DIM))
+        for word, i in word_index.items():
+            embedding_vector = embeddings_index.get(word)
+            if embedding_vector is not None:
+                # words not found in embedding index will be all-zeros.
+                if len(embedding_matrix[i]) !=len(embedding_vector):
+                    print("could not broadcast input array from shape",str(len(embedding_matrix[i])),
+                                     "into shape",str(len(embedding_vector))," Please make sure your"
+                                     " EMBEDDING_DIM is equal to embedding_vector file ,GloVe,")
+                    exit(1)
+
+                embedding_matrix[i] = embedding_vector
+
+        embedding_layer = Embedding(len(word_index) + 1,
+                                    EMBEDDING_DIM,
+                                    weights=[embedding_matrix],
+                                    input_length=MAX_SEQUENCE_LENGTH,
+                                    trainable=True)
+
+        # applying a more complex convolutional approach
+        convs = []
+        filter_sizes = []
+        layer = 5
+        print("Filter  ",layer)
+        for fl in range(0,layer):
+            filter_sizes.append((fl+2))
+
+        node = 128
+        sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
+        embedded_sequences = embedding_layer(sequence_input)
+
+        for fsz in filter_sizes:
+            l_conv = Conv1D(node, kernel_size=fsz, activation='relu')(embedded_sequences)
+            l_pool = MaxPooling1D(5)(l_conv)
+            #l_pool = Dropout(0.25)(l_pool)
+            convs.append(l_pool)
+
+        l_merge = Concatenate(axis=1)(convs)
+        l_cov1 = Conv1D(node, 5, activation='relu')(l_merge)
+        l_cov1 = Dropout(dropout)(l_cov1)
+        l_pool1 = MaxPooling1D(5)(l_cov1)
+        l_cov2 = Conv1D(node, 5, activation='relu')(l_pool1)
+        l_cov2 = Dropout(dropout)(l_cov2)
+        l_pool2 = MaxPooling1D(30)(l_cov2)
+        l_flat = Flatten()(l_pool2)
+        l_dense = Dense(1024, activation='relu')(l_flat)
+        l_dense = Dropout(dropout)(l_dense)
+        l_dense = Dense(512, activation='relu')(l_dense)
+        l_dense = Dropout(dropout)(l_dense)
+        preds = Dense(nclasses, activation='softmax')(l_dense)
+        model = Model(sequence_input, preds)
+
+        model.compile(loss='sparse_categorical_crossentropy',
+                      optimizer='adam',
+                      metrics=['accuracy'])
+
+
+
+        return model
+
+
+
+run RNN and see our result:
+
+
+.. code:: python
+
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    X_train_Glove,X_test_Glove, word_index,embeddings_index = loadData_Tokenizer(X_train,X_test)
+
+
+    model_CNN = Build_Model_CNN_Text(word_index,embeddings_index, 20)
+
+
+    model_CNN.summary()
+
+    model_CNN.fit(X_train_Glove, y_train,
+                                  validation_data=(X_test_Glove, y_test),
+                                  epochs=15,
+                                  batch_size=128,
+                                  verbose=2)
+
+    predicted = model_CNN.predict(X_test_Glove)
+
+    predicted = np.argmax(predicted, axis=1)
+
+
+    print(metrics.classification_report(y_test, predicted))
+
+
+Model:
+
+::
+
+    __________________________________________________________________________________________________
+    Layer (type)                    Output Shape         Param #     Connected to                     
+    ==================================================================================================
+    input_1 (InputLayer)            (None, 500)          0                                            
+    __________________________________________________________________________________________________
+    embedding_1 (Embedding)         (None, 500, 50)      8960500     input_1[0][0]                    
+    __________________________________________________________________________________________________
+    conv1d_1 (Conv1D)               (None, 499, 128)     12928       embedding_1[0][0]                
+    __________________________________________________________________________________________________
+    conv1d_2 (Conv1D)               (None, 498, 128)     19328       embedding_1[0][0]                
+    __________________________________________________________________________________________________
+    conv1d_3 (Conv1D)               (None, 497, 128)     25728       embedding_1[0][0]                
+    __________________________________________________________________________________________________
+    conv1d_4 (Conv1D)               (None, 496, 128)     32128       embedding_1[0][0]                
+    __________________________________________________________________________________________________
+    conv1d_5 (Conv1D)               (None, 495, 128)     38528       embedding_1[0][0]                
+    __________________________________________________________________________________________________
+    max_pooling1d_1 (MaxPooling1D)  (None, 99, 128)      0           conv1d_1[0][0]                   
+    __________________________________________________________________________________________________
+    max_pooling1d_2 (MaxPooling1D)  (None, 99, 128)      0           conv1d_2[0][0]                   
+    __________________________________________________________________________________________________
+    max_pooling1d_3 (MaxPooling1D)  (None, 99, 128)      0           conv1d_3[0][0]                   
+    __________________________________________________________________________________________________
+    max_pooling1d_4 (MaxPooling1D)  (None, 99, 128)      0           conv1d_4[0][0]                   
+    __________________________________________________________________________________________________
+    max_pooling1d_5 (MaxPooling1D)  (None, 99, 128)      0           conv1d_5[0][0]                   
+    __________________________________________________________________________________________________
+    concatenate_1 (Concatenate)     (None, 495, 128)     0           max_pooling1d_1[0][0]            
+                                                                     max_pooling1d_2[0][0]            
+                                                                     max_pooling1d_3[0][0]            
+                                                                     max_pooling1d_4[0][0]            
+                                                                     max_pooling1d_5[0][0]            
+    __________________________________________________________________________________________________
+    conv1d_6 (Conv1D)               (None, 491, 128)     82048       concatenate_1[0][0]              
+    __________________________________________________________________________________________________
+    dropout_1 (Dropout)             (None, 491, 128)     0           conv1d_6[0][0]                   
+    __________________________________________________________________________________________________
+    max_pooling1d_6 (MaxPooling1D)  (None, 98, 128)      0           dropout_1[0][0]                  
+    __________________________________________________________________________________________________
+    conv1d_7 (Conv1D)               (None, 94, 128)      82048       max_pooling1d_6[0][0]            
+    __________________________________________________________________________________________________
+    dropout_2 (Dropout)             (None, 94, 128)      0           conv1d_7[0][0]                   
+    __________________________________________________________________________________________________
+    max_pooling1d_7 (MaxPooling1D)  (None, 3, 128)       0           dropout_2[0][0]                  
+    __________________________________________________________________________________________________
+    flatten_1 (Flatten)             (None, 384)          0           max_pooling1d_7[0][0]            
+    __________________________________________________________________________________________________
+    dense_1 (Dense)                 (None, 1024)         394240      flatten_1[0][0]                  
+    __________________________________________________________________________________________________
+    dropout_3 (Dropout)             (None, 1024)         0           dense_1[0][0]                    
+    __________________________________________________________________________________________________
+    dense_2 (Dense)                 (None, 512)          524800      dropout_3[0][0]                  
+    __________________________________________________________________________________________________
+    dropout_4 (Dropout)             (None, 512)          0           dense_2[0][0]                    
+    __________________________________________________________________________________________________
+    dense_3 (Dense)                 (None, 20)           10260       dropout_4[0][0]                  
+    ==================================================================================================
+    Total params: 10,182,536
+    Trainable params: 10,182,536
+    Non-trainable params: 0
+    __________________________________________________________________________________________________
+
+
+Output:
+
+
+::
+
+    Train on 11314 samples, validate on 7532 samples
+    Epoch 1/15
+     - 6s - loss: 2.9329 - acc: 0.0783 - val_loss: 2.7628 - val_acc: 0.1403
+    Epoch 2/15
+     - 4s - loss: 2.2534 - acc: 0.2249 - val_loss: 2.1715 - val_acc: 0.4007
+    Epoch 3/15
+     - 4s - loss: 1.5643 - acc: 0.4326 - val_loss: 1.7846 - val_acc: 0.5052
+    Epoch 4/15
+     - 4s - loss: 1.1771 - acc: 0.5662 - val_loss: 1.4949 - val_acc: 0.6131
+    Epoch 5/15
+     - 4s - loss: 0.8880 - acc: 0.6797 - val_loss: 1.3629 - val_acc: 0.6256
+    Epoch 6/15
+     - 4s - loss: 0.6990 - acc: 0.7569 - val_loss: 1.2013 - val_acc: 0.6624
+    Epoch 7/15
+     - 4s - loss: 0.5037 - acc: 0.8200 - val_loss: 1.0674 - val_acc: 0.6807
+    Epoch 8/15
+     - 4s - loss: 0.4050 - acc: 0.8626 - val_loss: 1.0223 - val_acc: 0.6863
+    Epoch 9/15
+     - 4s - loss: 0.2952 - acc: 0.8968 - val_loss: 0.9045 - val_acc: 0.7120
+    Epoch 10/15
+     - 4s - loss: 0.2314 - acc: 0.9217 - val_loss: 0.8574 - val_acc: 0.7326
+    Epoch 11/15
+     - 4s - loss: 0.1778 - acc: 0.9436 - val_loss: 0.8752 - val_acc: 0.7270
+    Epoch 12/15
+     - 4s - loss: 0.1475 - acc: 0.9524 - val_loss: 0.8299 - val_acc: 0.7355
+    Epoch 13/15
+     - 4s - loss: 0.1089 - acc: 0.9657 - val_loss: 0.8034 - val_acc: 0.7491
+    Epoch 14/15
+     - 4s - loss: 0.1047 - acc: 0.9666 - val_loss: 0.8172 - val_acc: 0.7463
+    Epoch 15/15
+     - 4s - loss: 0.0749 - acc: 0.9774 - val_loss: 0.8511 - val_acc: 0.7313
+     
+     
+                   precision    recall  f1-score   support
+
+              0       0.75      0.61      0.67       319
+              1       0.63      0.74      0.68       389
+              2       0.74      0.54      0.62       394
+              3       0.49      0.76      0.60       392
+              4       0.60      0.70      0.64       385
+              5       0.79      0.57      0.66       395
+              6       0.73      0.76      0.74       390
+              7       0.83      0.74      0.78       396
+              8       0.86      0.88      0.87       398
+              9       0.95      0.78      0.86       397
+             10       0.93      0.93      0.93       399
+             11       0.92      0.77      0.84       396
+             12       0.55      0.72      0.62       393
+             13       0.76      0.85      0.80       396
+             14       0.86      0.83      0.84       394
+             15       0.91      0.73      0.81       398
+             16       0.75      0.65      0.70       364
+             17       0.95      0.86      0.90       376
+             18       0.60      0.49      0.54       310
+             19       0.37      0.60      0.46       251
+
+    avg / total       0.76      0.73      0.74      7532
+
 
 -----------------------------------------
 Deep Belief Network (DBN)
