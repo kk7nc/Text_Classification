@@ -1009,7 +1009,149 @@ Deep Learning
 Deep Neural Networks
 -----------------------------------------
 
+Deep Neural Networks' architecture is designed to learn by multi connection of layers that each single layer only receives connection from previous and provides connections only to the next layer in hidden part. The input is a connection of feature space (As discussed in Section Feature_extraction with first hidden layer. For Deep Neural Networks (DNN), input layer could be tf-ifd, word embedding, or etc. as shown in standard DNN in Figure~\ref{fig:DNN}. The output layer is number of classes for multi-class classification and only one output for binary classification. But our main contribution of this paper is that we have many training DNN for different purposes. In our techniques, we have multi-classes DNNs which each learning models is generated randomly (number of nodes in each layer and also number of layers are completely random assigned). Our implementation of Deep Neural Networks (DNN) is discriminative trained model that uses standard back-propagation algorithm using sigmoid or ReLU as activation function. The output layer for multi-class classification, should use Softmax.
+
+
 .. image:: docs/pic/DNN.png
+
+import packages:
+
+.. code:: python
+
+    from sklearn.datasets import fetch_20newsgroups
+    from keras.layers import  Dropout, Dense
+    from keras.models import Sequential
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    import numpy as np
+    from sklearn import metrics
+
+
+convert text to TF-IDF:
+
+.. code:: python
+
+    def TFIDF(X_train, X_test,MAX_NB_WORDS=75000):
+        vectorizer_x = TfidfVectorizer(max_features=MAX_NB_WORDS)
+        X_train = vectorizer_x.fit_transform(X_train).toarray()
+        X_test = vectorizer_x.transform(X_test).toarray()
+        print("tf-idf with",str(np.array(X_train).shape[1]),"features")
+        return (X_train,X_test)
+
+
+Build a DNN Model for Text:
+
+.. code:: python
+
+    def Build_Model_DNN_Text(shape, nClasses, dropout=0.5):
+        """
+        buildModel_DNN_Tex(shape, nClasses,dropout)
+        Build Deep neural networks Model for text classification
+        Shape is input feature space
+        nClasses is number of classes
+        """
+        model = Sequential()
+        node = 512 # number of nodes
+        nLayers = 4 # number of  hidden layer
+
+        model.add(Dense(node,input_dim=shape,activation='relu'))
+        model.add(Dropout(dropout))
+        for i in range(0,nLayers):
+            model.add(Dense(node,input_dim=node,activation='relu'))
+            model.add(Dropout(dropout))
+        model.add(Dense(nClasses, activation='softmax'))
+
+        model.compile(loss='sparse_categorical_crossentropy',
+                      optimizer='adam',
+                      metrics=['accuracy'])
+
+        return model
+
+
+
+Load text dataset (20newsgroups):
+
+.. code:: python
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+
+
+run DNN and see our result:
+
+
+.. code:: python
+
+    X_train_tfidf,X_test_tfidf = TFIDF(X_train,X_test)
+    model_DNN = Build_Model_DNN_Text(X_train_tfidf.shape[1], 20)
+    model_DNN.fit(X_train_tfidf, y_train,
+                                  validation_data=(X_test_tfidf, y_test),
+                                  epochs=10,
+                                  batch_size=128,
+                                  verbose=2)
+
+    predicted = model_DNN.predict(X_test_tfidf)
+
+    print(metrics.classification_report(y_test, predicted))
+
+
+
+Output:
+
+::
+
+        Train on 11314 samples, validate on 7532 samples
+        Epoch 1/10
+         - 16s - loss: 2.7553 - acc: 0.1090 - val_loss: 1.9330 - val_acc: 0.3184
+        Epoch 2/10
+         - 15s - loss: 1.5330 - acc: 0.4222 - val_loss: 1.1546 - val_acc: 0.6204
+        Epoch 3/10
+         - 15s - loss: 0.7438 - acc: 0.7257 - val_loss: 0.8405 - val_acc: 0.7499
+        Epoch 4/10
+         - 15s - loss: 0.2967 - acc: 0.9020 - val_loss: 0.9214 - val_acc: 0.7767
+        Epoch 5/10
+         - 15s - loss: 0.1557 - acc: 0.9543 - val_loss: 0.8965 - val_acc: 0.7917
+        Epoch 6/10
+         - 15s - loss: 0.1015 - acc: 0.9705 - val_loss: 0.9427 - val_acc: 0.7949
+        Epoch 7/10
+         - 15s - loss: 0.0595 - acc: 0.9835 - val_loss: 0.9893 - val_acc: 0.7995
+        Epoch 8/10
+         - 15s - loss: 0.0495 - acc: 0.9866 - val_loss: 0.9512 - val_acc: 0.8079
+        Epoch 9/10
+         - 15s - loss: 0.0437 - acc: 0.9867 - val_loss: 0.9690 - val_acc: 0.8117
+        Epoch 10/10
+         - 15s - loss: 0.0443 - acc: 0.9880 - val_loss: 1.0004 - val_acc: 0.8070
+
+
+                       precision    recall  f1-score   support
+
+                  0       0.76      0.78      0.77       319
+                  1       0.67      0.80      0.73       389
+                  2       0.82      0.63      0.71       394
+                  3       0.76      0.69      0.72       392
+                  4       0.65      0.86      0.74       385
+                  5       0.84      0.75      0.79       395
+                  6       0.82      0.87      0.84       390
+                  7       0.86      0.90      0.88       396
+                  8       0.95      0.91      0.93       398
+                  9       0.91      0.92      0.92       397
+                 10       0.98      0.92      0.95       399
+                 11       0.96      0.85      0.90       396
+                 12       0.71      0.69      0.70       393
+                 13       0.95      0.70      0.81       396
+                 14       0.86      0.91      0.88       394
+                 15       0.85      0.90      0.87       398
+                 16       0.79      0.84      0.81       364
+                 17       0.99      0.77      0.87       376
+                 18       0.58      0.75      0.65       310
+                 19       0.52      0.60      0.55       251
+
+        avg / total       0.82      0.81      0.81      7532
+
 
 -----------------------------------------
 Recurrent Neural Networks (RNN)
@@ -1018,6 +1160,143 @@ Recurrent Neural Networks (RNN)
 .. image:: docs/pic/RNN.png
 
 .. image:: docs/pic/LSTM.png
+
+
+import packages:
+
+.. code:: python
+
+
+    from keras.layers import Dropout, Dense, GRU, Embedding
+    from keras.models import Sequential
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    import numpy as np
+    from sklearn import metrics
+    from keras.preprocessing.text import Tokenizer
+    from keras.preprocessing.sequence import pad_sequences
+    from sklearn.datasets import fetch_20newsgroups
+
+convert text to word embedding (Using GloVe):
+
+.. code:: python
+
+    def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=500):
+        np.random.seed(7)
+        text = np.concatenate((X_train, X_test), axis=0)
+        text = np.array(text)
+        tokenizer = Tokenizer(num_words=MAX_NB_WORDS)
+        tokenizer.fit_on_texts(text)
+        sequences = tokenizer.texts_to_sequences(text)
+        word_index = tokenizer.word_index
+        text = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
+        print('Found %s unique tokens.' % len(word_index))
+        indices = np.arange(text.shape[0])
+        # np.random.shuffle(indices)
+        text = text[indices]
+        print(text.shape)
+        X_train = text[0:len(X_train), ]
+        X_test = text[len(X_train):, ]
+        embeddings_index = {}
+        f = open("C:\\Users\\kamran\\Documents\\GitHub\\RMDL\\Examples\\Glove\\glove.6B.50d.txt", encoding="utf8")
+        for line in f:
+
+            values = line.split()
+            word = values[0]
+            try:
+                coefs = np.asarray(values[1:], dtype='float32')
+            except:
+                pass
+            embeddings_index[word] = coefs
+        f.close()
+        print('Total %s word vectors.' % len(embeddings_index))
+        return (X_train, X_test, word_index,embeddings_index)
+
+Build a RNN Model for Text:
+
+.. code:: python
+
+
+    def Build_Model_RNN_Text(word_index, embeddings_index, nclasses,  MAX_SEQUENCE_LENGTH=500, EMBEDDING_DIM=50, dropout=0.5):
+        """
+        def buildModel_RNN(word_index, embeddings_index, nclasses,  MAX_SEQUENCE_LENGTH=500, EMBEDDING_DIM=50, dropout=0.5):
+        word_index in word index ,
+        embeddings_index is embeddings index, look at data_helper.py
+        nClasses is number of classes,
+        MAX_SEQUENCE_LENGTH is maximum lenght of text sequences
+        """
+
+        model = Sequential()
+        hidden_layer = 3
+        gru_node = 32
+
+        embedding_matrix = np.random.random((len(word_index) + 1, EMBEDDING_DIM))
+        for word, i in word_index.items():
+            embedding_vector = embeddings_index.get(word)
+            if embedding_vector is not None:
+                # words not found in embedding index will be all-zeros.
+                if len(embedding_matrix[i]) != len(embedding_vector):
+                    print("could not broadcast input array from shape", str(len(embedding_matrix[i])),
+                          "into shape", str(len(embedding_vector)), " Please make sure your"
+                                                                    " EMBEDDING_DIM is equal to embedding_vector file ,GloVe,")
+                    exit(1)
+                embedding_matrix[i] = embedding_vector
+        model.add(Embedding(len(word_index) + 1,
+                                    EMBEDDING_DIM,
+                                    weights=[embedding_matrix],
+                                    input_length=MAX_SEQUENCE_LENGTH,
+                                    trainable=True))
+
+
+        print(gru_node)
+        for i in range(0,hidden_layer):
+            model.add(GRU(gru_node,return_sequences=True, recurrent_dropout=0.2))
+            model.add(Dropout(dropout))
+        model.add(GRU(gru_node, recurrent_dropout=0.2))
+        model.add(Dropout(dropout))
+        model.add(Dense(256, activation='relu'))
+        model.add(Dense(nclasses, activation='softmax'))
+
+
+        model.compile(loss='sparse_categorical_crossentropy',
+                          optimizer='adam',
+                          metrics=['accuracy'])
+        return model
+
+
+
+
+run RNN and see our result:
+
+
+.. code:: python
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    X_train_Glove,X_test_Glove, word_index,embeddings_index = loadData_Tokenizer(X_train,X_test)
+
+
+    model_RNN = Build_Model_RNN_Text(word_index,embeddings_index, 20)
+
+    model_RNN.fit(X_train_Glove, y_train,
+                                  validation_data=(X_test_Glove, y_test),
+                                  epochs=10,
+                                  batch_size=128,
+                                  verbose=2)
+
+    predicted = Build_Model_RNN_Text.predict_classes(X_test_Glove)
+
+    print(metrics.classification_report(y_test, predicted))
+
+Output:
+
+::
+
+
 
 -----------------------------------------
 Convolutional Neural Networks (CNN)
