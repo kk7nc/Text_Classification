@@ -311,6 +311,12 @@ https://code.google.com/p/word2vec/
 Global Vectors for Word Representation (GloVe)
 ----------------------------------------------
 
+.. image:: /docs/pic/Glove.PNG
+
+An implementation of the GloVe model for learning word representations is provided, and describe how to download web-dataset vectors or train your own. See the  `project page <http://nlp.stanford.edu/projects/glove/>`__  or the   `paper <http://nlp.stanford.edu/pubs/glove.pdf>`__  for more information on glove vectors.
+
+
+
 
 
 --------
