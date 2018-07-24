@@ -678,15 +678,150 @@ output:
     avg / total       0.85      0.85      0.85      7532
 
 
+
+
+
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Decision Tree
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One of earlier classification algorithm for text and data mining is decision tree. Decision tree classifiers (DTC's) are used successfully in many diverse areas for classification. The structure of this technique is  a hierarchical decomposition of the data space (only train dataset). Decision tree as classification task is introduced by `D. Morgan <http://www.aclweb.org/anthology/P95-1037>`__ and developed by `JR. Quinlan <https://courses.cs.ut.ee/2009/bayesian-networks/extras/quinlan1986.pdf>`__. The main idea is creating tree based on attribute for categorized data points, but main challenge of decision tree is which attribute or feature could be in parents' level and which one should be in child level. for solving this problem, `De Mantaras <https://link.springer.com/article/10.1023/A:1022694001379>`__ introduced statistical modeling for feature selection in tree.
+
+
+.. code:: python
+
+    from sklearn import tree
+    from sklearn.pipeline import Pipeline
+    from sklearn import metrics
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.datasets import fetch_20newsgroups
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', tree.DecisionTreeClassifier()),
+                         ])
+
+    text_clf.fit(X_train, y_train)
+
+
+    predicted = text_clf.predict(X_test)
+
+    print(metrics.classification_report(y_test, predicted))
+
+
+output:
+
+
+.. code:: python
+
+                   precision    recall  f1-score   support
+
+              0       0.51      0.48      0.49       319
+              1       0.42      0.42      0.42       389
+              2       0.51      0.56      0.53       394
+              3       0.46      0.42      0.44       392
+              4       0.50      0.56      0.53       385
+              5       0.50      0.47      0.48       395
+              6       0.66      0.73      0.69       390
+              7       0.60      0.59      0.59       396
+              8       0.66      0.72      0.69       398
+              9       0.53      0.55      0.54       397
+             10       0.68      0.66      0.67       399
+             11       0.73      0.69      0.71       396
+             12       0.34      0.33      0.33       393
+             13       0.52      0.42      0.46       396
+             14       0.65      0.62      0.63       394
+             15       0.68      0.72      0.70       398
+             16       0.49      0.62      0.55       364
+             17       0.78      0.60      0.68       376
+             18       0.38      0.38      0.38       310
+             19       0.32      0.32      0.32       251
+
+    avg / total       0.55      0.55      0.55      7532
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Random Forest
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+Random forests or random decision forests technique is an ensemble learning method for text classification. This method is introduced by `T. Kam Ho <https://doi.org/10.1109/ICDAR.1995.598994>`__ in 1995 for first time which used t tree as parallel. This technique is developed by `L. Breiman <https://link.springer.com/article/10.1023/A:1010933404324>`__ in 1999 that they find converge for RF as margin measure.
+
+
 .. image:: docs/pic/RF.png
+
+.. code:: python
+
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.pipeline import Pipeline
+    from sklearn import metrics
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.datasets import fetch_20newsgroups
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', RandomForestClassifier(n_estimators=100)),
+                         ])
+
+    text_clf.fit(X_train, y_train)
+
+
+    predicted = text_clf.predict(X_test)
+
+    print(metrics.classification_report(y_test, predicted))
+
+
+output:
+
+
+.. code:: python
+
+
+                    precision    recall  f1-score   support
+
+              0       0.69      0.63      0.66       319
+              1       0.56      0.69      0.62       389
+              2       0.67      0.78      0.72       394
+              3       0.67      0.67      0.67       392
+              4       0.71      0.78      0.74       385
+              5       0.78      0.68      0.73       395
+              6       0.74      0.92      0.82       390
+              7       0.81      0.79      0.80       396
+              8       0.90      0.89      0.90       398
+              9       0.80      0.89      0.84       397
+             10       0.90      0.93      0.91       399
+             11       0.89      0.91      0.90       396
+             12       0.68      0.49      0.57       393
+             13       0.83      0.65      0.73       396
+             14       0.81      0.88      0.84       394
+             15       0.68      0.91      0.78       398
+             16       0.67      0.86      0.75       364
+             17       0.93      0.78      0.85       376
+             18       0.86      0.48      0.61       310
+             19       0.79      0.31      0.45       251
+
+    avg / total       0.77      0.76      0.75      7532
+
+
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Conditional Random Field (CRF)
