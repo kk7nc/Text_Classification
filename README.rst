@@ -256,6 +256,8 @@ Text lemmatization is process in NLP to replaces the suffix of a word with a dif
 Word Embedding
 ~~~~~~~~~~~~~~
 
+Different word embedding has been proposed to translate these unigrams into understandable input for machine learning algorithms. Most basic methods to perform such embedding is term-frequency~(TF) where each word will be mapped to a number corresponding to the number of occurrence of that word in the whole corpora. The other term frequency functions have been also used that present words frequency as Boolean or logarithmically scaled number. As regarding to results, each document will be translated to a vector with the length of document, containing the frequency of the words in that document. Although such approach is very intuitive but it suffers from the fact that particular words that are used commonly in language literature would dominate such word representation.
+
 
 .. image:: docs/pic/CBOW.png
 
@@ -338,6 +340,8 @@ Weighted Words
 --------------
 Term frequency
 --------------
+
+Term frequency is Bag of words that is simplest technique of text feature extraction. This method is based on counting number of the words in each document and assign it to feature space.
 
 
 -----------------------------------------
