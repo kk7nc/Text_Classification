@@ -639,19 +639,62 @@ words in documents
 
 .. code:: python
 
-  from sklearn.naive_bayes import MultinomialNB
-  clf = MultinomialNB().fit(X_train_tfidf, twenty_train.target)
+    from sklearn.naive_bayes import MultinomialNB
+    from sklearn.pipeline import Pipeline
+    from sklearn import metrics
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.datasets import fetch_20newsgroups
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', MultinomialNB()),
+                         ])
+
+    text_clf.fit(X_train, y_train)
 
 
-  docs_new = ['God is love', 'OpenGL on the GPU is fast']
-  X_new_counts = count_vect.transform(docs_new)
-  X_new_tfidf = tfidf_transformer.transform(X_new_counts)
+    predicted = text_clf.predict(X_test)
 
-  predicted = clf.predict(X_new_tfidf)
-
-  for doc, category in zip(docs_new, predicted):
-      print('%r => %s' % (doc, twenty_train.target_names[category]))
+    print(metrics.classification_report(y_test, predicted))
  
+ 
+Output:
+ 
+.. code:: python
+
+                   precision    recall  f1-score   support
+
+              0       0.80      0.52      0.63       319
+              1       0.81      0.65      0.72       389
+              2       0.82      0.65      0.73       394
+              3       0.67      0.78      0.72       392
+              4       0.86      0.77      0.81       385
+              5       0.89      0.75      0.82       395
+              6       0.93      0.69      0.80       390
+              7       0.85      0.92      0.88       396
+              8       0.94      0.93      0.93       398
+              9       0.92      0.90      0.91       397
+             10       0.89      0.97      0.93       399
+             11       0.59      0.97      0.74       396
+             12       0.84      0.60      0.70       393
+             13       0.92      0.74      0.82       396
+             14       0.84      0.89      0.87       394
+             15       0.44      0.98      0.61       398
+             16       0.64      0.94      0.76       364
+             17       0.93      0.91      0.92       376
+             18       0.96      0.42      0.58       310
+             19       0.97      0.14      0.24       251
+
+    avg / total       0.82      0.77      0.77      7532
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 K-nearest Neighbor
