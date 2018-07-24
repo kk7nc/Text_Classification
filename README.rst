@@ -580,8 +580,73 @@ decad
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Support Vector Machine~(SVM)
+Support Vector Machine (SVM)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. image:: docs/pic/SVM.png
+
+
+.. code:: python
+
+
+    from sklearn.svm import LinearSVC
+    from sklearn.pipeline import Pipeline
+    from sklearn import metrics
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.datasets import fetch_20newsgroups
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', LinearSVC()),
+                         ])
+
+    text_clf.fit(X_train, y_train)
+
+
+    predicted = text_clf.predict(X_test)
+
+    print(metrics.classification_report(y_test, predicted))
+
+
+output:
+
+
+.. code:: python
+
+                   precision    recall  f1-score   support
+
+              0       0.82      0.80      0.81       319
+              1       0.76      0.80      0.78       389
+              2       0.77      0.73      0.75       394
+              3       0.71      0.76      0.74       392
+              4       0.84      0.86      0.85       385
+              5       0.87      0.76      0.81       395
+              6       0.83      0.91      0.87       390
+              7       0.92      0.91      0.91       396
+              8       0.95      0.95      0.95       398
+              9       0.92      0.95      0.93       397
+             10       0.96      0.98      0.97       399
+             11       0.93      0.94      0.93       396
+             12       0.81      0.79      0.80       393
+             13       0.90      0.87      0.88       396
+             14       0.90      0.93      0.92       394
+             15       0.84      0.93      0.88       398
+             16       0.75      0.92      0.82       364
+             17       0.97      0.89      0.93       376
+             18       0.82      0.62      0.71       310
+             19       0.75      0.61      0.68       251
+
+    avg / total       0.85      0.85      0.85      7532
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Decision Tree
