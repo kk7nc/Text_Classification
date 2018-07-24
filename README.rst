@@ -592,16 +592,63 @@ When in nearest centroid classifier, we used for text as input data for classifi
 
 .. code:: python
 
-  from sklearn.neighbors.nearest_centroid import NearestCentroid
-  import numpy as np
-  X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
-  y = np.array([1, 1, 1, 2, 2, 2])
-  clf = NearestCentroid()
-  clf.fit(X, y)
+    from sklearn.neighbors.nearest_centroid import NearestCentroid
+    from sklearn.pipeline import Pipeline
+    from sklearn import metrics
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.datasets import fetch_20newsgroups
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', NearestCentroid()),
+                         ])
+
+    text_clf.fit(X_train, y_train)
+
+
+    predicted = text_clf.predict(X_test)
+
+    print(metrics.classification_report(y_test, predicted))
 
 
 
 
+Output:
+
+.. code:: python
+
+                  precision    recall  f1-score   support
+
+              0       0.75      0.49      0.60       319
+              1       0.44      0.76      0.56       389
+              2       0.75      0.68      0.71       394
+              3       0.71      0.59      0.65       392
+              4       0.81      0.71      0.76       385
+              5       0.83      0.66      0.74       395
+              6       0.49      0.88      0.63       390
+              7       0.86      0.76      0.80       396
+              8       0.91      0.86      0.89       398
+              9       0.85      0.79      0.82       397
+             10       0.95      0.80      0.87       399
+             11       0.94      0.66      0.78       396
+             12       0.40      0.70      0.51       393
+             13       0.84      0.49      0.62       396
+             14       0.89      0.72      0.80       394
+             15       0.55      0.73      0.63       398
+             16       0.68      0.76      0.71       364
+             17       0.97      0.70      0.81       376
+             18       0.54      0.53      0.53       310
+             19       0.58      0.39      0.47       251
+
+    avg / total       0.74      0.69      0.70      7532
 
 
 
