@@ -409,10 +409,10 @@ Example of PCA on text dataset (20newsgroups) from  tf-idf with 75000 features t
     X_test_new = pca.transform(X_test)
 
     print("train with old features: ",np.array(X_train).shape)
-    print("train with old features:" ,np.array(X_train_new).shape)
+    print("train with new features:" ,np.array(X_train_new).shape)
     
     print("test with old features: ",np.array(X_test).shape)
-    print("test with old features:" ,np.array(X_test_new).shape)
+    print("test with new features:" ,np.array(X_test_new).shape)
 
 output:
 
@@ -420,9 +420,9 @@ output:
 
     tf-idf with 75000 features
     train with old features:  (11314, 75000)
-    train with old features: (11314, 2000)
+    train with new features: (11314, 2000)
     test with old features:  (7532, 75000)
-    test with old features: (7532, 2000)
+    test with new features: (7532, 2000)
 
 
 
