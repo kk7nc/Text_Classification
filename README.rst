@@ -757,11 +757,60 @@ decad
 
 .. code:: python
 
-  #load data 
-  from sklearn.neighbors import KNeighborsClassifier
-  neigh = KNeighborsClassifier(n_neighbors=number_of_classes)
-  neigh.fit(Xtrain, ytrain)
-  new_y  = neigh.predict(Xtext)
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.pipeline import Pipeline
+    from sklearn import metrics
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.datasets import fetch_20newsgroups
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', KNeighborsClassifier()),
+                         ])
+
+    text_clf.fit(X_train, y_train)
+
+Output:
+
+.. code:: python
+
+                   precision    recall  f1-score   support
+
+              0       0.43      0.76      0.55       319
+              1       0.50      0.61      0.55       389
+              2       0.56      0.57      0.57       394
+              3       0.53      0.58      0.56       392
+              4       0.59      0.56      0.57       385
+              5       0.69      0.60      0.64       395
+              6       0.58      0.45      0.51       390
+              7       0.75      0.69      0.72       396
+              8       0.84      0.81      0.82       398
+              9       0.77      0.72      0.74       397
+             10       0.85      0.84      0.84       399
+             11       0.76      0.84      0.80       396
+             12       0.70      0.50      0.58       393
+             13       0.82      0.49      0.62       396
+             14       0.79      0.76      0.78       394
+             15       0.75      0.76      0.76       398
+             16       0.70      0.73      0.72       364
+             17       0.62      0.76      0.69       376
+             18       0.55      0.61      0.58       310
+             19       0.56      0.49      0.52       251
+
+    avg / total       0.67      0.66      0.66      7532
+
+
+predicted = text_clf.predict(X_test)
+
+print(metrics.classification_report(y_test, predicted))
 
 
 
