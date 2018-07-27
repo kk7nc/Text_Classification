@@ -1060,7 +1060,7 @@ Deep Learning
 Deep Neural Networks
 -----------------------------------------
 
-Deep Neural Networks' architecture is designed to learn by multi connection of layers that each single layer only receives connection from previous and provides connections only to the next layer in hidden part. The input is a connection of feature space (As discussed in Section Feature_extraction with first hidden layer. For Deep Neural Networks (DNN), input layer could be tf-ifd, word embedding, or etc. as shown in standard DNN in Figure~\ref{fig:DNN}. The output layer is number of classes for multi-class classification and only one output for binary classification. But our main contribution of this paper is that we have many training DNN for different purposes. In our techniques, we have multi-classes DNNs which each learning models is generated randomly (number of nodes in each layer and also number of layers are completely random assigned). Our implementation of Deep Neural Networks (DNN) is discriminative trained model that uses standard back-propagation algorithm using sigmoid or ReLU as activation function. The output layer for multi-class classification, should use Softmax.
+Deep Neural Networks' architecture is designed to learn by multi connection of layers that each single layer only receives connection from previous and provides connections only to the next layer in hidden part. The input is a connection of feature space (As discussed in Section Feature_extraction with first hidden layer. For Deep Neural Networks (DNN), input layer could be tf-ifd, word embedding, or etc. as shown in standard DNN in Figure. The output layer is number of classes for multi-class classification and only one output for binary classification. But our main contribution of this paper is that we have many training DNN for different purposes. In our techniques, we have multi-classes DNNs which each learning models is generated randomly (number of nodes in each layer and also number of layers are completely random assigned). Our implementation of Deep Neural Networks (DNN) is discriminative trained model that uses standard back-propagation algorithm using sigmoid or ReLU as activation function. The output layer for multi-class classification, should use Softmax.
 
 
 .. image:: docs/pic/DNN.png
@@ -1245,7 +1245,23 @@ Recurrent Neural Networks (RNN)
 
 .. image:: docs/pic/RNN.png
 
+Another neural network architecture that addressed with researchers for text miming and classification is Recurrent Neural Networks (RNN). RNN assigns more weights to the previous data points of sequence. Therefore, this technique is a powerful method for text, string and sequential data classification. Moreover, this technique could be used for image classification as we did in this work. In RNN the neural net considers the information of previous nodes in a very sophisticated method which allows for better semantic analysis of structures of dataset. 
+
+
+Gated Recurrent Unit (GRU)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Gated Recurrent Unit (GRU) is a gating mechanism for RNN which was introduced by  `J. Chung et al. <https://arxiv.org/abs/1412.3555>`__ and `K.Cho et al. <https://arxiv.org/abs/1406.1078>`__. GRU is a simplified variant of the LSTM architecture, but there are differences as follows: GRU contains two gates, a GRU does not possess internal memory (as shown in Figure; and finally, a second non-linearity is not applied (tanh in Figure).
+
 .. image:: docs/pic/LSTM.png
+
+Long Short-Term Memory (LSTM)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Long Short-Term Memory~(LSTM) was introduced by `S. Hochreiter and J. Schmidhuber <https://www.mitpressjournals.org/doi/abs/10.1162/neco.1997.9.8.1735>`__  and developed by many research scientists.
+
+To deal with these problems Long Short-Term Memory (LSTM) is a special type of RNN that preserve long term dependency in a more effective way in comparison to the basic RNN. This is particularly useful to overcome vanishing gradient problem. Although LSTM has a chain-like structure similar to RNN, LSTM uses multiple gates to carefully regulate the amount of information that will be allowed into each node state. Figure shows the basic cell of a LSTM model.
+
 
 
 import packages:
