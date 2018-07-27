@@ -5,12 +5,10 @@ Text Classification Algorithms: A Survey
 
 .. image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
     :target: https://github.com/kk7nc/Text_Classification/pulls
-.. image:: https://badges.frapsoft.com/os/v2/open-source.png?v=103
-    :target: https://github.com/ellerbrock/open-source-badge/
 .. image:: https://img.shields.io/pypi/l/ansicolortags.svg
       :target: https://github.com/kk7nc/Text_Classification/blob/master/LICENSE
-.. image:: https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg
-      :target: https://github.com/kk7nc/Text_Classification/graphs/contributors
+.. image:: https://img.shields.io/github/contributors/kk7nc/Text_Classification.svg
+      :target: https://github.com/kk7nc/Text_Classification/graphs/contributors |twitter|
       
       
 ##################
@@ -2271,3 +2269,9 @@ Citations:
 .. |line| image:: docs/pic/line.png
           :alt: Foo
 .. |HDLTex| image:: http://kowsari.net/____impro/1/onewebmedia/HDLTex.png?etag=W%2F%22c90cd-59c4019b%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=821%2B326&extract=0%2B0%2B821%2B325?raw=false
+
+
+.. |twitter| image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
+    :target: https://twitter.com/intent/tweet?text=Text%Classification%Algorithms:%A%Survey%0aGitHub:&url=https://github.com/kk7nc/Text_Classification&hashtags=Text_Classification,classification,MachineLearning,Categorization,NLP,NATURAL,LANGUAGE,PROCESSING
+    
+    
