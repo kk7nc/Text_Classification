@@ -2267,7 +2267,7 @@ Citations:
 
 
 .. |twitter| image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
-    :target: https://twitter.com/intent/tweet?text=Text%Classification%Algorithms:%A%Survey%0aGitHub:&url=https://github.com/kk7nc/Text_Classification&hashtags=Text_Classification,classification,MachineLearning,Categorization,NLP,NATURAL,LANGUAGE,PROCESSING
+    :target: https://twitter.com/intent/tweet?text=Text%20Classification%20Algorithms:%20A%20Survey%0aGitHub:&url=https://github.com/kk7nc/Text_Classification&hashtags=Text_Classification,classification,MachineLearning,Categorization,NLP,NATURAL,LANGUAGE,PROCESSING
     
 .. |contributions-welcome| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
     :target: https://github.com/kk7nc/Text_Classification/pulls
