@@ -778,6 +778,10 @@ decad
 
     text_clf.fit(X_train, y_train)
 
+    predicted = text_clf.predict(X_test)
+
+    print(metrics.classification_report(y_test, predicted))
+
 Output:
 
 .. code:: python
@@ -808,9 +812,7 @@ Output:
     avg / total       0.67      0.66      0.66      7532
 
 
-predicted = text_clf.predict(X_test)
 
-print(metrics.classification_report(y_test, predicted))
 
 
 
