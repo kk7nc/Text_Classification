@@ -1503,6 +1503,12 @@ Output:
 Convolutional Neural Networks (CNN)
 -----------------------------------------
 
+One of the deep learning architectures is  Convolutional Neural Networks (CNN) that is employed for hierarchical document classification. Although originally built for image processing  with architecture similar to the visual cortex, CNN have also been effectively used for  text classification. In the basic CNN for image processing an image tensor is convolved with a set of kernels of size *d by d*. These convolution layers are called feature maps and these can be stacked to provide multiple filters on the input. To reduce the computational complexity CNN use pooling which reduces the size of the output from one layer to the next in the network. Different pooling techniques are used to reduce outputs while preserving important features.
+
+The most common pooling method is max pooling where the maximum element is selected in the pooling window. In order to feed the pooled output from stacked featured maps to the next layer, the maps are flattened into one column. The final layers in a CNN are typically fully connected.
+In general, during the back-propagation step of a convolutional neural network not only the weights are adjusted but also the feature detector filters. A potential problem of CNN used for text is the number of 'channels', *Sigma* (size of the feature space). This might be very large (e.g. 50K), for text but for images this is less of a problem (e.g. only 3 channels of RGB). This means the dimensionality of the CNN for text is very high.
+
+
 .. image:: docs/pic/CNN.png
 
 import packages:
