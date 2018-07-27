@@ -3,12 +3,7 @@
 Text Classification Algorithms: A Survey
 ################################################
 
-.. image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
-    :target: https://github.com/kk7nc/Text_Classification/pulls
-.. image:: https://img.shields.io/pypi/l/ansicolortags.svg
-      :target: https://github.com/kk7nc/Text_Classification/blob/master/LICENSE
-.. image:: https://img.shields.io/github/contributors/kk7nc/Text_Classification.svg
-      :target: https://github.com/kk7nc/Text_Classification/graphs/contributors |twitter|
+|contributions-welcome| |ansicolortags| |contributors| |twitter|
       
       
 ##################
@@ -2274,4 +2269,11 @@ Citations:
 .. |twitter| image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
     :target: https://twitter.com/intent/tweet?text=Text%Classification%Algorithms:%A%Survey%0aGitHub:&url=https://github.com/kk7nc/Text_Classification&hashtags=Text_Classification,classification,MachineLearning,Categorization,NLP,NATURAL,LANGUAGE,PROCESSING
     
-    
+.. |contributions-welcome| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
+    :target: https://github.com/kk7nc/Text_Classification/pulls
+.. |ansicolortags| image:: https://img.shields.io/pypi/l/ansicolortags.svg
+      :target: https://github.com/kk7nc/Text_Classification/blob/master/LICENSE
+.. |contributors| image:: https://img.shields.io/github/contributors/kk7nc/Text_Classification.svg
+      :target: https://github.com/kk7nc/Text_Classification/graphs/contributors 
+
+
