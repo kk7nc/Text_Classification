@@ -109,7 +109,7 @@ Here is an exmple from  `geeksforgeeks <https://www.geeksforgeeks.org/removing-s
 
 Output:
 
-.. code::
+.. code:: python 
 
   ['This', 'is', 'a', 'sample', 'sentence', ',', 'showing', 
   'off', 'the', 'stop', 'words', 'filtration', '.']
@@ -1152,7 +1152,7 @@ run DNN and see our result:
 
 Model summary:
 
-::
+.. code:: python 
 
     _________________________________________________________________
     Layer (type)                 Output Shape              Param #   
@@ -1188,7 +1188,7 @@ Model summary:
 
 Output:
 
-::
+.. code:: python 
 
         Train on 11314 samples, validate on 7532 samples
         Epoch 1/10
@@ -1381,7 +1381,7 @@ run RNN and see our result:
 
 Model summary:
 
-::
+.. code:: python 
 
     _________________________________________________________________
     Layer (type)                 Output Shape              Param #   
@@ -1413,7 +1413,7 @@ Model summary:
 
 Output:
 
-::
+.. code:: python 
 
     Train on 11314 samples, validate on 7532 samples
     Epoch 1/20
@@ -1656,7 +1656,7 @@ run RNN and see our result:
 
 Model:
 
-::
+.. code:: python 
 
     __________________________________________________________________________________________________
     Layer (type)                    Output Shape         Param #     Connected to                     
@@ -1724,7 +1724,7 @@ Model:
 Output:
 
 
-::
+.. code:: python 
 
     Train on 11314 samples, validate on 7532 samples
     Epoch 1/15
