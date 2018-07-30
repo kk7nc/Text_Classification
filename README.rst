@@ -2039,8 +2039,20 @@ Plot of a ROC curve for a specific class
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~
-Area under curve~(AUC)
+Area Under Curve (AUC)
 ~~~~~~~~~~~~~~~~~~~~~~~
+
+Area  under  ROC  curve  (AUC)  as  a  summarymetric measures the entire area underneath the ROC curve. AUC  holds  helpful  properties  such  as  increased  sensitivityin analysis of variance (ANOVA) tests, being independent ofdecision threshold, being invariant toa prioriclass probabili-ties and indicating how well negative and positive classes areregarding decision index.
+
+
+.. code:: python
+
+      import numpy as np
+      from sklearn import metrics
+      fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
+      metrics.auc(fpr, tpr)
+
+
 
 
 ==========================
@@ -2253,7 +2265,7 @@ Citations:
 
     @inproceedings{Kowsari2018Text_Classification,
     title={Text Classification Algorithm: A Brief Overview},
-    author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and Gerber Matthew S. and  Barnes, Laura E. and Brown, Donald E.},
+    author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and Gerber, Matthew S. and  Barnes, Laura E. and Brown, Donald E.},
     booktitle={},
     year={2018},
     DOI={https://doi.org/},
