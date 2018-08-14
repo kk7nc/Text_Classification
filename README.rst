@@ -1946,6 +1946,265 @@ Hierarchical Attention Networks
 Recurrent Convolutional Neural Networks (RCNN)
 ---------------------------------------------
 
+ecurrent Convolutional Neural Networks (RCNN) is used for text classification. The main idea of this technique is capturing contextual information with the recurrent structure and constructs the representation of text using a convolutional neural network. This architecture is a combination of RNN and CNN to use advantages of both technique in a model.
+
+
+
+import packages:
+
+.. code:: python 
+
+      from keras.preprocessing import sequence
+      from keras.models import Sequential
+      from keras.layers import Dense, Dropout, Activation
+      from keras.layers import Embedding
+      from keras.layers import GRU
+      from keras.layers import Conv1D, MaxPooling1D
+      from keras.datasets import imdb
+      from sklearn.datasets import fetch_20newsgroups
+      import numpy as np
+      from sklearn import metrics
+      from keras.preprocessing.text import Tokenizer
+      from keras.preprocessing.sequence import pad_sequences
+
+
+
+Convert text to word embedding (Using GloVe):
+
+.. code:: python 
+
+      def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=500):
+          np.random.seed(7)
+          text = np.concatenate((X_train, X_test), axis=0)
+          text = np.array(text)
+          tokenizer = Tokenizer(num_words=MAX_NB_WORDS)
+          tokenizer.fit_on_texts(text)
+          sequences = tokenizer.texts_to_sequences(text)
+          word_index = tokenizer.word_index
+          text = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
+          print('Found %s unique tokens.' % len(word_index))
+          indices = np.arange(text.shape[0])
+          # np.random.shuffle(indices)
+          text = text[indices]
+          print(text.shape)
+          X_train = text[0:len(X_train), ]
+          X_test = text[len(X_train):, ]
+          embeddings_index = {}
+          f = open("C:\\Users\\kamran\\Documents\\GitHub\\RMDL\\Examples\\Glove\\glove.6B.50d.txt", encoding="utf8")
+          for line in f:
+              values = line.split()
+              word = values[0]
+              try:
+                  coefs = np.asarray(values[1:], dtype='float32')
+              except:
+                  pass
+              embeddings_index[word] = coefs
+          f.close()
+          print('Total %s word vectors.' % len(embeddings_index))
+          return (X_train, X_test, word_index,embeddings_index)
+
+
+.. code:: python 
+
+      def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses, MAX_SEQUENCE_LENGTH=500, EMBEDDING_DIM=50):
+
+          kernel_size = 2
+          filters = 256
+          pool_size = 2
+          gru_node = 256
+
+          embedding_matrix = np.random.random((len(word_index) + 1, EMBEDDING_DIM))
+          for word, i in word_index.items():
+              embedding_vector = embeddings_index.get(word)
+              if embedding_vector is not None:
+                  # words not found in embedding index will be all-zeros.
+                  if len(embedding_matrix[i]) !=len(embedding_vector):
+                      print("could not broadcast input array from shape",str(len(embedding_matrix[i])),
+                                       "into shape",str(len(embedding_vector))," Please make sure your"
+                                       " EMBEDDING_DIM is equal to embedding_vector file ,GloVe,")
+                      exit(1)
+
+                  embedding_matrix[i] = embedding_vector
+
+
+
+          model = Sequential()
+          model.add(Embedding(len(word_index) + 1,
+                                      EMBEDDING_DIM,
+                                      weights=[embedding_matrix],
+                                      input_length=MAX_SEQUENCE_LENGTH,
+                                      trainable=True))
+          model.add(Dropout(0.25))
+          model.add(Conv1D(filters, kernel_size, activation='relu'))
+          model.add(MaxPooling1D(pool_size=pool_size))
+          model.add(Conv1D(filters, kernel_size, activation='relu'))
+          model.add(MaxPooling1D(pool_size=pool_size))
+          model.add(Conv1D(filters, kernel_size, activation='relu'))
+          model.add(MaxPooling1D(pool_size=pool_size))
+          model.add(Conv1D(filters, kernel_size, activation='relu'))
+          model.add(MaxPooling1D(pool_size=pool_size))
+          model.add(LSTM(gru_node, return_sequences=True, recurrent_dropout=0.2))
+          model.add(LSTM(gru_node, return_sequences=True, recurrent_dropout=0.2))
+          model.add(LSTM(gru_node, return_sequences=True, recurrent_dropout=0.2))
+          model.add(LSTM(gru_node, recurrent_dropout=0.2))
+          model.add(Dense(1024,activation='relu'))
+          model.add(Dense(nclasses))
+          model.add(Activation('softmax'))
+
+          model.compile(loss='sparse_categorical_crossentropy',
+                        optimizer='adam',
+                        metrics=['accuracy'])
+
+          return model
+
+
+.. code:: python 
+
+      newsgroups_train = fetch_20newsgroups(subset='train')
+      newsgroups_test = fetch_20newsgroups(subset='test')
+      X_train = newsgroups_train.data
+      X_test = newsgroups_test.data
+      y_train = newsgroups_train.target
+      y_test = newsgroups_test.target
+
+      X_train_Glove,X_test_Glove, word_index,embeddings_index = loadData_Tokenizer(X_train,X_test)
+
+
+Run RCNN :
+
+
+.. code:: python 
+
+
+      model_RCNN = Build_Model_CNN_Text(word_index,embeddings_index, 20)
+
+
+      model_RCNN.summary()
+
+      model_RCNN.fit(X_train_Glove, y_train,
+                                    validation_data=(X_test_Glove, y_test),
+                                    epochs=15,
+                                    batch_size=128,
+                                    verbose=2)
+
+      predicted = model_RCNN.predict(X_test_Glove)
+
+      predicted = np.argmax(predicted, axis=1)
+      print(metrics.classification_report(y_test, predicted))
+
+
+summary of the model:
+
+
+.. code:: python 
+
+      _________________________________________________________________
+      Layer (type)                 Output Shape              Param #   
+      =================================================================
+      embedding_1 (Embedding)      (None, 500, 50)           8960500   
+      _________________________________________________________________
+      dropout_1 (Dropout)          (None, 500, 50)           0         
+      _________________________________________________________________
+      conv1d_1 (Conv1D)            (None, 499, 256)          25856     
+      _________________________________________________________________
+      max_pooling1d_1 (MaxPooling1 (None, 249, 256)          0         
+      _________________________________________________________________
+      conv1d_2 (Conv1D)            (None, 248, 256)          131328    
+      _________________________________________________________________
+      max_pooling1d_2 (MaxPooling1 (None, 124, 256)          0         
+      _________________________________________________________________
+      conv1d_3 (Conv1D)            (None, 123, 256)          131328    
+      _________________________________________________________________
+      max_pooling1d_3 (MaxPooling1 (None, 61, 256)           0         
+      _________________________________________________________________
+      conv1d_4 (Conv1D)            (None, 60, 256)           131328    
+      _________________________________________________________________
+      max_pooling1d_4 (MaxPooling1 (None, 30, 256)           0         
+      _________________________________________________________________
+      lstm_1 (LSTM)                (None, 30, 256)           525312    
+      _________________________________________________________________
+      lstm_2 (LSTM)                (None, 30, 256)           525312    
+      _________________________________________________________________
+      lstm_3 (LSTM)                (None, 30, 256)           525312    
+      _________________________________________________________________
+      lstm_4 (LSTM)                (None, 256)               525312    
+      _________________________________________________________________
+      dense_1 (Dense)              (None, 1024)              263168    
+      _________________________________________________________________
+      dense_2 (Dense)              (None, 20)                20500     
+      _________________________________________________________________
+      activation_1 (Activation)    (None, 20)                0         
+      =================================================================
+      Total params: 11,765,256
+      Trainable params: 11,765,256
+      Non-trainable params: 0
+      _________________________________________________________________
+
+
+
+Output:
+
+.. code:: python 
+
+      Train on 11314 samples, validate on 7532 samples
+      Epoch 1/15
+       - 28s - loss: 2.6624 - acc: 0.1081 - val_loss: 2.3012 - val_acc: 0.1753
+      Epoch 2/15
+       - 22s - loss: 2.1142 - acc: 0.2224 - val_loss: 1.9168 - val_acc: 0.2669
+      Epoch 3/15
+       - 22s - loss: 1.7465 - acc: 0.3290 - val_loss: 1.8257 - val_acc: 0.3412
+      Epoch 4/15
+       - 22s - loss: 1.4730 - acc: 0.4356 - val_loss: 1.5433 - val_acc: 0.4436
+      Epoch 5/15
+       - 22s - loss: 1.1800 - acc: 0.5556 - val_loss: 1.2973 - val_acc: 0.5467
+      Epoch 6/15
+       - 22s - loss: 0.9910 - acc: 0.6281 - val_loss: 1.2530 - val_acc: 0.5797
+      Epoch 7/15
+       - 22s - loss: 0.8581 - acc: 0.6854 - val_loss: 1.1522 - val_acc: 0.6281
+      Epoch 8/15
+       - 22s - loss: 0.7058 - acc: 0.7428 - val_loss: 1.2385 - val_acc: 0.6033
+      Epoch 9/15
+       - 22s - loss: 0.6792 - acc: 0.7515 - val_loss: 1.0200 - val_acc: 0.6775
+      Epoch 10/15
+       - 22s - loss: 0.5782 - acc: 0.7948 - val_loss: 1.0961 - val_acc: 0.6577
+      Epoch 11/15
+       - 23s - loss: 0.4674 - acc: 0.8341 - val_loss: 1.0866 - val_acc: 0.6924
+      Epoch 12/15
+       - 23s - loss: 0.4284 - acc: 0.8512 - val_loss: 0.9880 - val_acc: 0.7096
+      Epoch 13/15
+       - 22s - loss: 0.3883 - acc: 0.8670 - val_loss: 1.0190 - val_acc: 0.7151
+      Epoch 14/15
+       - 22s - loss: 0.3334 - acc: 0.8874 - val_loss: 1.0025 - val_acc: 0.7232
+      Epoch 15/15
+       - 22s - loss: 0.2857 - acc: 0.9038 - val_loss: 1.0123 - val_acc: 0.7331
+
+
+                   precision    recall  f1-score   support
+
+                0       0.64      0.73      0.68       319
+                1       0.45      0.83      0.58       389
+                2       0.81      0.64      0.71       394
+                3       0.64      0.57      0.61       392
+                4       0.55      0.78      0.64       385
+                5       0.77      0.52      0.62       395
+                6       0.84      0.77      0.80       390
+                7       0.87      0.79      0.83       396
+                8       0.85      0.90      0.87       398
+                9       0.98      0.84      0.90       397
+               10       0.93      0.96      0.95       399
+               11       0.92      0.79      0.85       396
+               12       0.59      0.53      0.56       393
+               13       0.82      0.82      0.82       396
+               14       0.84      0.84      0.84       394
+               15       0.83      0.89      0.86       398
+               16       0.68      0.86      0.76       364
+               17       0.97      0.86      0.91       376
+               18       0.66      0.50      0.57       310
+               19       0.53      0.31      0.40       251
+
+      avg / total       0.77      0.75      0.75      7532
+
+
 
 -----------------------------------------
 Random Multimodel Deep Learning (RMDL)
