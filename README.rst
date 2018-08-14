@@ -1044,6 +1044,136 @@ output:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Conditional Random Field (CRF)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Conditional Random Field (CRF) is an undirected graphical model as shown in figure. CRFs state the conditional probability of a label sequence *Y* give a sequence of observation *X* *i.e.* P(Y|X). CRFs can incorporate complex features of observation sequence without violating the independence assumption by modeling the conditional probability of the label sequence rather than the joint probability P(X,Y). The concept of clique which is a fully connected subgraph and clique potential are used for computing P(X|Y). Considering one potential function for each clique of the graph, the probability of a variable configuration is corresponding to the product of a series of non-negative potential function. The value computed by each potential function is equivalent to the probability of the variables in its corresponding clique taken on a particular configuration.
+
+
+.. image:: docs/pic/CRF.png
+
+
+Example from `Here <http://sklearn-crfsuite.readthedocs.io/en/latest/tutorial.html>`__
+Let’s use CoNLL 2002 data to build a NER system
+CoNLL2002 corpus is available in NLTK. We use Spanish data.
+
+
+.. code:: python
+
+      import nltk
+      import sklearn_crfsuite
+      from sklearn_crfsuite import metrics
+      nltk.corpus.conll2002.fileids()
+      train_sents = list(nltk.corpus.conll2002.iob_sents('esp.train'))
+      test_sents = list(nltk.corpus.conll2002.iob_sents('esp.testb'))
+      
+      
+sklearn-crfsuite (and python-crfsuite) supports several feature formats; here we use feature dicts.
+
+.. code:: python
+
+      def word2features(sent, i):
+          word = sent[i][0]
+          postag = sent[i][1]
+
+          features = {
+              'bias': 1.0,
+              'word.lower()': word.lower(),
+              'word[-3:]': word[-3:],
+              'word[-2:]': word[-2:],
+              'word.isupper()': word.isupper(),
+              'word.istitle()': word.istitle(),
+              'word.isdigit()': word.isdigit(),
+              'postag': postag,
+              'postag[:2]': postag[:2],
+          }
+          if i > 0:
+              word1 = sent[i-1][0]
+              postag1 = sent[i-1][1]
+              features.update({
+                  '-1:word.lower()': word1.lower(),
+                  '-1:word.istitle()': word1.istitle(),
+                  '-1:word.isupper()': word1.isupper(),
+                  '-1:postag': postag1,
+                  '-1:postag[:2]': postag1[:2],
+              })
+          else:
+              features['BOS'] = True
+
+          if i < len(sent)-1:
+              word1 = sent[i+1][0]
+              postag1 = sent[i+1][1]
+              features.update({
+                  '+1:word.lower()': word1.lower(),
+                  '+1:word.istitle()': word1.istitle(),
+                  '+1:word.isupper()': word1.isupper(),
+                  '+1:postag': postag1,
+                  '+1:postag[:2]': postag1[:2],
+              })
+          else:
+              features['EOS'] = True
+
+          return features
+
+
+      def sent2features(sent):
+          return [word2features(sent, i) for i in range(len(sent))]
+
+      def sent2labels(sent):
+          return [label for token, postag, label in sent]
+
+      def sent2tokens(sent):
+          return [token for token, postag, label in sent]
+
+      X_train = [sent2features(s) for s in train_sents]
+      y_train = [sent2labels(s) for s in train_sents]
+
+      X_test = [sent2features(s) for s in test_sents]
+      y_test = [sent2labels(s) for s in test_sents]
+
+
+To see all possible CRF parameters check its docstring. Here we are useing L-BFGS training algorithm (it is default) with Elastic Net (L1 + L2) regularization.
+
+
+
+.. code:: python
+
+      crf = sklearn_crfsuite.CRF(
+          algorithm='lbfgs',
+          c1=0.1,
+          c2=0.1,
+          max_iterations=100,
+          all_possible_transitions=True
+      )
+      crf.fit(X_train, y_train)
+
+
+Evaluation
+
+
+.. code:: python
+
+      y_pred = crf.predict(X_test)
+      print(metrics.flat_classification_report(
+          y_test, y_pred,  digits=3
+      ))
+
+
+Output:
+
+.. code:: python
+
+                     precision    recall  f1-score   support
+
+            B-LOC      0.810     0.784     0.797      1084
+           B-MISC      0.731     0.569     0.640       339
+            B-ORG      0.807     0.832     0.820      1400
+            B-PER      0.850     0.884     0.867       735
+            I-LOC      0.690     0.637     0.662       325
+           I-MISC      0.699     0.589     0.639       557
+            I-ORG      0.852     0.786     0.818      1104
+            I-PER      0.893     0.943     0.917       634
+                O      0.992     0.997     0.994     45355
+
+      avg / total      0.970     0.971     0.971     51533
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Deep Learning
