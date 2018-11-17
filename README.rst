@@ -318,12 +318,39 @@ Global Vectors for Word Representation (GloVe)
 An implementation of the GloVe model for learning word representations is provided, and describe how to download web-dataset vectors or train your own. See the  `project page <http://nlp.stanford.edu/projects/glove/>`__  or the   `paper <http://nlp.stanford.edu/pubs/glove.pdf>`__  for more information on glove vectors.
 
 
+------------------------------------
+contextualized word representations
+------------------------------------
 
 
 
 --------
 FastText
 --------
+fastText is a library for efficient learning of word representations and sentence classification.
+
+**Github:**  `facebookresearch/fastText <https://github.com/facebookresearch/fastText>`__
+
+**Models**
+
+-  Recent state-of-the-art `English word vectors <https://fasttext.cc/docs/en/english-vectors.html>`__.
+-  Word vectors for `157 languages trained on Wikipedia and Crawl <https://github.com/facebookresearch/fastText/blob/master/docs/crawl-vectors.md>`__.
+-  Models for `language identification <https://fasttext.cc/docs/en/language-identification.html#content>`__ and `various supervised tasks <https://fasttext.cc/docs/en/supervised-models.html#content>`__.
+
+**Supplementary data :**
+
+
+-  The preprocessed `YFCC100M data <https://fasttext.cc/docs/en/dataset.html#content>`__ .
+
+**FAQ**
+
+You can find `answers to frequently asked questions <https://fasttext.cc/docs/en/faqs.html#content>`__ on Their project `website <https://fasttext.cc/>`__.
+
+**Cheatsheet**
+
+Also a `cheatsheet <https://fasttext.cc/docs/en/cheatsheet.html#content>`__ is provided full of useful one-liners.
+
+
 
 ~~~~~~~~~~~~~~
 Weighted Words
