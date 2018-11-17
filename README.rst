@@ -367,6 +367,9 @@ Architecture of the language model applied to an example sentence [Reference:  `
 --------
 FastText
 --------
+
+.. figure:: docs/pic/fasttext-logo-color-web.png
+
 fastText is a library for efficient learning of word representations and sentence classification.
 
 **Github:**  `facebookresearch/fastText <https://github.com/facebookresearch/fastText>`__
