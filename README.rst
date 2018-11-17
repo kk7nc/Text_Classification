@@ -319,10 +319,50 @@ An implementation of the GloVe model for learning word representations is provid
 
 
 ------------------------------------
-contextualized word representations
+Contextualized Word Representations
 ------------------------------------
 
+ELMo is a deep contextualized word representation that models both (1) complex characteristics of word use (e.g., syntax and semantics), and (2) how these uses vary across linguistic contexts (i.e., to model polysemy). These word vectors are learned functions of the internal states of a deep bidirectional language model (biLM), which is pre-trained on a large text corpus. They can be easily added to existing models and significantly improve the state of the art across a broad range of challenging NLP problems, including question answering, textual entailment and sentiment analysis.
 
+
+**ELMo representations are:**
+
+-  **Contextual:** The representation for each word depends on the entire context in which it is used.
+-  **Deep:** The word representations combine all layers of a deep pre-trained neural network.
+-  **Character based:** ELMo representations are purely character based, allowing the network to use morphological clues to form robust representations for out-of-vocabulary tokens unseen in training.
+
+
+**Tensorflow implementation**
+
+Tensorflow implementation of the pretrained biLM used to compute ELMo representations from `"Deep contextualized word representations" <http://arxiv.org/abs/1802.05365>`__.
+
+This repository supports both training biLMs and using pre-trained models for prediction.
+
+We also have a pytorch implementation available in `AllenNLP <http://allennlp.org/>`__.
+
+You may also find it easier to use the version provided in `Tensorflow Hub <https://www.tensorflow.org/hub/modules/google/elmo/2>`__ if you just like to make predictions.
+
+**pre-trained models:**
+
+We have several different English language pre-trained biLMs available for use. Each model is specified with two separate files, a JSON formatted "options" file with hyperparameters and a hdf5 formatted file with the model weights. Links to the pre-trained models are available `here <https://allennlp.org/elmo>`__.
+
+There are three ways to integrate ELMo representations into a downstream task, depending on your use case.
+
+1. Compute representations on the fly from raw text using character input. This is the most general method and will handle any input text. It is also the most computationally expensive.
+2. Precompute and cache the context independent token representations, then compute context dependent representations using the biLSTMs for input data. This method is less computationally expensive then #1, but is only applicable with a fixed, prescribed vocabulary.
+3. Precompute the representations for your entire dataset and save to a file.
+
+We have used all of these methods in the past for various use cases. #1 is necessary for evaluating at test time on unseen data (e.g. public SQuAD leaderboard). #2 is a good compromise for large datasets where the size of the file in #3 is unfeasible (SNLI, SQuAD). #3 is a good choice for smaller datasets or in cases where you'd like to use ELMo in other frameworks.
+
+In all cases, the process roughly follows the same steps. First, create a ``Batcher`` (or ``TokenBatcher`` for #2) to translate tokenized strings to numpy arrays of character (or token) ids. Then, load the pretrained ELMo model (class ``BidirectionalLanguageModel``). Finally, for steps #1 and #2 use ``weight_layers`` to compute the final ELMo representations. For #3, use ``BidirectionalLanguageModel`` to write all the intermediate layers to a file.
+
+
+
+.. figure:: docs/pic/ngram_cnn_highway_1.png 
+Architecture of the language model applied to an example sentence [Reference:  `arXiv paper <https://arxiv.org/pdf/1508.06615.pdf>`__]. 
+
+
+.. figure:: docs/pic/Glove_VS_DCWE.png 
 
 --------
 FastText
