@@ -4,7 +4,10 @@ Text Classification Algorithms: A Survey
 ################################################
 
 |contributions-welcome| |ansicolortags| |contributors| |twitter|
-      
+  
+  
+  .. figure:: docs/pic/Word%20Art.png 
+ 
       
 ##################
 Table of Contents
