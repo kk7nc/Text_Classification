@@ -2725,10 +2725,10 @@ Citations:
 
 .. code::
 
-    @inproceedings{Kowsari2018Text_Classification,
+    @ARTICLE{Kowsari2018Text_Classification,
     title={Text Classification Algorithm: A Brief Overview},
-    author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and Gerber, Matthew S. and  Barnes, Laura E. and Brown, Donald E.},
-    booktitle={},
+    author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and  Mendu, Sanjana and Gerber, Matthew S. and  Barnes, Laura E. and Brown, Donald E.},
+    journal={IEEE Access}, 
     year={2018},
     DOI={https://doi.org/},
     organization={IEEE}
