@@ -726,9 +726,114 @@ Boosting and Bagging
 Boosting
 ---------
 
+.. image:: docs/pic/Boosting.PNG
+
+
+**Boosting** is a Ensemble learning meta-algorithm for primarily reducing Supervised learning, and also variance in supervised learning, and a family of machine learning algorithms that convert weak learners to strong ones. Boosting is based on the question posed by `Michael Kearns <https://en.wikipedia.org/wiki/Michael_Kearns_(computer_scientist)>`__  and Leslie Valiant (1988, 1989) Can a set of weak learners create a single strong learner. A weak learner is defined to be a Classification that is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification.
+
+
+
+
+.. code:: python
+
+  from sklearn.ensemble import GradientBoostingClassifier
+  from sklearn.pipeline import Pipeline
+  from sklearn import metrics
+  from sklearn.feature_extraction.text import CountVectorizer
+  from sklearn.feature_extraction.text import TfidfTransformer
+  from sklearn.datasets import fetch_20newsgroups
+
+  newsgroups_train = fetch_20newsgroups(subset='train')
+  newsgroups_test = fetch_20newsgroups(subset='test')
+  X_train = newsgroups_train.data
+  X_test = newsgroups_test.data
+  y_train = newsgroups_train.target
+  y_test = newsgroups_test.target
+
+  text_clf = Pipeline([('vect', CountVectorizer()),
+                       ('tfidf', TfidfTransformer()),
+                       ('clf', GradientBoostingClassifier(n_estimators=100)),
+                       ])
+
+  text_clf.fit(X_train, y_train)
+
+
+  predicted = text_clf.predict(X_test)
+
+  print(metrics.classification_report(y_test, predicted))
+
+
+Output:
+ 
+.. code:: python
+
+
+  
 -------
 Bagging
 -------
+
+.. image:: docs/pic/Bagging.PNG
+
+
+.. code:: python
+
+    from sklearn.ensemble import BaggingClassifier
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.pipeline import Pipeline
+    from sklearn import metrics
+    from sklearn.feature_extraction.text import CountVectorizer
+    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.datasets import fetch_20newsgroups
+
+    newsgroups_train = fetch_20newsgroups(subset='train')
+    newsgroups_test = fetch_20newsgroups(subset='test')
+    X_train = newsgroups_train.data
+    X_test = newsgroups_test.data
+    y_train = newsgroups_train.target
+    y_test = newsgroups_test.target
+
+    text_clf = Pipeline([('vect', CountVectorizer()),
+                         ('tfidf', TfidfTransformer()),
+                         ('clf', BaggingClassifier(KNeighborsClassifier())),
+                         ])
+
+    text_clf.fit(X_train, y_train)
+
+
+    predicted = text_clf.predict(X_test)
+
+    print(metrics.classification_report(y_test, predicted))
+
+
+Output:
+ 
+.. code:: python
+
+               precision    recall  f1-score   support
+            0       0.57      0.74      0.65       319
+            1       0.60      0.56      0.58       389
+            2       0.62      0.54      0.58       394
+            3       0.54      0.57      0.55       392
+            4       0.63      0.54      0.58       385
+            5       0.68      0.62      0.65       395
+            6       0.55      0.46      0.50       390
+            7       0.77      0.67      0.72       396
+            8       0.79      0.82      0.80       398
+            9       0.74      0.77      0.76       397
+           10       0.81      0.86      0.83       399
+           11       0.74      0.85      0.79       396
+           12       0.67      0.49      0.57       393
+           13       0.78      0.51      0.62       396
+           14       0.76      0.78      0.77       394
+           15       0.71      0.81      0.76       398
+           16       0.73      0.73      0.73       364
+           17       0.64      0.79      0.71       376
+           18       0.45      0.69      0.54       310
+           19       0.61      0.54      0.57       251
+
+  avg / total       0.67      0.67      0.67      7532
+  
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Logistic Regression
