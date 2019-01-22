@@ -530,7 +530,7 @@ Linear Discriminant Analysis (LDA) is a commonly used technique for data classif
 
 
 
-  LDA = LinearDiscriminantAnalysis(n_components=2000)
+  LDA = LinearDiscriminantAnalysis(n_components=15)
   X_train_new = LDA.fit(X_train,y_train)
   X_train_new =  LDA.transform(X_train)
   X_test_new = LDA.transform(X_test)
@@ -548,9 +548,9 @@ output:
 
     tf-idf with 75000 features
     train with old features:  (11314, 75000)
-    train with new features: (11314, 2000)
+    train with new features: (11314, 15)
     test with old features:  (7532, 75000)
-    test with new features: (7532, 2000)
+    test with new features: (7532, 15)
     
     
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
