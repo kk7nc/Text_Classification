@@ -2960,7 +2960,7 @@ Citations:
 .. code::
 
     @ARTICLE{Kowsari2018Text_Classification,
-    title={Text Classification Algorithm: A Brief Overview},
+    title={Text Classification Algorithms: A Survey},
     author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and Mendu, Sanjana and Barnes, Laura E. and Brown, Donald E.},
     journal={}, 
     year={2018},
