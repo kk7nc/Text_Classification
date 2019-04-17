@@ -2899,56 +2899,6 @@ keywords : is authors keyword of the papers
 Referenced paper: HDLTex: Hierarchical Deep Learning for Text Classification
 
          
-===========
-Application
-===========
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Information Retrieval
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Information Filtering
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Sentiment Analysis
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Healthcare
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Human Behavior
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Knowledge Management
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Safety and Security
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-Recommender Systems
-~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 
 ==========
@@ -2962,10 +2912,9 @@ Citations:
     @ARTICLE{Kowsari2018Text_Classification,
     title={Text Classification Algorithms: A Survey},
     author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and Mendu, Sanjana and Barnes, Laura E. and Brown, Donald E.},
-    journal={}, 
-    year={2018},
-    DOI={https://doi.org/},
-    organization={}
+  journal={Information},
+  year={2019},
+  publisher={Multidisciplinary Digital Publishing Institute}
     }
 
 .. |RMDL| image:: http://kowsari.net/onewebmedia/RMDL.jpg
