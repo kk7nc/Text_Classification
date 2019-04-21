@@ -3,7 +3,7 @@
 Text Classification Algorithms: A Survey
 ################################################
 
-|contributions-welcome| |ansicolortags| |contributors| |twitter|
+|contributions-welcome| |arXiv| |ansicolortags| |contributors| |twitter|
   
   
 .. figure:: docs/pic/WordArt.png 
@@ -2933,4 +2933,5 @@ Citations:
 .. |contributors| image:: https://img.shields.io/github/contributors/kk7nc/Text_Classification.svg
       :target: https://github.com/kk7nc/Text_Classification/graphs/contributors 
 
-
+.. |arXiv| image:: https://img.shields.io/badge/arXiv-1904.08067-red.svg?style=flat
+   :target: https://arxiv.org/abs/1904.08067
