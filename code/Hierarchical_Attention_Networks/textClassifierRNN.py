@@ -1,3 +1,4 @@
+from __future__ import print_function
 # author - Richard Liao
 # Dec 26 2016
 import numpy as np
@@ -42,7 +43,7 @@ def clean_str(string):
     return string.strip().lower()
 
 data_train = pd.read_csv('~/Testground/data/imdb/labeledTrainData.tsv', sep='\t')
-print data_train.shape
+print(data_train.shape)
 
 texts = []
 labels = []
@@ -63,8 +64,8 @@ print('Found %s unique tokens.' % len(word_index))
 data = pad_sequences(sequences, maxlen=MAX_SEQUENCE_LENGTH)
 
 labels = to_categorical(np.asarray(labels))
-print('Shape of data tensor:', data.shape)
-print('Shape of label tensor:', labels.shape)
+print(('Shape of data tensor:', data.shape))
+print(('Shape of label tensor:', labels.shape))
 
 indices = np.arange(data.shape[0])
 np.random.shuffle(indices)
@@ -78,8 +79,8 @@ x_val = data[-nb_validation_samples:]
 y_val = labels[-nb_validation_samples:]
 
 print('Traing and validation set number of positive and negative reviews')
-print y_train.sum(axis=0)
-print y_val.sum(axis=0)
+print(y_train.sum(axis=0))
+print(y_val.sum(axis=0))
 
 GLOVE_DIR = "~/Testground/data/glove"
 embeddings_index = {}
