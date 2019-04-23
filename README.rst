@@ -8,6 +8,11 @@ Text Classification Algorithms: A Survey
   
 .. figure:: docs/pic/WordArt.png 
  
+ 
+ Referenced paper : `Text Classification Algorithms: A Survey <https://arxiv.org/abs/1904.08067>`__
+
+      
+      
       
 ##################
 Table of Contents
