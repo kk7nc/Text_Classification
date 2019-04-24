@@ -969,9 +969,6 @@ Output:
   avg / total       0.67      0.67      0.67      7532
   
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Logistic Regression
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Naive Bayes Classifier
@@ -1356,6 +1353,7 @@ output:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Conditional Random Field (CRF)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Conditional Random Field (CRF) is an undirected graphical model as shown in figure. CRFs state the conditional probability of a label sequence *Y* give a sequence of observation *X* *i.e.* P(Y|X). CRFs can incorporate complex features of observation sequence without violating the independence assumption by modeling the conditional probability of the label sequence rather than the joint probability P(X,Y). The concept of clique which is a fully connected subgraph and clique potential are used for computing P(X|Y). Considering one potential function for each clique of the graph, the probability of a variable configuration is corresponding to the product of a series of non-negative potential function. The value computed by each potential function is equivalent to the probability of the variables in its corresponding clique taken on a particular configuration.
 
 
@@ -2242,10 +2240,6 @@ Output:
     avg / total       0.76      0.73      0.74      7532
 
 
------------------------------------------
-Deep Belief Network (DBN)
------------------------------------------
-
 
 
 -----------------------------------------
@@ -2617,13 +2611,6 @@ Classification <https://arxiv.org/abs/1709.08267>`__
 Documentation:
 
 Increasingly large document collections require improved information processing methods for searching, retrieving, and organizing  text. Central to these information processing methods is document classification, which has become an important application for supervised learning. Recently the performance of traditional supervised classifiers has degraded as the number of documents has increased. This is because along with growth in the number of documents has come an increase in the number of categories. This paper approaches this problem differently from current document classification methods that view the problem as multi-class classification. Instead we perform hierarchical classification using an approach we call Hierarchical Deep Learning for Text classification (HDLTex). HDLTex employs stacks of deep learning architectures to provide specialized understanding at each level of the document hierarchy.
-
-
-
-------------------------------------------------
-Semi-supervised learning for Text classification
-------------------------------------------------
-
 
 
 
