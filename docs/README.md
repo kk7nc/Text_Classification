@@ -6,10 +6,12 @@ Text Classification Algorithms: A Survey
 > [![arXiv](https://img.shields.io/badge/arXiv-1904.08067-red.svg?style=flat)](https://arxiv.org/abs/1904.08067)
 > ![ansicolortags](https://img.shields.io/pypi/l/ansicolortags.svg%0A%20%20%20:target:%20https://github.com/kk7nc/Text_Classification/blob/master/LICENSE)
 > ![contributors](https://img.shields.io/github/contributors/kk7nc/Text_Classification.svg%0A%20%20%20:target:%20https://github.com/kk7nc/Text_Classification/graphs/contributors)
-> ![twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social%0A%20:target:%20https://twitter.com/intent/tweet?text=Text%20Classification%20Algorithms:%20A%20Survey%0aGitHub:&url=https://github.com/kk7nc/Text_Classification&hashtags=Text_Classification,classification,MachineLearning,Categorization,NLP,NATURAL,LANGUAGE,PROCESSING)
+> [![twitter](https://img.shields.io/twitter/url/http/shields.io.svg)](https://twitter.com/intent/tweet?text=Text%20Classification%20Algorithms:%20A%20Survey%0aGitHub:&url=https://github.com/kk7nc/Text_Classification&hashtags=Text_Classification,classification,MachineLearning,Categorization,NLP,NATURAL,LANGUAGE,PROCESSING)
 
-![Referenced paper : [Text Classification Algorithms: A
-Survey](https://arxiv.org/abs/1904.08067)](docs/pic/WordArt.png)
+Referenced paper : [Text Classification Algorithms: A
+Survey](https://arxiv.org/abs/1904.08067)]
+
+![pic](../docs/pic/WordArt.png)
 
 Table of Contents
 =================
@@ -22,7 +24,7 @@ Table of Contents
 Introduction
 ------------
 
-![](docs/pic/Overview.png)
+![](../docs/pic/Overview.png)
 
 Text and Document Feature Extraction
 ------------------------------------
@@ -324,7 +326,7 @@ More information about the scripts is provided at
 
 #### Global Vectors for Word Representation (GloVe)
 
-![image](/docs/pic/Glove.PNG)
+![image](../docs/pic/Glove.PNG)
 
 An implementation of the GloVe model for learning word representations
 is provided, and describe how to download web-dataset vectors or train
@@ -408,12 +410,12 @@ and \#2 use `weight_layers` to compute the final ELMo representations.
 For \#3, use `BidirectionalLanguageModel` to write all the intermediate
 layers to a file.
 
-![](docs/pic/ngram_cnn_highway_1.png)
+![](../docs/pic/ngram_cnn_highway_1.png)
 
 Architecture of the language model applied to an example sentence
 [Reference: [arXiv paper](https://arxiv.org/pdf/1508.06615.pdf)].
 
-![](docs/pic/Glove_VS_DCWE.png)
+![](../docs/pic/Glove_VS_DCWE.png)
 
 #### FastText
 
@@ -465,7 +467,7 @@ in each document and assign it to feature space.
 The mathematical representation of weight of a term in a document by
 Tf-idf is given:
 
-![image](docs/eq/tf-idf.gif)
+![image](../docs/eq/tf-idf.gif)
 
 Where N is number of documents and df(t) is the number of documents
 containing the term t in the corpus. The first part would improve recall
@@ -671,7 +673,7 @@ researchers addressed Random Projection for text data for text mining,
 text classification and/or dimensionality reduction. we start to review
 some random projection techniques.
 
-![image](docs/pic/Random%20Projection.png)
+![image](../docs/pic/Random%20Projection.png)
 
 ``` {.sourceCode .python}
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -730,7 +732,7 @@ of feature space. Specially for texts, documents, and sequences that
 contains many features, autoencoder could help to process of data faster
 and more efficient.
 
-![image](docs/pic/Autoencoder.png)
+![image](../docs/pic/Autoencoder.png)
 
 ``` {.sourceCode .python}
 from keras.layers import Input, Dense
@@ -794,7 +796,7 @@ X_embedded.shape
 
 Example of Glove and T-SNE for text:
 
-![image](docs/pic/TSNE.png)
+![image](../docs/pic/TSNE.png)
 
 Text Classification Techniques
 ------------------------------
@@ -868,7 +870,7 @@ precision    recall  f1-score   support
 
 #### Boosting
 
-![image](docs/pic/Boosting.PNG)
+![image](../docs/pic/Boosting.PNG)
 
 **Boosting** is a Ensemble learning meta-algorithm for primarily
 reducing Supervised learning, and also variance in supervised learning,
@@ -1122,7 +1124,7 @@ The disadvantages of support vector machines include:
     calculated using an expensive five-fold cross-validation (see Scores
     and probabilities, below).
 
-![image](docs/pic/SVM.png)
+![image](../docs/pic/SVM.png)
 
 ``` {.sourceCode .python}
 from sklearn.svm import LinearSVC
@@ -1241,7 +1243,7 @@ time which used t tree as parallel. This technique is developed by [L.
 Breiman](https://link.springer.com/article/10.1023/A:1010933404324) in
 1999 that they find converge for RF as margin measure.
 
-![image](docs/pic/RF.png)
+![image](../docs/pic/RF.png)
 
 ``` {.sourceCode .python}
 from sklearn.ensemble import RandomForestClassifier
