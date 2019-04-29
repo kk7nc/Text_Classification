@@ -2904,15 +2904,15 @@ Citations:
     @ARTICLE{Kowsari2018Text_Classification,
         title={Text Classification Algorithms: A Survey},
         author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and Mendu, Sanjana and Barnes, Laura E. and Brown, Donald E.},
-      journal={Information},
-      year={2019},
-      VOLUME = {10},  
-      YEAR = {2019},
-      NUMBER = {4},
-      ARTICLE-NUMBER = {150},
-      URL = {http://www.mdpi.com/2078-2489/10/4/150},
-      ISSN = {2078-2489},
-      publisher={Multidisciplinary Digital Publishing Institute}
+        journal={Information},
+        year={2019},
+        VOLUME = {10},  
+        YEAR = {2019},
+        NUMBER = {4},
+        ARTICLE-NUMBER = {150},
+        URL = {http://www.mdpi.com/2078-2489/10/4/150},
+        ISSN = {2078-2489},
+        publisher={Multidisciplinary Digital Publishing Institute}
     }
 
 .. |RMDL| image:: http://kowsari.net/onewebmedia/RMDL.jpg
