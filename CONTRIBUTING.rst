@@ -19,3 +19,5 @@ Please consider the following criterions in order to help us in a better way:
    variables, exposed ports, useful file locations and container parameters.
 5. You may merge the Pull Request in once you have the sign-off of at least one other developer, or if you
    do not have permission to do that, you may request the owner to merge it for you if you believe all checks are passed.
+   
+  Thank you!
