@@ -1,6 +1,6 @@
 
 ################################################
-Text Classification Algorithms: A Survey
+Text Classification Algorithms A Survey
 ################################################
 
 |DOI| |contributions-welcome| |arXiv| |ansicolortags| |contributors| |twitter|
