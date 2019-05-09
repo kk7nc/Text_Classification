@@ -2905,7 +2905,6 @@ Citations:
         title={Text Classification Algorithms: A Survey},
         author={Kowsari, Kamran and Jafari Meimandi, Kiana and Heidarysafa, Mojtaba and Mendu, Sanjana and Barnes, Laura E. and Brown, Donald E.},
         journal={Information},
-        year={2019},
         VOLUME = {10},  
         YEAR = {2019},
         NUMBER = {4},
