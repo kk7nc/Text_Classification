@@ -34,21 +34,21 @@ Text and Document Feature Extraction
 ----
 
 
-Text feature extraction and pre-processing for classification algorithm is very significant. In this section, we start to talk about text cleaning which most of documents have a lot of noise. In this part we discuss about two main methods of text feature extractions which are word embedding and weighted word.
+Text feature extraction and pre-processing for classification algorithms are very significant. In this section, we start to talk about text cleaning since most of documents have a lot of noise. In this part, we discuss about two primary methods of text feature extractions which are word embedding and weighted word.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Text Cleaning and Pre-processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Natural Language Processing (NLP), most of the text and document datasets contains many unnecessary words such as Stopwords, miss-spelling, slang, and etc. In this section, we briefly explain some techniques and method for text cleaning and pre-processing text datasets. In many algorithm, especially statistical and probabilistic learning algorithm, noise and unnecessary features could have bad effect on performance of the system, so one of the solution could be illumination and remove these features as pre-processing step.
+In Natural Language Processing (NLP), most of the text and document datasets contain many unnecessary words such as: stopwords, miss-spellings, slangs, and etc. In this section, we briefly explain some techniques and method for text cleaning and pre-processing text datasets. In many algorithms like statistical and probabilistic learning methods, noise and unnecessary features can negatively affect the perfomance. So, illumination and removal of these features are very important preprocessing steps.
 
 
 -------------
 Tokenization
 -------------
 
-Tokenization is a part of pre-process to break a stream of text up into words, phrases, symbols, or other meaningful elements called tokens.  The main goal of this step is the exploration of the words in a sentence. In text mining beside of text classification, it;'s necessitate a parser which processes the tokenization of the documents; for example:
+Tokenization is the process of breaking down a stream of text into words, phrases, symbols, or any other meaningful elements called tokens. The main goal of this step is the exploration of the words in a sentence. Along with text classifcation, in text mining, it necessitates a parser which processes the tokenization of the documents; for example:
 
 sentence:
 
@@ -78,7 +78,7 @@ Stop words
 -----------
 
 
-Text and document classification over social media such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of these data points.
+Text and document classification over social media such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of these text corpuses.
 
 Here is an exmple from  `geeksforgeeks <https://www.geeksforgeeks.org/removing-stop-words-nltk-python/>`__
 
@@ -120,7 +120,7 @@ Output:
 Capitalization
 ---------------
 
-Text and document data points have a diversity of capitalization to became a sentence; substantially, several sentences together create a document. The most common approach of capitalization method could be to reduce everything to lower case. This technique makes all words in text and document in same space, but it is caused to a significant problem for meaning of some words such as "US" to "us" which first one represent the country of United States of America and second one is pronouns word; thus, for solving this problem, we could use slang and abbreviation converters.
+Text and document data points have a diversity of capitalization to form a sentence; substantially, several sentences together create a document. The most common approach of capitalization method could be to reduce everything to lower case. This technique makes all words in text and document in same space, but it is caused to a significant problem for meaning of some words such as "US" to "us" which first one represent the country of United States of America and second one is pronouns word; thus, for solving this problem, we could use slang and abbreviation converters.
 
 .. code:: python
 
@@ -136,10 +136,10 @@ Output:
   "the united states of america (usa) or america, is a federal republic composed of 50 states"
 
 -----------------------
-Slang and Abbreviation
+Slangs and Abbreviations
 -----------------------
 
-Slang and Abbreviation is another problem as pre-processing step for cleaning text datasets. An abbreviation  is a shortened form of a word or phrase which contain mostly first letters form the words such as SVM stand for  Support Vector Machine. Slang is a version of language of an informal talk or text that has different meaning such as "lost the plot", it essentially means that they've gone mad. The common method for dealing with these words is convert them to formal language.
+Slangs and abbreviations cause problems while executing the pre-processing steps for cleaning text datasets. An abbreviation  is a shortened form of a word or phrase which contains mostly first letters form the words such as SVM stand for Support Vector Machine. Slang is a version of language that depicts informal conversation or text that has different meaning such as "lost the plot", it essentially means that they've gone mad. The common method for dealing with these words is convert them to formal language.
 
 ---------------
 Noise Removal
