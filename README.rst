@@ -23,7 +23,7 @@ Table of Contents
 Introduction
 ============
 
-.. figure:: docs/pic/Overview.png 
+.. figure:: docs/pic/OverviewTextClassification.png 
 
     
     
