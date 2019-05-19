@@ -34,21 +34,21 @@ Text and Document Feature Extraction
 ----
 
 
-Text feature extraction and pre-processing for classification algorithms are very significant. In this section, we start to talk about text cleaning since most of documents have a lot of noise. In this part, we discuss about two primary methods of text feature extractions which are word embedding and weighted word.
+Text feature extraction and pre-processing for classification algorithms are very significant. In this section, we start to talk about text cleaning since most of documents contain a lot of noise. In this part, we discuss two primary methods of text feature extractions- word embedding and weighted word.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Text Cleaning and Pre-processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Natural Language Processing (NLP), most of the text and document datasets contain many unnecessary words such as: stopwords, miss-spellings, slangs, and etc. In this section, we briefly explain some techniques and method for text cleaning and pre-processing text datasets. In many algorithms like statistical and probabilistic learning methods, noise and unnecessary features can negatively affect the perfomance. So, illumination and removal of these features are very important preprocessing steps.
+In Natural Language Processing (NLP), most of the text and documents contain many words that are redundant for text classification such as: stopwords, miss-spellings, slangs, and etc. In this section, we briefly explain some techniques and methods for text cleaning and pre-processing text documents. In many algorithms like statistical and probabilistic learning methods, noise and unnecessary features can negatively affect the overall perfomance. So, elimination of these features are extremely important.
 
 
 -------------
 Tokenization
 -------------
 
-Tokenization is the process of breaking down a stream of text into words, phrases, symbols, or any other meaningful elements called tokens. The main goal of this step is the exploration of the words in a sentence. Along with text classifcation, in text mining, it necessitates a parser which processes the tokenization of the documents; for example:
+Tokenization is the process of breaking down a stream of text into words, phrases, symbols, or any other meaningful elements called tokens. The main goal of this step is to extract individual words in a sentence. Along with text classifcation, in text mining, it is necessay to incorporate a parser in the pipeline which performs the tokenization of the documents; for example:
 
 sentence:
 
@@ -78,7 +78,7 @@ Stop words
 -----------
 
 
-Text and document classification over social media such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of these text corpuses.
+Text and document classification over social media such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of the text corpuses.
 
 Here is an exmple from  `geeksforgeeks <https://www.geeksforgeeks.org/removing-stop-words-nltk-python/>`__
 
@@ -120,7 +120,7 @@ Output:
 Capitalization
 ---------------
 
-Text and document data points have a diversity of capitalization to form a sentence; substantially, several sentences together create a document. The most common approach of capitalization method could be to reduce everything to lower case. This technique makes all words in text and document in same space, but it is caused to a significant problem for meaning of some words such as "US" to "us" which first one represent the country of United States of America and second one is pronouns word; thus, for solving this problem, we could use slang and abbreviation converters.
+Sentences can contain a mixture of uppercase and lower case letters. Multiple sentences make up a text document. To reduce the problem space, the most common approach is to reduce everything to lower case. This brings all words in a document in same space, but it often changes the meaning of some words, such as: "US" to "us" where first one represents the United States of America and second one is a pronoun. To solve this, slang and abbreviation converters can be applied.
 
 .. code:: python
 
@@ -139,14 +139,14 @@ Output:
 Slangs and Abbreviations
 -----------------------
 
-Slangs and abbreviations cause problems while executing the pre-processing steps for cleaning text datasets. An abbreviation  is a shortened form of a word or phrase which contains mostly first letters form the words such as SVM stand for Support Vector Machine. Slang is a version of language that depicts informal conversation or text that has different meaning such as "lost the plot", it essentially means that they've gone mad. The common method for dealing with these words is convert them to formal language.
+Slangs and abbreviations can cause problems while executing the pre-processing steps. An abbreviation  is a shortened form of a word, such as: SVM stand for Support Vector Machine. Slang is a version of language that depicts informal conversation or text that has different meaning, such as: "lost the plot", it essentially means that 'they've gone mad'. Common method to deal with these words is converting them to formal language.
 
 ---------------
 Noise Removal
 ---------------
 
 
-The other issue of text cleaning as pre-processing step is noise removal which most of text and document datasets contains many unnecessary characters such as punctuation, special character. It's important to know the punctuation is critical for us to understand the meaning of the sentence, but it could have effect for classification algorithms.
+Another issue of text cleaning as a pre-processing step is noise removal. Text documents generally contains characters like punctuations or  special characters and they are not necessary for text mining or classification purposes. Although punctuation is critical to understand the meaning of the sentence, but it can affect the classification algorithms negatively.
 
 
 Here is simple code to remove standard noise from text:
@@ -180,7 +180,7 @@ Spelling Correction
 -------------------
 
 
-One of the optional part of the pre-processing step is spelling correction which is happened in texts and documents. Many algorithm, techniques, and methods have been addressed this problem in NLP. Many techniques and methods are available for researchers such as hashing-based and context-sensitive spelling correction techniques, or  spelling correction using trie and damerau-levenshtein distance bigram.
+An optional part of the pre-processing step is correcting the misspelled words. Different techniques, such as: hashing-based and context-sensitive spelling correction techniques, or  spelling correction using trie and damerau-levenshtein distance bigram have been introduced to tackle this issue.
 
 
 .. code:: python
@@ -207,7 +207,7 @@ Stemming
 ------------
 
 
-Text Stemming is modifying to obtain variant word forms using different linguistic processes such as affixation (addition of affixes). For example, the stem of the word "studying" is "study", to which -ing.
+Text Stemming is modifying a word to obtain its variants using different linguistic processeses like affixation (addition of affixes). For example, the stem of the word "studying" is "study", to which -ing.
 
 
 Here is an example of Stemming from `NLTK <https://pythonprogramming.net/stemming-nltk-tutorial/>`__
@@ -240,7 +240,7 @@ Lemmatization
 -------------
 
 
-Text lemmatization is process in NLP to replaces the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (lemma).
+Text lemmatization is the process of eliminating redundant prefix or suffix of a word and extract the base word (lemma).
 
 
 .. code:: python
@@ -255,8 +255,7 @@ Text lemmatization is process in NLP to replaces the suffix of a word with a dif
 Word Embedding
 ~~~~~~~~~~~~~~
 
-Different word embedding has been proposed to translate these unigrams into understandable input for machine learning algorithms. Most basic methods to perform such embedding is term-frequency~(TF) where each word will be mapped to a number corresponding to the number of occurrence of that word in the whole corpora. The other term frequency functions have been also used that present words frequency as Boolean or logarithmically scaled number. As regarding to results, each document will be translated to a vector with the length of document, containing the frequency of the words in that document. Although such approach is very intuitive but it suffers from the fact that particular words that are used commonly in language literature would dominate such word representation.
-
+Different word embedding procedures have been proposed to translate these unigrams into consummable input for machine learning algorithms. A very simple way to perform such embedding is term-frequency~(TF) where each word will be mapped to a number corresponding to the number of occurrence of that word in the whole corpora. The other term frequency functions have been also used that represent word-frequency as Boolean or logarithmically scaled number. Here, each document will be converted to a vector of same length containing the frequency of the words in that document. Although such approach may seem very intuitive but it suffers from the fact that particular words that are used very commonly in language literature might dominate this sort of word representations.
 
 .. image:: docs/pic/CBOW.png
 
@@ -267,8 +266,8 @@ Word2Vec
 
 Original from https://code.google.com/p/word2vec/
 
-I’ve copied it to a github project so I can apply and track community
-patches for my needs (starting with capability for Mac OS X
+I’ve copied it to a github project so that I can apply and track community
+patches (starting with capability for Mac OS X
 compilation).
 
 -  **makefile and some source has been modified for Mac OS X
@@ -288,7 +287,7 @@ To get started:
 
 Original README text follows:
 
-This tool provides an efficient implementation of the continuous bag-of-words and skip-gram architectures for computing vector representations of words. These representations can be subsequently used in many natural language processing applications and for further research. 
+This tool provides an efficient implementation of the continuous bag-of-words and skip-gram architectures for computing vector representations of words. These representations can be subsequently used in many natural language processing applications and for further research purposes. 
 
 
 this code provides an implementation of the Continuous Bag-of-Words (CBOW) and
@@ -296,19 +295,19 @@ the Skip-gram model (SG), as well as several demo scripts.
 
 Given a text corpus, the word2vec tool learns a vector for every word in
 the vocabulary using the Continuous Bag-of-Words or the Skip-Gram neural
-network architectures. The user should to specify the following: -
-desired vector dimensionality - the size of the context window for
-either the Skip-Gram or the Continuous Bag-of-Words model - training
-algorithm: hierarchical softmax and / or negative sampling - threshold
-for downsampling the frequent words - number of threads to use - the
-format of the output word vector file (text or binary)
+network architectures. The user should specify the following: -
+desired vector dimensionality (size of the context window for
+either the Skip-Gram or the Continuous Bag-of-Words model),  training
+algorithm (hierarchical softmax and / or negative sampling), threshold
+for downsampling the frequent words, number of threads to use,
+format of the output word vector file (text or binary).
 
-Usually, the other hyper-parameters such as the learning rate do not
+Usually, other hyper-parameters such as the learning rate do not
 need to be tuned for different training sets.
 
 The script demo-word.sh downloads a small (100MB) text corpus from the
 web, and trains a small word vector model. After the training is
-finished, the user can interactively explore the similarity of the
+finished, users can interactively explore the similarity of the
 words.
 
 More information about the scripts is provided at
@@ -350,7 +349,7 @@ You may also find it easier to use the version provided in `Tensorflow Hub <http
 
 **pre-trained models:**
 
-We have several different English language pre-trained biLMs available for use. Each model is specified with two separate files, a JSON formatted "options" file with hyperparameters and a hdf5 formatted file with the model weights. Links to the pre-trained models are available `here <https://allennlp.org/elmo>`__.
+We have got several pre-trained English language biLMs available for use. Each model is specified with two separate files, a JSON formatted "options" file with hyperparameters and a hdf5 formatted file with the model weights. Links to the pre-trained models are available `here <https://allennlp.org/elmo>`__.
 
 There are three ways to integrate ELMo representations into a downstream task, depending on your use case.
 
@@ -358,7 +357,7 @@ There are three ways to integrate ELMo representations into a downstream task, d
 2. Precompute and cache the context independent token representations, then compute context dependent representations using the biLSTMs for input data. This method is less computationally expensive then #1, but is only applicable with a fixed, prescribed vocabulary.
 3. Precompute the representations for your entire dataset and save to a file.
 
-We have used all of these methods in the past for various use cases. #1 is necessary for evaluating at test time on unseen data (e.g. public SQuAD leaderboard). #2 is a good compromise for large datasets where the size of the file in #3 is unfeasible (SNLI, SQuAD). #3 is a good choice for smaller datasets or in cases where you'd like to use ELMo in other frameworks.
+We have used all of these methods in the past for various use cases. #1 is necessary for evaluating at test time on unseen data (e.g. public SQuAD leaderboard). #2 is a good compromise for large datasets where the size of the file in is unfeasible (SNLI, SQuAD). #3 is a good choice for smaller datasets or in cases where you'd like to use ELMo in other frameworks.
 
 In all cases, the process roughly follows the same steps. First, create a ``Batcher`` (or ``TokenBatcher`` for #2) to translate tokenized strings to numpy arrays of character (or token) ids. Then, load the pretrained ELMo model (class ``BidirectionalLanguageModel``). Finally, for steps #1 and #2 use ``weight_layers`` to compute the final ELMo representations. For #3, use ``BidirectionalLanguageModel`` to write all the intermediate layers to a file.
 
@@ -410,7 +409,7 @@ Weighted Words
 Term frequency
 --------------
 
-Term frequency is Bag of words that is simplest technique of text feature extraction. This method is based on counting number of the words in each document and assign it to feature space.
+Term frequency is Bag of words that is one of the simplest techniques of text feature extraction. This method is based on counting number of the words in each document and assign it to feature space.
 
 
 -----------------------------------------
@@ -567,7 +566,7 @@ Linear Discriminant Analysis (LDA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Linear Discriminant Analysis (LDA) is a commonly used technique for data classification and dimensionality reduction. LDA is particularly helpful where the within-class frequencies are unequal and their performances have been evaluated on randomly generated test data. Class-dependent and class-independent transformation are two approaches to LDA in which the ratio of between class variance to within class variance and the ratio of the overall variance to within class variance are used respectively. 
+Linear Discriminant Analysis (LDA) is another commonly used technique for data classification and dimensionality reduction. LDA is particularly helpful where the within-class frequencies are unequal and their performances have been evaluated on randomly generated test data. Class-dependent and class-independent transformation are two approaches in LDA where the ratio of between-class-variance to within-class-variance and the ratio of the overall-variance to within-class-variance are used respectively. 
 
 
 
@@ -683,7 +682,7 @@ output:
 ~~~~~~~~~~~~~~~~~
 Random Projection
 ~~~~~~~~~~~~~~~~~
-Random projection or random feature is technique for dimensionality reduction which is mostly used for very large volume dataset or very high dimensional feature space. Text and document, especially with weighted feature extraction, generate huge number of features.
+Random projection or random feature is a dimensionality reduction technique mostly used for very large volume dataset or very high dimensional feature space. Text and document, especially with weighted feature extraction, generate huge number of features.
 Many researchers addressed Random Projection for text data for text mining, text classification and/or dimensionality reduction.
 we start to review some random projection techniques. 
 
@@ -741,7 +740,7 @@ Autoencoder
 ~~~~~~~~~~~
 
 
-Autoencoder is a neural network technique that is trained to attempt to copy its input to its output. The autoencoder as dimensional reduction methods have achieved great success via the powerful reprehensibility of neural networks. The main idea is one hidden layer between input and output layers has fewer units which could be used as reduced dimension of feature space. Specially for texts, documents, and sequences that contains many features, autoencoder could help to process of data faster and more efficient.
+Autoencoder is a neural network technique that is trained to attempt to copy its input to its output. The autoencoder as dimensional reduction methods have achieved great success via the powerful reprehensibility of neural networks. The main idea is, one hidden layer between the input and output layers with fewer neurons can be used to reduce the dimension of feature space. Specially for texts, documents, and sequences that contains many features, autoencoder could help to process data faster and more efficiently.
 
 
 .. image:: docs/pic/Autoencoder.png
@@ -798,7 +797,7 @@ T-distributed Stochastic Neighbor Embedding (T-SNE)
 
 
 
-T-distributed Stochastic Neighbor Embedding (T-SNE) is a nonlinear dimensionality reduction method for embedding high-dimensional data for which is mostly used for visualization in a low-dimensional space. This approach is based on `G. Hinton and ST. Roweis <https://www.cs.toronto.edu/~fritz/absps/sne.pdf>`__ . SNE works by converting the high dimensional Euclidean distances into conditional probabilities which represent similarities.
+T-distributed Stochastic Neighbor Embedding (T-SNE) is a nonlinear dimensionality reduction technique for embedding high-dimensional data which is mostly used for visualization in a low-dimensional space. This approach is based on `G. Hinton and ST. Roweis <https://www.cs.toronto.edu/~fritz/absps/sne.pdf>`__ . SNE works by converting the high dimensional Euclidean distances into conditional probabilities which represent similarities.
 
  `Example <http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>`__:
 
@@ -827,7 +826,7 @@ Text Classification Techniques
 Rocchio classification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first version of Rocchio algorithm is introduced by rocchio in 1971 to use relevance feedback in querying full-text databases. Since then many researchers addressed and developed this technique for text and document classification. This method uses TF-IDF weights for each informative word instead of a set of Boolean features. Using a training set of documents, Rocchio's algorithm builds a prototype vector for each class which is an average vector over all training document vectors that belongs to a certain class. Then, it will assign each test document to a class with maximum similarity that between test document and each of prototype vectors.
+The first version of Rocchio algorithm is introduced by rocchio in 1971 to use relevance feedback in querying full-text databases. Since then many researchers have addressed and developed this technique for text and document classification. This method uses TF-IDF weights for each informative word instead of a set of Boolean features. Using a training set of documents, Rocchio's algorithm builds a prototype vector for each class which is an average vector over all training document vectors that belongs to a certain class. Then, it will assign each test document to a class with maximum similarity that between test document and each of the prototype vectors.
 
 
 When in nearest centroid classifier, we used for text as input data for classification with tf-idf vectors, this classifier is known as the Rocchio classifier.
@@ -905,7 +904,7 @@ Boosting
 .. image:: docs/pic/Boosting.PNG
 
 
-**Boosting** is a Ensemble learning meta-algorithm for primarily reducing Supervised learning, and also variance in supervised learning, and a family of machine learning algorithms that convert weak learners to strong ones. Boosting is based on the question posed by `Michael Kearns <https://en.wikipedia.org/wiki/Michael_Kearns_(computer_scientist)>`__  and Leslie Valiant (1988, 1989) Can a set of weak learners create a single strong learner. A weak learner is defined to be a Classification that is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification.
+**Boosting** is a Ensemble learning meta-algorithm for primarily reducing variance in supervised learning. It is basically a family of machine learning algorithms that convert weak learners to strong ones. Boosting is based on the question posed by `Michael Kearns <https://en.wikipedia.org/wiki/Michael_Kearns_(computer_scientist)>`__  and Leslie Valiant (1988, 1989) Can a set of weak learners create a single strong learner? A weak learner is defined to be a Classification that is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification.
 
 
 
@@ -1041,10 +1040,9 @@ Naive Bayes Classifier
 
 Naïve Bayes text classification has been used in industry
 and academia for a long time (introduced by Thomas Bayes
-between 1701-1761) ; however, this technique
-is studied since 1950s for text and document categorization. Naive Bayes Classifier (NBC) is generative
-model which is the most traditional method of text categorization
-which is widely used in Information Retrieval. Many researchers addressed and developed this technique
+between 1701-1761). However, this technique
+is being studied since the 1950s for text and document categorization. Naive Bayes Classifier (NBC) is generative
+model which is widely used in Information Retrieval. Many researchers addressed and developed this technique
 for their applications. We start the most basic version
 of NBC which developed by using term-frequency (Bag of
 Word) fetaure extraction technique by counting number of
@@ -1118,7 +1116,7 @@ In machine learning, the k-nearest neighbors algorithm (kNN)
 is a non-parametric technique used for classification.
 This method is used in Natural-language processing (NLP)
 as text classification in many researches in past
-decad
+decades.
 
 .. image:: docs/pic/KNN.png
 
@@ -1278,7 +1276,7 @@ output:
 Decision Tree
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One of earlier classification algorithm for text and data mining is decision tree. Decision tree classifiers (DTC's) are used successfully in many diverse areas for classification. The structure of this technique is  a hierarchical decomposition of the data space (only train dataset). Decision tree as classification task is introduced by `D. Morgan <http://www.aclweb.org/anthology/P95-1037>`__ and developed by `JR. Quinlan <https://courses.cs.ut.ee/2009/bayesian-networks/extras/quinlan1986.pdf>`__. The main idea is creating tree based on attribute for categorized data points, but main challenge of decision tree is which attribute or feature could be in parents' level and which one should be in child level. for solving this problem, `De Mantaras <https://link.springer.com/article/10.1023/A:1022694001379>`__ introduced statistical modeling for feature selection in tree.
+One of earlier classification algorithm for text and data mining is decision tree. Decision tree classifiers (DTC's) are used successfully in many diverse areas of classification. The structure of this technique is a hierarchical decomposition of the data space (only train dataset). Decision tree as classification task is introduced by `D. Morgan <http://www.aclweb.org/anthology/P95-1037>`__ and developed by `JR. Quinlan <https://courses.cs.ut.ee/2009/bayesian-networks/extras/quinlan1986.pdf>`__. The main idea is creating trees based on attributes of the data points, but the challenge is determining which attribute should be in parent level and which one should be in child level. To solve this problem, `De Mantaras <https://link.springer.com/article/10.1023/A:1022694001379>`__ introduced statistical modeling for feature selection in tree.
 
 
 .. code:: python
