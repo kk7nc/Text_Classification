@@ -34,21 +34,21 @@ Text and Document Feature Extraction
 ----
 
 
-Text feature extraction and pre-processing for classification algorithm is very significant. In this section, we start to talk about text cleaning which most of documents have a lot of noise. In this part we discuss about two main methods of text feature extractions which are word embedding and weighted word.
+Text feature extraction and pre-processing for classification algorithms are very significant. In this section, we start to talk about text cleaning since most of documents contain a lot of noise. In this part, we discuss two primary methods of text feature extractions- word embedding and weighted word.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Text Cleaning and Pre-processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Natural Language Processing (NLP), most of the text and document datasets contains many unnecessary words such as Stopwords, miss-spelling, slang, and etc. In this section, we briefly explain some techniques and method for text cleaning and pre-processing text datasets. In many algorithm, especially statistical and probabilistic learning algorithm, noise and unnecessary features could have bad effect on performance of the system, so one of the solution could be illumination and remove these features as pre-processing step.
+In Natural Language Processing (NLP), most of the text and documents contain many words that are redundant for text classification, such as stopwords, miss-spellings, slangs, and etc. In this section, we briefly explain some techniques and methods for text cleaning and pre-processing text documents. In many algorithms like statistical and probabilistic learning methods, noise and unnecessary features can negatively affect the overall perfomance. So, elimination of these features are extremely important.
 
 
 -------------
 Tokenization
 -------------
 
-Tokenization is a part of pre-process to break a stream of text up into words, phrases, symbols, or other meaningful elements called tokens.  The main goal of this step is the exploration of the words in a sentence. In text mining beside of text classification, it;'s necessitate a parser which processes the tokenization of the documents; for example:
+Tokenization is the process of breaking down a stream of text into words, phrases, symbols, or any other meaningful elements called tokens. The main goal of this step is to extract individual words in a sentence. Along with text classifcation, in text mining, it is necessay to incorporate a parser in the pipeline which performs the tokenization of the documents; for example:
 
 sentence:
 
@@ -78,7 +78,7 @@ Stop words
 -----------
 
 
-Text and document classification over social media such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of these data points.
+Text and document classification over social media, such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of the text corpuses.
 
 Here is an exmple from  `geeksforgeeks <https://www.geeksforgeeks.org/removing-stop-words-nltk-python/>`__
 
@@ -120,7 +120,7 @@ Output:
 Capitalization
 ---------------
 
-Text and document data points have a diversity of capitalization to became a sentence; substantially, several sentences together create a document. The most common approach of capitalization method could be to reduce everything to lower case. This technique makes all words in text and document in same space, but it is caused to a significant problem for meaning of some words such as "US" to "us" which first one represent the country of United States of America and second one is pronouns word; thus, for solving this problem, we could use slang and abbreviation converters.
+Sentences can contain a mixture of uppercase and lower case letters. Multiple sentences make up a text document. To reduce the problem space, the most common approach is to reduce everything to lower case. This brings all words in a document in same space, but it often changes the meaning of some words, such as "US" to "us" where first one represents the United States of America and second one is a pronoun. To solve this, slang and abbreviation converters can be applied.
 
 .. code:: python
 
@@ -136,17 +136,17 @@ Output:
   "the united states of america (usa) or america, is a federal republic composed of 50 states"
 
 -----------------------
-Slang and Abbreviation
+Slangs and Abbreviations
 -----------------------
 
-Slang and Abbreviation is another problem as pre-processing step for cleaning text datasets. An abbreviation  is a shortened form of a word or phrase which contain mostly first letters form the words such as SVM stand for  Support Vector Machine. Slang is a version of language of an informal talk or text that has different meaning such as "lost the plot", it essentially means that they've gone mad. The common method for dealing with these words is convert them to formal language.
+Slangs and abbreviations can cause problems while executing the pre-processing steps. An abbreviation  is a shortened form of a word, such as SVM stand for Support Vector Machine. Slang is a version of language that depicts informal conversation or text that has different meaning, such as "lost the plot", it essentially means that 'they've gone mad'. Common method to deal with these words is converting them to formal language.
 
 ---------------
 Noise Removal
 ---------------
 
 
-The other issue of text cleaning as pre-processing step is noise removal which most of text and document datasets contains many unnecessary characters such as punctuation, special character. It's important to know the punctuation is critical for us to understand the meaning of the sentence, but it could have effect for classification algorithms.
+Another issue of text cleaning as a pre-processing step is noise removal. Text documents generally contains characters like punctuations or  special characters and they are not necessary for text mining or classification purposes. Although punctuation is critical to understand the meaning of the sentence, but it can affect the classification algorithms negatively.
 
 
 Here is simple code to remove standard noise from text:
@@ -180,7 +180,7 @@ Spelling Correction
 -------------------
 
 
-One of the optional part of the pre-processing step is spelling correction which is happened in texts and documents. Many algorithm, techniques, and methods have been addressed this problem in NLP. Many techniques and methods are available for researchers such as hashing-based and context-sensitive spelling correction techniques, or  spelling correction using trie and damerau-levenshtein distance bigram.
+An optional part of the pre-processing step is correcting the misspelled words. Different techniques, such as hashing-based and context-sensitive spelling correction techniques, or  spelling correction using trie and damerau-levenshtein distance bigram have been introduced to tackle this issue.
 
 
 .. code:: python
@@ -207,7 +207,7 @@ Stemming
 ------------
 
 
-Text Stemming is modifying to obtain variant word forms using different linguistic processes such as affixation (addition of affixes). For example, the stem of the word "studying" is "study", to which -ing.
+Text Stemming is modifying a word to obtain its variants using different linguistic processeses like affixation (addition of affixes). For example, the stem of the word "studying" is "study", to which -ing.
 
 
 Here is an example of Stemming from `NLTK <https://pythonprogramming.net/stemming-nltk-tutorial/>`__
@@ -240,7 +240,7 @@ Lemmatization
 -------------
 
 
-Text lemmatization is process in NLP to replaces the suffix of a word with a different one or removes the suffix of a word completely to get the basic word form (lemma).
+Text lemmatization is the process of eliminating redundant prefix or suffix of a word and extract the base word (lemma).
 
 
 .. code:: python
@@ -255,8 +255,7 @@ Text lemmatization is process in NLP to replaces the suffix of a word with a dif
 Word Embedding
 ~~~~~~~~~~~~~~
 
-Different word embedding has been proposed to translate these unigrams into understandable input for machine learning algorithms. Most basic methods to perform such embedding is term-frequency~(TF) where each word will be mapped to a number corresponding to the number of occurrence of that word in the whole corpora. The other term frequency functions have been also used that present words frequency as Boolean or logarithmically scaled number. As regarding to results, each document will be translated to a vector with the length of document, containing the frequency of the words in that document. Although such approach is very intuitive but it suffers from the fact that particular words that are used commonly in language literature would dominate such word representation.
-
+Different word embedding procedures have been proposed to translate these unigrams into consummable input for machine learning algorithms. A very simple way to perform such embedding is term-frequency~(TF) where each word will be mapped to a number corresponding to the number of occurrence of that word in the whole corpora. The other term frequency functions have been also used that represent word-frequency as Boolean or logarithmically scaled number. Here, each document will be converted to a vector of same length containing the frequency of the words in that document. Although such approach may seem very intuitive but it suffers from the fact that particular words that are used very commonly in language literature might dominate this sort of word representations.
 
 .. image:: docs/pic/CBOW.png
 
@@ -267,8 +266,8 @@ Word2Vec
 
 Original from https://code.google.com/p/word2vec/
 
-I’ve copied it to a github project so I can apply and track community
-patches for my needs (starting with capability for Mac OS X
+I’ve copied it to a github project so that I can apply and track community
+patches (starting with capability for Mac OS X
 compilation).
 
 -  **makefile and some source has been modified for Mac OS X
@@ -288,7 +287,7 @@ To get started:
 
 Original README text follows:
 
-This tool provides an efficient implementation of the continuous bag-of-words and skip-gram architectures for computing vector representations of words. These representations can be subsequently used in many natural language processing applications and for further research. 
+This tool provides an efficient implementation of the continuous bag-of-words and skip-gram architectures for computing vector representations of words. These representations can be subsequently used in many natural language processing applications and for further research purposes. 
 
 
 this code provides an implementation of the Continuous Bag-of-Words (CBOW) and
@@ -296,19 +295,19 @@ the Skip-gram model (SG), as well as several demo scripts.
 
 Given a text corpus, the word2vec tool learns a vector for every word in
 the vocabulary using the Continuous Bag-of-Words or the Skip-Gram neural
-network architectures. The user should to specify the following: -
-desired vector dimensionality - the size of the context window for
-either the Skip-Gram or the Continuous Bag-of-Words model - training
-algorithm: hierarchical softmax and / or negative sampling - threshold
-for downsampling the frequent words - number of threads to use - the
-format of the output word vector file (text or binary)
+network architectures. The user should specify the following: -
+desired vector dimensionality (size of the context window for
+either the Skip-Gram or the Continuous Bag-of-Words model),  training
+algorithm (hierarchical softmax and / or negative sampling), threshold
+for downsampling the frequent words, number of threads to use,
+format of the output word vector file (text or binary).
 
-Usually, the other hyper-parameters such as the learning rate do not
+Usually, other hyper-parameters, such as the learning rate do not
 need to be tuned for different training sets.
 
 The script demo-word.sh downloads a small (100MB) text corpus from the
 web, and trains a small word vector model. After the training is
-finished, the user can interactively explore the similarity of the
+finished, users can interactively explore the similarity of the
 words.
 
 More information about the scripts is provided at
@@ -350,7 +349,7 @@ You may also find it easier to use the version provided in `Tensorflow Hub <http
 
 **pre-trained models:**
 
-We have several different English language pre-trained biLMs available for use. Each model is specified with two separate files, a JSON formatted "options" file with hyperparameters and a hdf5 formatted file with the model weights. Links to the pre-trained models are available `here <https://allennlp.org/elmo>`__.
+We have got several pre-trained English language biLMs available for use. Each model is specified with two separate files, a JSON formatted "options" file with hyperparameters and a hdf5 formatted file with the model weights. Links to the pre-trained models are available `here <https://allennlp.org/elmo>`__.
 
 There are three ways to integrate ELMo representations into a downstream task, depending on your use case.
 
@@ -358,7 +357,7 @@ There are three ways to integrate ELMo representations into a downstream task, d
 2. Precompute and cache the context independent token representations, then compute context dependent representations using the biLSTMs for input data. This method is less computationally expensive then #1, but is only applicable with a fixed, prescribed vocabulary.
 3. Precompute the representations for your entire dataset and save to a file.
 
-We have used all of these methods in the past for various use cases. #1 is necessary for evaluating at test time on unseen data (e.g. public SQuAD leaderboard). #2 is a good compromise for large datasets where the size of the file in #3 is unfeasible (SNLI, SQuAD). #3 is a good choice for smaller datasets or in cases where you'd like to use ELMo in other frameworks.
+We have used all of these methods in the past for various use cases. #1 is necessary for evaluating at test time on unseen data (e.g. public SQuAD leaderboard). #2 is a good compromise for large datasets where the size of the file in is unfeasible (SNLI, SQuAD). #3 is a good choice for smaller datasets or in cases where you'd like to use ELMo in other frameworks.
 
 In all cases, the process roughly follows the same steps. First, create a ``Batcher`` (or ``TokenBatcher`` for #2) to translate tokenized strings to numpy arrays of character (or token) ids. Then, load the pretrained ELMo model (class ``BidirectionalLanguageModel``). Finally, for steps #1 and #2 use ``weight_layers`` to compute the final ELMo representations. For #3, use ``BidirectionalLanguageModel`` to write all the intermediate layers to a file.
 
@@ -410,7 +409,7 @@ Weighted Words
 Term frequency
 --------------
 
-Term frequency is Bag of words that is simplest technique of text feature extraction. This method is based on counting number of the words in each document and assign it to feature space.
+Term frequency is Bag of words that is one of the simplest techniques of text feature extraction. This method is based on counting number of the words in each document and assign it to feature space.
 
 
 -----------------------------------------
@@ -421,7 +420,7 @@ The mathematical representation of weight of a term in a document by Tf-idf is g
 .. image:: docs/eq/tf-idf.gif
    :width: 10px
    
-Where N is number of documents and df(t) is the number of documents containing the term t in the corpus. The first part would improve recall and the later would improve the precision of the word embedding. Although tf-idf tries to overcome the problem of common terms in document, it still suffers from some other descriptive limitations. Namely, tf-idf cannot account for the similarity between words in the document since each word is presented as an index. In the recent years, with development of more complex models such as neural nets, new methods has been presented that can incorporate concepts such as similarity of words and part of speech tagging. This work uses, word2vec and Glove, two of the most common methods that have been successfully used for deep learning techniques.
+Where N is number of documents and df(t) is the number of documents containing the term t in the corpus. The first part would improve recall and the later would improve the precision of the word embedding. Although tf-idf tries to overcome the problem of common terms in document, it still suffers from some other descriptive limitations. Namely, tf-idf cannot account for the similarity between words in the document since each word is presented as an index. In the recent years, with development of more complex models, such as neural nets, new methods has been presented that can incorporate concepts, such as similarity of words and part of speech tagging. This work uses, word2vec and Glove, two of the most common methods that have been successfully used for deep learning techniques.
 
 
 .. code:: python
@@ -475,7 +474,7 @@ Comparison of Feature Extraction Techniques
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 |           **GloVe (Trained)**         |  * It is very straightforward, e.g., to enforce the word vectors to capture sub-linear relationships in the vector space (performs better than Word2vec) |  * Memory consumption for storage                                                                              |
 |                                       |                                                                                                                                                          |                                                                                                                |
-|                                       |  * Lower weight for highly frequent word pairs such as stop words like “am”, “is”, etc. Will not dominate training progress                              |  * Needs huge corpus to learn                                                                                  |
+|                                       |  * Lower weight for highly frequent word pairs, such as stop words like “am”, “is”, etc. Will not dominate training progress                              |  * Needs huge corpus to learn                                                                                  |
 |                                       |                                                                                                                                                          |                                                                                                                |
 |                                       |                                                                                                                                                          |  * It cannot capture out-of-vocabulary words from the corpus                                                   |
 |                                       |                                                                                                                                                          |                                                                                                                |
@@ -567,7 +566,7 @@ Linear Discriminant Analysis (LDA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Linear Discriminant Analysis (LDA) is a commonly used technique for data classification and dimensionality reduction. LDA is particularly helpful where the within-class frequencies are unequal and their performances have been evaluated on randomly generated test data. Class-dependent and class-independent transformation are two approaches to LDA in which the ratio of between class variance to within class variance and the ratio of the overall variance to within class variance are used respectively. 
+Linear Discriminant Analysis (LDA) is another commonly used technique for data classification and dimensionality reduction. LDA is particularly helpful where the within-class frequencies are unequal and their performances have been evaluated on randomly generated test data. Class-dependent and class-independent transformation are two approaches in LDA where the ratio of between-class-variance to within-class-variance and the ratio of the overall-variance to within-class-variance are used respectively. 
 
 
 
@@ -683,9 +682,9 @@ output:
 ~~~~~~~~~~~~~~~~~
 Random Projection
 ~~~~~~~~~~~~~~~~~
-Random projection or random feature is technique for dimensionality reduction which is mostly used for very large volume dataset or very high dimensional feature space. Text and document, especially with weighted feature extraction, generate huge number of features.
+Random projection or random feature is a dimensionality reduction technique mostly used for very large volume dataset or very high dimensional feature space. Text and document, especially with weighted feature extraction, can contain a huge number of underlying features.
 Many researchers addressed Random Projection for text data for text mining, text classification and/or dimensionality reduction.
-we start to review some random projection techniques. 
+We start to review some random projection techniques. 
 
 
 .. image:: docs/pic/Random%20Projection.png
@@ -741,7 +740,7 @@ Autoencoder
 ~~~~~~~~~~~
 
 
-Autoencoder is a neural network technique that is trained to attempt to copy its input to its output. The autoencoder as dimensional reduction methods have achieved great success via the powerful reprehensibility of neural networks. The main idea is one hidden layer between input and output layers has fewer units which could be used as reduced dimension of feature space. Specially for texts, documents, and sequences that contains many features, autoencoder could help to process of data faster and more efficient.
+Autoencoder is a neural network technique that is trained to attempt to map its input to its output. The autoencoder as dimensional reduction methods have achieved great success via the powerful reprehensibility of neural networks. The main idea is, one hidden layer between the input and output layers with fewer neurons can be used to reduce the dimension of feature space. Specially for texts, documents, and sequences that contains many features, autoencoder could help to process data faster and more efficiently.
 
 
 .. image:: docs/pic/Autoencoder.png
@@ -798,7 +797,7 @@ T-distributed Stochastic Neighbor Embedding (T-SNE)
 
 
 
-T-distributed Stochastic Neighbor Embedding (T-SNE) is a nonlinear dimensionality reduction method for embedding high-dimensional data for which is mostly used for visualization in a low-dimensional space. This approach is based on `G. Hinton and ST. Roweis <https://www.cs.toronto.edu/~fritz/absps/sne.pdf>`__ . SNE works by converting the high dimensional Euclidean distances into conditional probabilities which represent similarities.
+T-distributed Stochastic Neighbor Embedding (T-SNE) is a nonlinear dimensionality reduction technique for embedding high-dimensional data which is mostly used for visualization in a low-dimensional space. This approach is based on `G. Hinton and ST. Roweis <https://www.cs.toronto.edu/~fritz/absps/sne.pdf>`__ . SNE works by converting the high dimensional Euclidean distances into conditional probabilities which represent similarities.
 
  `Example <http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>`__:
 
@@ -827,7 +826,7 @@ Text Classification Techniques
 Rocchio classification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first version of Rocchio algorithm is introduced by rocchio in 1971 to use relevance feedback in querying full-text databases. Since then many researchers addressed and developed this technique for text and document classification. This method uses TF-IDF weights for each informative word instead of a set of Boolean features. Using a training set of documents, Rocchio's algorithm builds a prototype vector for each class which is an average vector over all training document vectors that belongs to a certain class. Then, it will assign each test document to a class with maximum similarity that between test document and each of prototype vectors.
+The first version of Rocchio algorithm is introduced by rocchio in 1971 to use relevance feedback in querying full-text databases. Since then many researchers have addressed and developed this technique for text and document classification. This method uses TF-IDF weights for each informative word instead of a set of Boolean features. Using a training set of documents, Rocchio's algorithm builds a prototype vector for each class which is an average vector over all training document vectors that belongs to a certain class. Then, it will assign each test document to a class with maximum similarity that between test document and each of the prototype vectors.
 
 
 When in nearest centroid classifier, we used for text as input data for classification with tf-idf vectors, this classifier is known as the Rocchio classifier.
@@ -905,7 +904,7 @@ Boosting
 .. image:: docs/pic/Boosting.PNG
 
 
-**Boosting** is a Ensemble learning meta-algorithm for primarily reducing Supervised learning, and also variance in supervised learning, and a family of machine learning algorithms that convert weak learners to strong ones. Boosting is based on the question posed by `Michael Kearns <https://en.wikipedia.org/wiki/Michael_Kearns_(computer_scientist)>`__  and Leslie Valiant (1988, 1989) Can a set of weak learners create a single strong learner. A weak learner is defined to be a Classification that is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification.
+**Boosting** is a Ensemble learning meta-algorithm for primarily reducing variance in supervised learning. It is basically a family of machine learning algorithms that convert weak learners to strong ones. Boosting is based on the question posed by `Michael Kearns <https://en.wikipedia.org/wiki/Michael_Kearns_(computer_scientist)>`__  and Leslie Valiant (1988, 1989) Can a set of weak learners create a single strong learner? A weak learner is defined to be a Classification that is only slightly correlated with the true classification (it can label examples better than random guessing). In contrast, a strong learner is a classifier that is arbitrarily well-correlated with the true classification.
 
 
 
@@ -1041,11 +1040,10 @@ Naive Bayes Classifier
 
 Naïve Bayes text classification has been used in industry
 and academia for a long time (introduced by Thomas Bayes
-between 1701-1761) ; however, this technique
-is studied since 1950s for text and document categorization. Naive Bayes Classifier (NBC) is generative
-model which is the most traditional method of text categorization
-which is widely used in Information Retrieval. Many researchers addressed and developed this technique
-for their applications. We start the most basic version
+between 1701-1761). However, this technique
+is being studied since the 1950s for text and document categorization. Naive Bayes Classifier (NBC) is generative
+model which is widely used in Information Retrieval. Many researchers addressed and developed this technique
+for their applications. We start with the most basic version
 of NBC which developed by using term-frequency (Bag of
 Word) fetaure extraction technique by counting number of
 words in documents
@@ -1117,8 +1115,8 @@ R
 In machine learning, the k-nearest neighbors algorithm (kNN)
 is a non-parametric technique used for classification.
 This method is used in Natural-language processing (NLP)
-as text classification in many researches in past
-decad
+as a text classification technique in many researches in the past
+decades.
 
 .. image:: docs/pic/KNN.png
 
@@ -1188,7 +1186,7 @@ Support Vector Machine (SVM)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-The original version of SVM was introduced by Vapnik and  Chervonenkis in 1963. The early 1990s, nonlinear version was addressed by BE. Boser et al.. Original version of SVM was designed for binary classification problem, but Many researchers work on multi-class problem using this authoritative technique.
+The original version of SVM was introduced by Vapnik and  Chervonenkis in 1963. The early 1990s, nonlinear version was addressed by BE. Boser et al.. Original version of SVM was designed for binary classification problem, but Many researchers have worked on multi-class problem using this authoritative technique.
 
 
 The advantages of support vector machines are based on scikit-learn page:
@@ -1201,7 +1199,7 @@ The advantages of support vector machines are based on scikit-learn page:
 
 The disadvantages of support vector machines include:
 
-* If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
+* If the number of features is much greater than the number of samples, avoiding over-fitting via choosing kernel functions and regularization term is crucial.
 * SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation (see Scores and probabilities, below).
 
 
@@ -1278,7 +1276,7 @@ output:
 Decision Tree
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One of earlier classification algorithm for text and data mining is decision tree. Decision tree classifiers (DTC's) are used successfully in many diverse areas for classification. The structure of this technique is  a hierarchical decomposition of the data space (only train dataset). Decision tree as classification task is introduced by `D. Morgan <http://www.aclweb.org/anthology/P95-1037>`__ and developed by `JR. Quinlan <https://courses.cs.ut.ee/2009/bayesian-networks/extras/quinlan1986.pdf>`__. The main idea is creating tree based on attribute for categorized data points, but main challenge of decision tree is which attribute or feature could be in parents' level and which one should be in child level. for solving this problem, `De Mantaras <https://link.springer.com/article/10.1023/A:1022694001379>`__ introduced statistical modeling for feature selection in tree.
+One of earlier classification algorithm for text and data mining is decision tree. Decision tree classifiers (DTC's) are used successfully in many diverse areas of classification. The structure of this technique includes a hierarchical decomposition of the data space (only train dataset). Decision tree as classification task was introduced by `D. Morgan <http://www.aclweb.org/anthology/P95-1037>`__ and developed by `JR. Quinlan <https://courses.cs.ut.ee/2009/bayesian-networks/extras/quinlan1986.pdf>`__. The main idea is creating trees based on the attributes of the data points, but the challenge is determining which attribute should be in parent level and which one should be in child level. To solve this problem, `De Mantaras <https://link.springer.com/article/10.1023/A:1022694001379>`__ introduced statistical modeling for feature selection in tree.
 
 
 .. code:: python
@@ -1347,7 +1345,7 @@ Random Forest
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Random forests or random decision forests technique is an ensemble learning method for text classification. This method is introduced by `T. Kam Ho <https://doi.org/10.1109/ICDAR.1995.598994>`__ in 1995 for first time which used t tree as parallel. This technique is developed by `L. Breiman <https://link.springer.com/article/10.1023/A:1010933404324>`__ in 1999 that they find converge for RF as margin measure.
+Random forests or random decision forests technique is an ensemble learning method for text classification. This method was introduced by `T. Kam Ho <https://doi.org/10.1109/ICDAR.1995.598994>`__ in 1995 for first time which used t trees in parallel. This technique was later developed by `L. Breiman <https://link.springer.com/article/10.1023/A:1010933404324>`__ in 1999 that they found converged for RF as a margin measure.
 
 
 .. image:: docs/pic/RF.png
@@ -1419,7 +1417,7 @@ output:
 Conditional Random Field (CRF)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Conditional Random Field (CRF) is an undirected graphical model as shown in figure. CRFs state the conditional probability of a label sequence *Y* give a sequence of observation *X* *i.e.* P(Y|X). CRFs can incorporate complex features of observation sequence without violating the independence assumption by modeling the conditional probability of the label sequence rather than the joint probability P(X,Y). The concept of clique which is a fully connected subgraph and clique potential are used for computing P(X|Y). Considering one potential function for each clique of the graph, the probability of a variable configuration is corresponding to the product of a series of non-negative potential function. The value computed by each potential function is equivalent to the probability of the variables in its corresponding clique taken on a particular configuration.
+Conditional Random Field (CRF) is an undirected graphical model as shown in figure. CRFs state the conditional probability of a label sequence *Y* give a sequence of observation *X* *i.e.* P(Y|X). CRFs can incorporate complex features of observation sequence without violating the independence assumption by modeling the conditional probability of the label sequences rather than the joint probability P(X,Y). The concept of clique which is a fully connected subgraph and clique potential are used for computing P(X|Y). Considering one potential function for each clique of the graph, the probability of a variable configuration corresponds to the product of a series of non-negative potential function. The value computed by each potential function is equivalent to the probability of the variables in its corresponding clique taken on a particular configuration.
 
 
 .. image:: docs/pic/CRF.png
@@ -1558,7 +1556,7 @@ Deep Learning
 Deep Neural Networks
 -----------------------------------------
 
-Deep Neural Networks' architecture is designed to learn by multi connection of layers that each single layer only receives connection from previous and provides connections only to the next layer in hidden part. The input is a connection of feature space (As discussed in Section Feature_extraction with first hidden layer. For Deep Neural Networks (DNN), input layer could be tf-ifd, word embedding, or etc. as shown in standard DNN in Figure. The output layer is number of classes for multi-class classification and only one output for binary classification. But our main contribution of this paper is that we have many training DNN for different purposes. In our techniques, we have multi-classes DNNs which each learning models is generated randomly (number of nodes in each layer and also number of layers are completely random assigned). Our implementation of Deep Neural Networks (DNN) is discriminative trained model that uses standard back-propagation algorithm using sigmoid or ReLU as activation function. The output layer for multi-class classification, should use Softmax.
+Deep Neural Networks architectures are designed to learn through multiple connection of layers where each single layer only receives connection from previous and provides connections only to the next layer in hidden part. The input is a connection of feature space (As discussed in Section Feature_extraction with first hidden layer. For Deep Neural Networks (DNN), input layer could be tf-ifd, word embedding, or etc. as shown in standard DNN in Figure. The output layer houses neurons equal to the number of classes for multi-class classification and only one neuron for binary classification. But our main contribution in this paper is that we have many trained DNNs to serve different purposes. Here, we have multi-class DNNs where each learning model is generated randomly (number of nodes in each layer as well as the number of layers are randomly assigned). Our implementation of Deep Neural Network (DNN) is basically a discriminatively trained model that uses standard back-propagation algorithm and sigmoid or ReLU as activation functions. The output layer for multi-class classification should use Softmax.
 
 
 .. image:: docs/pic/DNN.png
@@ -1743,13 +1741,13 @@ Recurrent Neural Networks (RNN)
 
 .. image:: docs/pic/RNN.png
 
-Another neural network architecture that addressed with researchers for text miming and classification is Recurrent Neural Networks (RNN). RNN assigns more weights to the previous data points of sequence. Therefore, this technique is a powerful method for text, string and sequential data classification. Moreover, this technique could be used for image classification as we did in this work. In RNN the neural net considers the information of previous nodes in a very sophisticated method which allows for better semantic analysis of structures of dataset. 
+Another neural network architecture that is addressed by the researchers for text miming and classification is Recurrent Neural Networks (RNN). RNN assigns more weights to the previous data points of sequence. Therefore, this technique is a powerful method for text, string and sequential data classification. Moreover, this technique could be used for image classification as we did in this work. In RNN, the neural net considers the information of previous nodes in a very sophisticated method which allows for better semantic analysis of the structures in the dataset. 
 
 
 Gated Recurrent Unit (GRU)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Gated Recurrent Unit (GRU) is a gating mechanism for RNN which was introduced by  `J. Chung et al. <https://arxiv.org/abs/1412.3555>`__ and `K.Cho et al. <https://arxiv.org/abs/1406.1078>`__. GRU is a simplified variant of the LSTM architecture, but there are differences as follows: GRU contains two gates, a GRU does not possess internal memory (as shown in Figure; and finally, a second non-linearity is not applied (tanh in Figure).
+Gated Recurrent Unit (GRU) is a gating mechanism for RNN which was introduced by  `J. Chung et al. <https://arxiv.org/abs/1412.3555>`__ and `K.Cho et al. <https://arxiv.org/abs/1406.1078>`__. GRU is a simplified variant of the LSTM architecture, but there are differences as follows: GRU contains two gates and does not possess any internal memory (as shown in Figure; and finally, a second non-linearity is not applied (tanh in Figure).
 
 .. image:: docs/pic/LSTM.png
 
@@ -1758,7 +1756,7 @@ Long Short-Term Memory (LSTM)
 
 Long Short-Term Memory~(LSTM) was introduced by `S. Hochreiter and J. Schmidhuber <https://www.mitpressjournals.org/doi/abs/10.1162/neco.1997.9.8.1735>`__  and developed by many research scientists.
 
-To deal with these problems Long Short-Term Memory (LSTM) is a special type of RNN that preserve long term dependency in a more effective way in comparison to the basic RNN. This is particularly useful to overcome vanishing gradient problem. Although LSTM has a chain-like structure similar to RNN, LSTM uses multiple gates to carefully regulate the amount of information that will be allowed into each node state. Figure shows the basic cell of a LSTM model.
+To deal with these problems Long Short-Term Memory (LSTM) is a special type of RNN that preserves long term dependency in a more effective way compared to the basic RNNs. This is particularly useful to overcome vanishing gradient problem. Although LSTM has a chain-like structure similar to RNN, LSTM uses multiple gates to carefully regulate the amount of information that will be allowed into each node state. Figure shows the basic cell of a LSTM model.
 
 
 
@@ -2001,9 +1999,9 @@ Output:
 Convolutional Neural Networks (CNN)
 -----------------------------------------
 
-One of the deep learning architectures is  Convolutional Neural Networks (CNN) that is employed for hierarchical document classification. Although originally built for image processing  with architecture similar to the visual cortex, CNN have also been effectively used for  text classification. In the basic CNN for image processing an image tensor is convolved with a set of kernels of size *d by d*. These convolution layers are called feature maps and these can be stacked to provide multiple filters on the input. To reduce the computational complexity CNN use pooling which reduces the size of the output from one layer to the next in the network. Different pooling techniques are used to reduce outputs while preserving important features.
+Another deep learning architecture that is employed for hierarchical document classification is  Convolutional Neural Networks (CNN) . Although originally built for image processing  with architecture similar to the visual cortex, CNNs have also been effectively used for text classification. In a basic CNN for image processing, an image tensor is convolved with a set of kernels of size *d by d*. These convolution layers are called feature maps and can be stacked to provide multiple filters on the input. To reduce the computational complexity, CNNs use pooling which reduces the size of the output from one layer to the next in the network. Different pooling techniques are used to reduce outputs while preserving important features.
 
-The most common pooling method is max pooling where the maximum element is selected in the pooling window. In order to feed the pooled output from stacked featured maps to the next layer, the maps are flattened into one column. The final layers in a CNN are typically fully connected.
+The most common pooling method is max pooling where the maximum element is selected from the pooling window. In order to feed the pooled output from stacked featured maps to the next layer, the maps are flattened into one column. The final layers in a CNN are typically fully connected dense layers.
 In general, during the back-propagation step of a convolutional neural network not only the weights are adjusted but also the feature detector filters. A potential problem of CNN used for text is the number of 'channels', *Sigma* (size of the feature space). This might be very large (e.g. 50K), for text but for images this is less of a problem (e.g. only 3 channels of RGB). This means the dimensionality of the CNN for text is very high.
 
 
@@ -2317,7 +2315,7 @@ Hierarchical Attention Networks
 Recurrent Convolutional Neural Networks (RCNN)
 ---------------------------------------------
 
-ecurrent Convolutional Neural Networks (RCNN) is used for text classification. The main idea of this technique is capturing contextual information with the recurrent structure and constructs the representation of text using a convolutional neural network. This architecture is a combination of RNN and CNN to use advantages of both technique in a model.
+Recurrent Convolutional Neural Networks (RCNN) is also used for text classification. The main idea of this technique is capturing contextual information with the recurrent structure and constructing the representation of text using a convolutional neural network. This architecture is a combination of RNN and CNN to use advantages of both technique in a model.
 
 
 
@@ -2590,8 +2588,8 @@ A new ensemble, deep learning approach for classification. Deep
 learning models have achieved state-of-the-art results across many domains.
 RMDL solves the problem of finding the best deep learning structure
 and architecture while simultaneously improving robustness and accuracy
-through ensembles of deep learning architectures. RDML can accept
-asinput a variety data to include text, video, images, and symbolic.
+through ensembles of different deep learning architectures. RDMLs can accept
+a variety of data as input including text, video, images, and symbols.
 
 
 |RMDL|
@@ -2641,19 +2639,18 @@ Documentation:
 
 
 The exponential growth in the number of complex datasets every year requires  more enhancement in
-machine learning methods to provide  robust and accurate data classification. Lately, deep learning
-approaches have been achieved surpassing results in comparison to previous machine learning algorithms
-on tasks such as image classification, natural language processing, face recognition, and etc. The
-success of these deep learning algorithms relys on their capacity to model complex and non-linear
-relationships within data. However, finding the suitable structure for these models has been a challenge
+machine learning methods to provide robust and accurate data classification. Lately, deep learning
+approaches are achieving better results compared to previous machine learning algorithms
+on tasks like image classification, natural language processing, face recognition, and etc. The
+success of these deep learning algorithms rely on their capacity to model complex and non-linear
+relationships within the data. However, finding suitable structures for these models has been a challenge
 for researchers. This paper introduces Random Multimodel Deep Learning (RMDL): a new ensemble, deep learning
-approach for classification.  RMDL solves the problem of finding the best deep learning structure and
-architecture while simultaneously improving robustness and accuracy through ensembles of deep
+approach for classification. RMDL aims to solve the problem of finding the best deep learning architecture while simultaneously improving the robustness and accuracy through ensembles of multiple deep
 learning architectures. In short, RMDL trains multiple models of Deep Neural Network (DNN),
 Convolutional Neural Network (CNN) and Recurrent Neural Network (RNN) in parallel and combines
 their results to produce better result of any of those models individually. To create these models,
 each deep learning model has been constructed in a random fashion regarding the number of layers and
-nodes in their neural network structure. The resulting RDML model can be used for various domains such
+nodes in their neural network structure. The resulting RDML model can be used in various domains such
 as text, video, images, and symbolic. In this Project, we describe RMDL model in depth and show the results
 for image and text classification as well as face recognition. For image classification, we compared our
 model with some of the available baselines using MNIST and CIFAR-10 datasets. Similarly, we used four
@@ -2675,7 +2672,7 @@ Classification <https://arxiv.org/abs/1709.08267>`__
 
 Documentation:
 
-Increasingly large document collections require improved information processing methods for searching, retrieving, and organizing  text. Central to these information processing methods is document classification, which has become an important application for supervised learning. Recently the performance of traditional supervised classifiers has degraded as the number of documents has increased. This is because along with growth in the number of documents has come an increase in the number of categories. This paper approaches this problem differently from current document classification methods that view the problem as multi-class classification. Instead we perform hierarchical classification using an approach we call Hierarchical Deep Learning for Text classification (HDLTex). HDLTex employs stacks of deep learning architectures to provide specialized understanding at each level of the document hierarchy.
+Increasingly large document collections require improved information processing methods for searching, retrieving, and organizing  text documents. Central to these information processing methods is document classification, which has become an important task supervised learning aims to solve. Recently, the performance of traditional supervised classifiers has degraded as the number of documents has increased. This exponential growth of document volume has also increated the number of categories. This paper approaches this problem differently from current document classification methods that view the problem as multi-class classification. Instead we perform hierarchical classification using an approach we call Hierarchical Deep Learning for Text classification (HDLTex). HDLTex employs stacks of deep learning architectures to provide hierarchical understanding of the documents.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2784,7 +2781,7 @@ Matthew correlation coefficient (MCC)
 
 Compute the Matthews correlation coefficient (MCC)
 
-The Matthews correlation coefficient is used in machine learning as a measure of the quality of binary (two-class) classifications. It takes into account true and false positives and negatives and is generally regarded as a balanced measure which can be used even if the classes are of very different sizes. The MCC is in essence a correlation coefficient value between -1 and +1. A coefficient of +1 represents a perfect prediction, 0 an average random prediction and -1 an inverse prediction. The statistic is also known as the phi coefficient. 
+The Matthews correlation coefficient is used in machine learning as a measure of the quality of binary (two-class) classification problems. It takes into account of true and false positives and negatives and is generally regarded as a balanced measure which can be used even if the classes are of very different sizes. The MCC is in essence a correlation coefficient value between -1 and +1. A coefficient of +1 represents a perfect prediction, 0 an average random prediction and -1 an inverse prediction. The statistic is also known as the phi coefficient. 
 
 
 .. code:: python
@@ -2880,7 +2877,7 @@ Plot of a ROC curve for a specific class
 Area Under Curve (AUC)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Area  under  ROC  curve  (AUC)  as  a  summarymetric measures the entire area underneath the ROC curve. AUC  holds  helpful  properties  such  as  increased  sensitivityin analysis of variance (ANOVA) tests, being independent ofdecision threshold, being invariant toa prioriclass probabili-ties and indicating how well negative and positive classes areregarding decision index.
+Area  under ROC curve (AUC) is a summary metric that measures the entire area underneath the ROC curve. AUC holds helpful properties, such as  increased  sensitivity in the analysis of variance (ANOVA) tests, independence of decision threshold, invariance to a priori class probability and the indication of how well negative and positive classes are regarding decision index.
 
 
 .. code:: python
@@ -2905,7 +2902,7 @@ IMDB
 
 - `IMDB Dataset <http://ai.stanford.edu/~amaas/data/sentiment/>`__
 
-Dataset of 25,000 movies reviews from IMDB, labeled by sentiment (positive/negative). Reviews have been preprocessed, and each review is encoded as a sequence of word indexes (integers). For convenience, words are indexed by overall frequency in the dataset, so that for instance the integer "3" encodes the 3rd most frequent word in the data. This allows for quick filtering operations such as: "only consider the top 10,000 most common words, but eliminate the top 20 most common words".
+Dataset of 25,000 movies reviews from IMDB, labeled by sentiment (positive/negative). Reviews have been preprocessed, and each review is encoded as a sequence of word indexes (integers). For convenience, words are indexed by overall frequency in the dataset, so that for instance the integer "3" encodes the 3rd most frequent word in the data. This allows for quick filtering operations, such as "only consider the top 10,000 most common words, but eliminate the top 20 most common words".
 
 As a convention, "0" does not stand for a specific word, but instead is used to encode any unknown word.
 
@@ -2955,9 +2952,9 @@ Dataset of 11,228 newswires from Reuters, labeled over 46 topics. As with the IM
 
 - `20Newsgroups Dataset <https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups>`__
 
-The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.
+The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon messages posted before and after a specific date.
 
-This module contains two loaders. The first one, sklearn.datasets.fetch_20newsgroups, returns a list of the raw texts that can be fed to text feature extractors such as sklearn.feature_extraction.text.CountVectorizer with custom parameters so as to extract feature vectors. The second one, sklearn.datasets.fetch_20newsgroups_vectorized, returns ready-to-use features, i.e., it is not necessary to use a feature extractor.
+This module contains two loaders. The first one, sklearn.datasets.fetch_20newsgroups, returns a list of the raw texts that can be fed to text feature extractors, such as sklearn.feature_extraction.text.CountVectorizer with custom parameters so as to extract feature vectors. The second one, sklearn.datasets.fetch_20newsgroups_vectorized, returns ready-to-use features, i.e., it is not necessary to use a feature extractor.
 
 
 .. code:: python
@@ -3018,7 +3015,7 @@ Y is target value
 YL1 is target value of level one (parent label)
 YL2 is target value of level one (child label)
 Domain is majaor domain which include 7 labales: {Computer Science,Electrical Engineering, Psychology, Mechanical Engineering,Civil Engineering, Medical Science, biochemistry}
-area is subdomain or area of the paper such as CS-> computer graphics which contain 134 labels.
+area is subdomain or area of the paper, such as CS-> computer graphics which contain 134 labels.
 keywords : is authors keyword of the papers
 
 -  Web of Science Dataset `WOS-11967 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
