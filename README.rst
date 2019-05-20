@@ -682,9 +682,9 @@ output:
 ~~~~~~~~~~~~~~~~~
 Random Projection
 ~~~~~~~~~~~~~~~~~
-Random projection or random feature is a dimensionality reduction technique mostly used for very large volume dataset or very high dimensional feature space. Text and document, especially with weighted feature extraction, generate huge number of features.
+Random projection or random feature is a dimensionality reduction technique mostly used for very large volume dataset or very high dimensional feature space. Text and document, especially with weighted feature extraction, can contain a huge number of underlying features.
 Many researchers addressed Random Projection for text data for text mining, text classification and/or dimensionality reduction.
-we start to review some random projection techniques. 
+We start to review some random projection techniques. 
 
 
 .. image:: docs/pic/Random%20Projection.png
@@ -740,7 +740,7 @@ Autoencoder
 ~~~~~~~~~~~
 
 
-Autoencoder is a neural network technique that is trained to attempt to copy its input to its output. The autoencoder as dimensional reduction methods have achieved great success via the powerful reprehensibility of neural networks. The main idea is, one hidden layer between the input and output layers with fewer neurons can be used to reduce the dimension of feature space. Specially for texts, documents, and sequences that contains many features, autoencoder could help to process data faster and more efficiently.
+Autoencoder is a neural network technique that is trained to attempt to map its input to its output. The autoencoder as dimensional reduction methods have achieved great success via the powerful reprehensibility of neural networks. The main idea is, one hidden layer between the input and output layers with fewer neurons can be used to reduce the dimension of feature space. Specially for texts, documents, and sequences that contains many features, autoencoder could help to process data faster and more efficiently.
 
 
 .. image:: docs/pic/Autoencoder.png
@@ -1043,7 +1043,7 @@ and academia for a long time (introduced by Thomas Bayes
 between 1701-1761). However, this technique
 is being studied since the 1950s for text and document categorization. Naive Bayes Classifier (NBC) is generative
 model which is widely used in Information Retrieval. Many researchers addressed and developed this technique
-for their applications. We start the most basic version
+for their applications. We start with the most basic version
 of NBC which developed by using term-frequency (Bag of
 Word) fetaure extraction technique by counting number of
 words in documents
@@ -1115,7 +1115,7 @@ R
 In machine learning, the k-nearest neighbors algorithm (kNN)
 is a non-parametric technique used for classification.
 This method is used in Natural-language processing (NLP)
-as text classification in many researches in past
+as a text classification technique in many researches in the past
 decades.
 
 .. image:: docs/pic/KNN.png
@@ -1186,7 +1186,7 @@ Support Vector Machine (SVM)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-The original version of SVM was introduced by Vapnik and  Chervonenkis in 1963. The early 1990s, nonlinear version was addressed by BE. Boser et al.. Original version of SVM was designed for binary classification problem, but Many researchers work on multi-class problem using this authoritative technique.
+The original version of SVM was introduced by Vapnik and  Chervonenkis in 1963. The early 1990s, nonlinear version was addressed by BE. Boser et al.. Original version of SVM was designed for binary classification problem, but Many researchers have worked on multi-class problem using this authoritative technique.
 
 
 The advantages of support vector machines are based on scikit-learn page:
@@ -1199,7 +1199,7 @@ The advantages of support vector machines are based on scikit-learn page:
 
 The disadvantages of support vector machines include:
 
-* If the number of features is much greater than the number of samples, avoid over-fitting in choosing Kernel functions and regularization term is crucial.
+* If the number of features is much greater than the number of samples, avoiding over-fitting via choosing kernel functions and regularization term is crucial.
 * SVMs do not directly provide probability estimates, these are calculated using an expensive five-fold cross-validation (see Scores and probabilities, below).
 
 
@@ -1276,7 +1276,7 @@ output:
 Decision Tree
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One of earlier classification algorithm for text and data mining is decision tree. Decision tree classifiers (DTC's) are used successfully in many diverse areas of classification. The structure of this technique is a hierarchical decomposition of the data space (only train dataset). Decision tree as classification task is introduced by `D. Morgan <http://www.aclweb.org/anthology/P95-1037>`__ and developed by `JR. Quinlan <https://courses.cs.ut.ee/2009/bayesian-networks/extras/quinlan1986.pdf>`__. The main idea is creating trees based on attributes of the data points, but the challenge is determining which attribute should be in parent level and which one should be in child level. To solve this problem, `De Mantaras <https://link.springer.com/article/10.1023/A:1022694001379>`__ introduced statistical modeling for feature selection in tree.
+One of earlier classification algorithm for text and data mining is decision tree. Decision tree classifiers (DTC's) are used successfully in many diverse areas of classification. The structure of this technique includes a hierarchical decomposition of the data space (only train dataset). Decision tree as classification task was introduced by `D. Morgan <http://www.aclweb.org/anthology/P95-1037>`__ and developed by `JR. Quinlan <https://courses.cs.ut.ee/2009/bayesian-networks/extras/quinlan1986.pdf>`__. The main idea is creating trees based on the attributes of the data points, but the challenge is determining which attribute should be in parent level and which one should be in child level. To solve this problem, `De Mantaras <https://link.springer.com/article/10.1023/A:1022694001379>`__ introduced statistical modeling for feature selection in tree.
 
 
 .. code:: python
@@ -1345,7 +1345,7 @@ Random Forest
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Random forests or random decision forests technique is an ensemble learning method for text classification. This method is introduced by `T. Kam Ho <https://doi.org/10.1109/ICDAR.1995.598994>`__ in 1995 for first time which used t tree as parallel. This technique is developed by `L. Breiman <https://link.springer.com/article/10.1023/A:1010933404324>`__ in 1999 that they find converge for RF as margin measure.
+Random forests or random decision forests technique is an ensemble learning method for text classification. This method was introduced by `T. Kam Ho <https://doi.org/10.1109/ICDAR.1995.598994>`__ in 1995 for first time which used t trees in parallel. This technique was later developed by `L. Breiman <https://link.springer.com/article/10.1023/A:1010933404324>`__ in 1999 that they found converged for RF as a margin measure.
 
 
 .. image:: docs/pic/RF.png
@@ -1417,7 +1417,7 @@ output:
 Conditional Random Field (CRF)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Conditional Random Field (CRF) is an undirected graphical model as shown in figure. CRFs state the conditional probability of a label sequence *Y* give a sequence of observation *X* *i.e.* P(Y|X). CRFs can incorporate complex features of observation sequence without violating the independence assumption by modeling the conditional probability of the label sequence rather than the joint probability P(X,Y). The concept of clique which is a fully connected subgraph and clique potential are used for computing P(X|Y). Considering one potential function for each clique of the graph, the probability of a variable configuration is corresponding to the product of a series of non-negative potential function. The value computed by each potential function is equivalent to the probability of the variables in its corresponding clique taken on a particular configuration.
+Conditional Random Field (CRF) is an undirected graphical model as shown in figure. CRFs state the conditional probability of a label sequence *Y* give a sequence of observation *X* *i.e.* P(Y|X). CRFs can incorporate complex features of observation sequence without violating the independence assumption by modeling the conditional probability of the label sequences rather than the joint probability P(X,Y). The concept of clique which is a fully connected subgraph and clique potential are used for computing P(X|Y). Considering one potential function for each clique of the graph, the probability of a variable configuration corresponds to the product of a series of non-negative potential function. The value computed by each potential function is equivalent to the probability of the variables in its corresponding clique taken on a particular configuration.
 
 
 .. image:: docs/pic/CRF.png
@@ -1556,7 +1556,7 @@ Deep Learning
 Deep Neural Networks
 -----------------------------------------
 
-Deep Neural Networks' architecture is designed to learn by multi connection of layers that each single layer only receives connection from previous and provides connections only to the next layer in hidden part. The input is a connection of feature space (As discussed in Section Feature_extraction with first hidden layer. For Deep Neural Networks (DNN), input layer could be tf-ifd, word embedding, or etc. as shown in standard DNN in Figure. The output layer is number of classes for multi-class classification and only one output for binary classification. But our main contribution of this paper is that we have many training DNN for different purposes. In our techniques, we have multi-classes DNNs which each learning models is generated randomly (number of nodes in each layer and also number of layers are completely random assigned). Our implementation of Deep Neural Networks (DNN) is discriminative trained model that uses standard back-propagation algorithm using sigmoid or ReLU as activation function. The output layer for multi-class classification, should use Softmax.
+Deep Neural Networks architectures are designed to learn through multiple connection of layers where each single layer only receives connection from previous and provides connections only to the next layer in hidden part. The input is a connection of feature space (As discussed in Section Feature_extraction with first hidden layer. For Deep Neural Networks (DNN), input layer could be tf-ifd, word embedding, or etc. as shown in standard DNN in Figure. The output layer houses neurons equal to the number of classes for multi-class classification and only one neuron for binary classification. But our main contribution in this paper is that we have many trained DNNs to serve different purposes. Here, we have multi-class DNNs where each learning model is generated randomly (number of nodes in each layer as well as the number of layers are randomly assigned). Our implementation of Deep Neural Network (DNN) is basically a discriminatively trained model that uses standard back-propagation algorithm and sigmoid or ReLU as activation functions. The output layer for multi-class classification should use Softmax.
 
 
 .. image:: docs/pic/DNN.png
@@ -1741,13 +1741,13 @@ Recurrent Neural Networks (RNN)
 
 .. image:: docs/pic/RNN.png
 
-Another neural network architecture that addressed with researchers for text miming and classification is Recurrent Neural Networks (RNN). RNN assigns more weights to the previous data points of sequence. Therefore, this technique is a powerful method for text, string and sequential data classification. Moreover, this technique could be used for image classification as we did in this work. In RNN the neural net considers the information of previous nodes in a very sophisticated method which allows for better semantic analysis of structures of dataset. 
+Another neural network architecture that is addressed by the researchers for text miming and classification is Recurrent Neural Networks (RNN). RNN assigns more weights to the previous data points of sequence. Therefore, this technique is a powerful method for text, string and sequential data classification. Moreover, this technique could be used for image classification as we did in this work. In RNN, the neural net considers the information of previous nodes in a very sophisticated method which allows for better semantic analysis of the structures in the dataset. 
 
 
 Gated Recurrent Unit (GRU)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Gated Recurrent Unit (GRU) is a gating mechanism for RNN which was introduced by  `J. Chung et al. <https://arxiv.org/abs/1412.3555>`__ and `K.Cho et al. <https://arxiv.org/abs/1406.1078>`__. GRU is a simplified variant of the LSTM architecture, but there are differences as follows: GRU contains two gates, a GRU does not possess internal memory (as shown in Figure; and finally, a second non-linearity is not applied (tanh in Figure).
+Gated Recurrent Unit (GRU) is a gating mechanism for RNN which was introduced by  `J. Chung et al. <https://arxiv.org/abs/1412.3555>`__ and `K.Cho et al. <https://arxiv.org/abs/1406.1078>`__. GRU is a simplified variant of the LSTM architecture, but there are differences as follows: GRU contains two gates and does not possess any internal memory (as shown in Figure; and finally, a second non-linearity is not applied (tanh in Figure).
 
 .. image:: docs/pic/LSTM.png
 
@@ -1756,7 +1756,7 @@ Long Short-Term Memory (LSTM)
 
 Long Short-Term Memory~(LSTM) was introduced by `S. Hochreiter and J. Schmidhuber <https://www.mitpressjournals.org/doi/abs/10.1162/neco.1997.9.8.1735>`__  and developed by many research scientists.
 
-To deal with these problems Long Short-Term Memory (LSTM) is a special type of RNN that preserve long term dependency in a more effective way in comparison to the basic RNN. This is particularly useful to overcome vanishing gradient problem. Although LSTM has a chain-like structure similar to RNN, LSTM uses multiple gates to carefully regulate the amount of information that will be allowed into each node state. Figure shows the basic cell of a LSTM model.
+To deal with these problems Long Short-Term Memory (LSTM) is a special type of RNN that preserves long term dependency in a more effective way compared to the basic RNNs. This is particularly useful to overcome vanishing gradient problem. Although LSTM has a chain-like structure similar to RNN, LSTM uses multiple gates to carefully regulate the amount of information that will be allowed into each node state. Figure shows the basic cell of a LSTM model.
 
 
 
@@ -1999,9 +1999,9 @@ Output:
 Convolutional Neural Networks (CNN)
 -----------------------------------------
 
-One of the deep learning architectures is  Convolutional Neural Networks (CNN) that is employed for hierarchical document classification. Although originally built for image processing  with architecture similar to the visual cortex, CNN have also been effectively used for  text classification. In the basic CNN for image processing an image tensor is convolved with a set of kernels of size *d by d*. These convolution layers are called feature maps and these can be stacked to provide multiple filters on the input. To reduce the computational complexity CNN use pooling which reduces the size of the output from one layer to the next in the network. Different pooling techniques are used to reduce outputs while preserving important features.
+Another deep learning architecture that is employed for hierarchical document classification is  Convolutional Neural Networks (CNN) . Although originally built for image processing  with architecture similar to the visual cortex, CNNs have also been effectively used for text classification. In a basic CNN for image processing, an image tensor is convolved with a set of kernels of size *d by d*. These convolution layers are called feature maps and can be stacked to provide multiple filters on the input. To reduce the computational complexity, CNNs use pooling which reduces the size of the output from one layer to the next in the network. Different pooling techniques are used to reduce outputs while preserving important features.
 
-The most common pooling method is max pooling where the maximum element is selected in the pooling window. In order to feed the pooled output from stacked featured maps to the next layer, the maps are flattened into one column. The final layers in a CNN are typically fully connected.
+The most common pooling method is max pooling where the maximum element is selected from the pooling window. In order to feed the pooled output from stacked featured maps to the next layer, the maps are flattened into one column. The final layers in a CNN are typically fully connected dense layers.
 In general, during the back-propagation step of a convolutional neural network not only the weights are adjusted but also the feature detector filters. A potential problem of CNN used for text is the number of 'channels', *Sigma* (size of the feature space). This might be very large (e.g. 50K), for text but for images this is less of a problem (e.g. only 3 channels of RGB). This means the dimensionality of the CNN for text is very high.
 
 
@@ -2315,7 +2315,7 @@ Hierarchical Attention Networks
 Recurrent Convolutional Neural Networks (RCNN)
 ---------------------------------------------
 
-ecurrent Convolutional Neural Networks (RCNN) is used for text classification. The main idea of this technique is capturing contextual information with the recurrent structure and constructs the representation of text using a convolutional neural network. This architecture is a combination of RNN and CNN to use advantages of both technique in a model.
+Recurrent Convolutional Neural Networks (RCNN) is also used for text classification. The main idea of this technique is capturing contextual information with the recurrent structure and constructing the representation of text using a convolutional neural network. This architecture is a combination of RNN and CNN to use advantages of both technique in a model.
 
 
 
@@ -2588,8 +2588,8 @@ A new ensemble, deep learning approach for classification. Deep
 learning models have achieved state-of-the-art results across many domains.
 RMDL solves the problem of finding the best deep learning structure
 and architecture while simultaneously improving robustness and accuracy
-through ensembles of deep learning architectures. RDML can accept
-asinput a variety data to include text, video, images, and symbolic.
+through ensembles of different deep learning architectures. RDMLs can accept
+a variety of data as input including text, video, images, and symbols.
 
 
 |RMDL|
@@ -2639,19 +2639,18 @@ Documentation:
 
 
 The exponential growth in the number of complex datasets every year requires  more enhancement in
-machine learning methods to provide  robust and accurate data classification. Lately, deep learning
-approaches have been achieved surpassing results in comparison to previous machine learning algorithms
-on tasks such as image classification, natural language processing, face recognition, and etc. The
-success of these deep learning algorithms relys on their capacity to model complex and non-linear
-relationships within data. However, finding the suitable structure for these models has been a challenge
+machine learning methods to provide robust and accurate data classification. Lately, deep learning
+approaches are achieving better results compared to previous machine learning algorithms
+on tasks like image classification, natural language processing, face recognition, and etc. The
+success of these deep learning algorithms rely on their capacity to model complex and non-linear
+relationships within the data. However, finding suitable structures for these models has been a challenge
 for researchers. This paper introduces Random Multimodel Deep Learning (RMDL): a new ensemble, deep learning
-approach for classification.  RMDL solves the problem of finding the best deep learning structure and
-architecture while simultaneously improving robustness and accuracy through ensembles of deep
+approach for classification. RMDL aims to solve the problem of finding the best deep learning architecture while simultaneously improving the robustness and accuracy through ensembles of multiple deep
 learning architectures. In short, RMDL trains multiple models of Deep Neural Network (DNN),
 Convolutional Neural Network (CNN) and Recurrent Neural Network (RNN) in parallel and combines
 their results to produce better result of any of those models individually. To create these models,
 each deep learning model has been constructed in a random fashion regarding the number of layers and
-nodes in their neural network structure. The resulting RDML model can be used for various domains such
+nodes in their neural network structure. The resulting RDML model can be used in various domains such
 as text, video, images, and symbolic. In this Project, we describe RMDL model in depth and show the results
 for image and text classification as well as face recognition. For image classification, we compared our
 model with some of the available baselines using MNIST and CIFAR-10 datasets. Similarly, we used four
@@ -2673,7 +2672,7 @@ Classification <https://arxiv.org/abs/1709.08267>`__
 
 Documentation:
 
-Increasingly large document collections require improved information processing methods for searching, retrieving, and organizing  text. Central to these information processing methods is document classification, which has become an important application for supervised learning. Recently the performance of traditional supervised classifiers has degraded as the number of documents has increased. This is because along with growth in the number of documents has come an increase in the number of categories. This paper approaches this problem differently from current document classification methods that view the problem as multi-class classification. Instead we perform hierarchical classification using an approach we call Hierarchical Deep Learning for Text classification (HDLTex). HDLTex employs stacks of deep learning architectures to provide specialized understanding at each level of the document hierarchy.
+Increasingly large document collections require improved information processing methods for searching, retrieving, and organizing  text documents. Central to these information processing methods is document classification, which has become an important task supervised learning aims to solve. Recently, the performance of traditional supervised classifiers has degraded as the number of documents has increased. This exponential growth of document volume has also increated the number of categories. This paper approaches this problem differently from current document classification methods that view the problem as multi-class classification. Instead we perform hierarchical classification using an approach we call Hierarchical Deep Learning for Text classification (HDLTex). HDLTex employs stacks of deep learning architectures to provide hierarchical understanding of the documents.
 
 
 
@@ -2697,7 +2696,7 @@ Matthew correlation coefficient (MCC)
 
 Compute the Matthews correlation coefficient (MCC)
 
-The Matthews correlation coefficient is used in machine learning as a measure of the quality of binary (two-class) classifications. It takes into account true and false positives and negatives and is generally regarded as a balanced measure which can be used even if the classes are of very different sizes. The MCC is in essence a correlation coefficient value between -1 and +1. A coefficient of +1 represents a perfect prediction, 0 an average random prediction and -1 an inverse prediction. The statistic is also known as the phi coefficient. 
+The Matthews correlation coefficient is used in machine learning as a measure of the quality of binary (two-class) classification problems. It takes into account of true and false positives and negatives and is generally regarded as a balanced measure which can be used even if the classes are of very different sizes. The MCC is in essence a correlation coefficient value between -1 and +1. A coefficient of +1 represents a perfect prediction, 0 an average random prediction and -1 an inverse prediction. The statistic is also known as the phi coefficient. 
 
 
 .. code:: python
@@ -2793,7 +2792,7 @@ Plot of a ROC curve for a specific class
 Area Under Curve (AUC)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Area  under  ROC  curve  (AUC)  as  a  summarymetric measures the entire area underneath the ROC curve. AUC  holds  helpful  properties  such  as  increased  sensitivityin analysis of variance (ANOVA) tests, being independent ofdecision threshold, being invariant toa prioriclass probabili-ties and indicating how well negative and positive classes areregarding decision index.
+Area  under ROC curve (AUC) is a summary metric that measures the entire area underneath the ROC curve. AUC holds helpful properties, such as  increased  sensitivity in the analysis of variance (ANOVA) tests, independence of decision threshold, invariance to a priori class probability and the indication of how well negative and positive classes are regarding decision index.
 
 
 .. code:: python
@@ -2868,7 +2867,7 @@ Dataset of 11,228 newswires from Reuters, labeled over 46 topics. As with the IM
 
 - `20Newsgroups Dataset <https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups>`__
 
-The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon a messages posted before and after a specific date.
+The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon messages posted before and after a specific date.
 
 This module contains two loaders. The first one, sklearn.datasets.fetch_20newsgroups, returns a list of the raw texts that can be fed to text feature extractors such as sklearn.feature_extraction.text.CountVectorizer with custom parameters so as to extract feature vectors. The second one, sklearn.datasets.fetch_20newsgroups_vectorized, returns ready-to-use features, i.e., it is not necessary to use a feature extractor.
 
