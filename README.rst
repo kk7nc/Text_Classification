@@ -41,7 +41,7 @@ Text feature extraction and pre-processing for classification algorithms are ver
 Text Cleaning and Pre-processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Natural Language Processing (NLP), most of the text and documents contain many words that are redundant for text classification such as: stopwords, miss-spellings, slangs, and etc. In this section, we briefly explain some techniques and methods for text cleaning and pre-processing text documents. In many algorithms like statistical and probabilistic learning methods, noise and unnecessary features can negatively affect the overall perfomance. So, elimination of these features are extremely important.
+In Natural Language Processing (NLP), most of the text and documents contain many words that are redundant for text classification, such as stopwords, miss-spellings, slangs, and etc. In this section, we briefly explain some techniques and methods for text cleaning and pre-processing text documents. In many algorithms like statistical and probabilistic learning methods, noise and unnecessary features can negatively affect the overall perfomance. So, elimination of these features are extremely important.
 
 
 -------------
@@ -78,7 +78,7 @@ Stop words
 -----------
 
 
-Text and document classification over social media such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of the text corpuses.
+Text and document classification over social media, such as Twitter, Facebook, and so on is usually affected by the noisy nature (abbreviations, irregular forms) of the text corpuses.
 
 Here is an exmple from  `geeksforgeeks <https://www.geeksforgeeks.org/removing-stop-words-nltk-python/>`__
 
@@ -120,7 +120,7 @@ Output:
 Capitalization
 ---------------
 
-Sentences can contain a mixture of uppercase and lower case letters. Multiple sentences make up a text document. To reduce the problem space, the most common approach is to reduce everything to lower case. This brings all words in a document in same space, but it often changes the meaning of some words, such as: "US" to "us" where first one represents the United States of America and second one is a pronoun. To solve this, slang and abbreviation converters can be applied.
+Sentences can contain a mixture of uppercase and lower case letters. Multiple sentences make up a text document. To reduce the problem space, the most common approach is to reduce everything to lower case. This brings all words in a document in same space, but it often changes the meaning of some words, such as "US" to "us" where first one represents the United States of America and second one is a pronoun. To solve this, slang and abbreviation converters can be applied.
 
 .. code:: python
 
@@ -139,7 +139,7 @@ Output:
 Slangs and Abbreviations
 -----------------------
 
-Slangs and abbreviations can cause problems while executing the pre-processing steps. An abbreviation  is a shortened form of a word, such as: SVM stand for Support Vector Machine. Slang is a version of language that depicts informal conversation or text that has different meaning, such as: "lost the plot", it essentially means that 'they've gone mad'. Common method to deal with these words is converting them to formal language.
+Slangs and abbreviations can cause problems while executing the pre-processing steps. An abbreviation  is a shortened form of a word, such as SVM stand for Support Vector Machine. Slang is a version of language that depicts informal conversation or text that has different meaning, such as "lost the plot", it essentially means that 'they've gone mad'. Common method to deal with these words is converting them to formal language.
 
 ---------------
 Noise Removal
@@ -180,7 +180,7 @@ Spelling Correction
 -------------------
 
 
-An optional part of the pre-processing step is correcting the misspelled words. Different techniques, such as: hashing-based and context-sensitive spelling correction techniques, or  spelling correction using trie and damerau-levenshtein distance bigram have been introduced to tackle this issue.
+An optional part of the pre-processing step is correcting the misspelled words. Different techniques, such as hashing-based and context-sensitive spelling correction techniques, or  spelling correction using trie and damerau-levenshtein distance bigram have been introduced to tackle this issue.
 
 
 .. code:: python
@@ -302,7 +302,7 @@ algorithm (hierarchical softmax and / or negative sampling), threshold
 for downsampling the frequent words, number of threads to use,
 format of the output word vector file (text or binary).
 
-Usually, other hyper-parameters such as the learning rate do not
+Usually, other hyper-parameters, such as the learning rate do not
 need to be tuned for different training sets.
 
 The script demo-word.sh downloads a small (100MB) text corpus from the
@@ -420,7 +420,7 @@ The mathematical representation of weight of a term in a document by Tf-idf is g
 .. image:: docs/eq/tf-idf.gif
    :width: 10px
    
-Where N is number of documents and df(t) is the number of documents containing the term t in the corpus. The first part would improve recall and the later would improve the precision of the word embedding. Although tf-idf tries to overcome the problem of common terms in document, it still suffers from some other descriptive limitations. Namely, tf-idf cannot account for the similarity between words in the document since each word is presented as an index. In the recent years, with development of more complex models such as neural nets, new methods has been presented that can incorporate concepts such as similarity of words and part of speech tagging. This work uses, word2vec and Glove, two of the most common methods that have been successfully used for deep learning techniques.
+Where N is number of documents and df(t) is the number of documents containing the term t in the corpus. The first part would improve recall and the later would improve the precision of the word embedding. Although tf-idf tries to overcome the problem of common terms in document, it still suffers from some other descriptive limitations. Namely, tf-idf cannot account for the similarity between words in the document since each word is presented as an index. In the recent years, with development of more complex models, such as neural nets, new methods has been presented that can incorporate concepts, such as similarity of words and part of speech tagging. This work uses, word2vec and Glove, two of the most common methods that have been successfully used for deep learning techniques.
 
 
 .. code:: python
@@ -474,7 +474,7 @@ Comparison of Feature Extraction Techniques
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 |           **GloVe (Trained)**         |  * It is very straightforward, e.g., to enforce the word vectors to capture sub-linear relationships in the vector space (performs better than Word2vec) |  * Memory consumption for storage                                                                              |
 |                                       |                                                                                                                                                          |                                                                                                                |
-|                                       |  * Lower weight for highly frequent word pairs such as stop words like “am”, “is”, etc. Will not dominate training progress                              |  * Needs huge corpus to learn                                                                                  |
+|                                       |  * Lower weight for highly frequent word pairs, such as stop words like “am”, “is”, etc. Will not dominate training progress                              |  * Needs huge corpus to learn                                                                                  |
 |                                       |                                                                                                                                                          |                                                                                                                |
 |                                       |                                                                                                                                                          |  * It cannot capture out-of-vocabulary words from the corpus                                                   |
 |                                       |                                                                                                                                                          |                                                                                                                |
@@ -2817,7 +2817,7 @@ IMDB
 
 - `IMDB Dataset <http://ai.stanford.edu/~amaas/data/sentiment/>`__
 
-Dataset of 25,000 movies reviews from IMDB, labeled by sentiment (positive/negative). Reviews have been preprocessed, and each review is encoded as a sequence of word indexes (integers). For convenience, words are indexed by overall frequency in the dataset, so that for instance the integer "3" encodes the 3rd most frequent word in the data. This allows for quick filtering operations such as: "only consider the top 10,000 most common words, but eliminate the top 20 most common words".
+Dataset of 25,000 movies reviews from IMDB, labeled by sentiment (positive/negative). Reviews have been preprocessed, and each review is encoded as a sequence of word indexes (integers). For convenience, words are indexed by overall frequency in the dataset, so that for instance the integer "3" encodes the 3rd most frequent word in the data. This allows for quick filtering operations, such as "only consider the top 10,000 most common words, but eliminate the top 20 most common words".
 
 As a convention, "0" does not stand for a specific word, but instead is used to encode any unknown word.
 
@@ -2869,7 +2869,7 @@ Dataset of 11,228 newswires from Reuters, labeled over 46 topics. As with the IM
 
 The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics split in two subsets: one for training (or development) and the other one for testing (or for performance evaluation). The split between the train and test set is based upon messages posted before and after a specific date.
 
-This module contains two loaders. The first one, sklearn.datasets.fetch_20newsgroups, returns a list of the raw texts that can be fed to text feature extractors such as sklearn.feature_extraction.text.CountVectorizer with custom parameters so as to extract feature vectors. The second one, sklearn.datasets.fetch_20newsgroups_vectorized, returns ready-to-use features, i.e., it is not necessary to use a feature extractor.
+This module contains two loaders. The first one, sklearn.datasets.fetch_20newsgroups, returns a list of the raw texts that can be fed to text feature extractors, such as sklearn.feature_extraction.text.CountVectorizer with custom parameters so as to extract feature vectors. The second one, sklearn.datasets.fetch_20newsgroups_vectorized, returns ready-to-use features, i.e., it is not necessary to use a feature extractor.
 
 
 .. code:: python
@@ -2930,7 +2930,7 @@ Y is target value
 YL1 is target value of level one (parent label)
 YL2 is target value of level one (child label)
 Domain is majaor domain which include 7 labales: {Computer Science,Electrical Engineering, Psychology, Mechanical Engineering,Civil Engineering, Medical Science, biochemistry}
-area is subdomain or area of the paper such as CS-> computer graphics which contain 134 labels.
+area is subdomain or area of the paper, such as CS-> computer graphics which contain 134 labels.
 keywords : is authors keyword of the papers
 
 -  Web of Science Dataset `WOS-11967 <http://dx.doi.org/10.17632/9rw3vkcfy4.2>`__
