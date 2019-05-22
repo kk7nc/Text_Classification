@@ -438,6 +438,7 @@ Where N is number of documents and df(t) is the number of documents containing t
 Comparison of Feature Extraction Techniques
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 |                **Model**              |                                                                        **Advantages**                                                                    |                                                   **Limitation**                                               |
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
@@ -474,7 +475,7 @@ Comparison of Feature Extraction Techniques
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 |           **GloVe (Trained)**         |  * It is very straightforward, e.g., to enforce the word vectors to capture sub-linear relationships in the vector space (performs better than Word2vec) |  * Memory consumption for storage                                                                              |
 |                                       |                                                                                                                                                          |                                                                                                                |
-|                                       |  * Lower weight for highly frequent word pairs, such as stop words like “am”, “is”, etc. Will not dominate training progress                              |  * Needs huge corpus to learn                                                                                  |
+|                                       |  * Lower weight for highly frequent word pairs, such as stop words like “am”, “is”, etc. Will not dominate training progress                             |  * Needs huge corpus to learn                                                                                  |
 |                                       |                                                                                                                                                          |                                                                                                                |
 |                                       |                                                                                                                                                          |  * It cannot capture out-of-vocabulary words from the corpus                                                   |
 |                                       |                                                                                                                                                          |                                                                                                                |
@@ -497,7 +498,6 @@ Comparison of Feature Extraction Techniques
 |                                       |                                                                                                                                                          |                                                                                                                |
 |                                       |                                                                                                                                                          |  * Works only sentence and document level (it cannot work for individual word level)                           |
 +---------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-
 
 
 ========================
