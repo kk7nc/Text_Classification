@@ -3038,6 +3038,127 @@ keywords : is authors keyword of the papers
 Referenced paper: HDLTex: Hierarchical Deep Learning for Text Classification
 
          
+================================
+Text Classification Applications
+================================
+
+----
+
+
+~~~~~~~~~~~~~~~~~~~~~~
+Information Retrieval
+~~~~~~~~~~~~~~~~~~~~~~
+Information retrieval is finding documents of an unstructured data that meet an information need from within large collections of documents. With the rapid growth of online information, particularly in text format, text classification has become a  significant technique for managing this type of data. Some of the important methods used in this area are Naive Bayes, SVM, decision tree, J48, k-NN and IBK. One of the most challenging applications for document and text dataset processing is applying document categorization methods for information retrieval.
+
+- 🎓 `Introduction to information retrieval <http://eprints.bimcoordinator.co.uk/35/>`__ Manning, C., Raghavan, P., & Schütze, H. (2010).
+     
+- 🎓 `Web forum retrieval and text analytics: A survey <http://www.nowpublishers.com/article/Details/INR-062>`__ Hoogeveen, Doris, et al.. (2018).
+
+- 🎓 `Automatic Text Classification in Information retrieval: A Survey <https://dl.acm.org/citation.cfm?id=2905191>`__ Dwivedi, Sanjay K., and Chandrakala Arya.. (2016).
+
+~~~~~~~~~~~~~~~~~~~~~~
+Information Filtering
+~~~~~~~~~~~~~~~~~~~~~~
+Information filtering refers to selection of relevant information or rejection of irrelevant information from a stream of incoming data. Information filtering systems are typically used to measure and forecast users' long-term interests. Probabilistic models, such as Bayesian inference network, are commonly used in information filtering systems. Bayesian inference networks employ recursive inference to propagate values through the inference network and return documents with the highest ranking. Chris used vector space model with iterative refinement for filtering task.
+ 
+
+- 🎓 `Search engines: Information retrieval in practice <http://library.mpib-berlin.mpg.de/toc/z2009_2465.pdf/>`__ Croft, W. B., Metzler, D., & Strohman, T. (2010).
+
+- 🎓 `Implementation of the SMART information retrieval system <https://ecommons.cornell.edu/bitstream/handle/1813/6526/85-686.pdf?sequence=1>`__ Buckley, Chris
+
+~~~~~~~~~~~~~~~~~~~~~~
+Sentiment Analysis
+~~~~~~~~~~~~~~~~~~~~~~
+Sentiment analysis is a computational approach toward identifying opinion, sentiment, and subjectivity in text. Sentiment classification methods classify a document associated with an opinion to be positive or negative. The assumption is that document d is expressing an opinion on a single entity $e$ and opinions are formed via a single opinion holder h. Naive Bayesian classification and SVM are some of the most popular supervised learning methods that have been used for sentiment classification. Features such as terms and their respective frequency, part of speech, opinion words and phrases, negations and syntactic dependency have been used in sentiment classification techniques.
+
+- 🎓 `Opinion mining and sentiment analysis <http://www.nowpublishers.com/article/Details/INR-011>`__ Pang, Bo, and Lillian Lee. (2008).
+
+- 🎓 `A survey of opinion mining and sentiment analysis <https://link.springer.com/chapter/10.1007/978-1-4614-3223-4_13>`__ Liu, Bing, and Lei Zhang. (2010).
+
+- 🎓 `Thumbs up?: sentiment classification using machine learning techniques <https://dl.acm.org/citation.cfm?id=1118704>`__ Pang, Bo, Lillian Lee, and Shivakumar Vaithyanathan. 
+
+~~~~~~~~~~~~~~~~~~~~~~
+Recommender Systems
+~~~~~~~~~~~~~~~~~~~~~~
+Content-based recommender systems suggest items to users based on the description of an item and a profile of the user's interests. 
+A user's profile can be learned from user feedback (history of the search queries or self reports) on items as well as self-explained features~(filter or conditions on the queries) in one's profile. 
+In this way, input to such recommender systems can be semi-structured such that some attributes are extracted from free-text field while others are directly specified. Many different types of text classification methods, such as decision trees, nearest neighbor methods, Rocchio's algorithm, linear classifiers, probabilistic methods, and Naive Bayes, have been used to model user's preference.
+
+- 🎓 `Content-based recommender systems <https://link.springer.com/chapter/10.1007/978-3-319-29659-3_4>`__ Aggarwal, Charu C. (2016).
+
+- 🎓 `Content-based recommendation systems <https://link.springer.com/chapter/10.1007/978-3-540-72079-9_10>`__ Pazzani, Michael J., and Daniel Billsus.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Knowledge Management
+~~~~~~~~~~~~~~~~~~~~~~
+Textual databases are significant sources of information and knowledge. A large percentage of corporate information (nearly 80 %) exists in textual data formats (unstructured). In knowledge distillation, patterns or knowledge are inferred from immediate forms that can be semi-structured ( e.g.conceptual graph representation) or structured/relational data representation). A given intermediate form can be document-based such that each entity represents an object or concept of interest in a particular domain. Document categorization is one of the most common methods for mining document-based intermediate forms. In the other work, text classification has been used to find the relationship between railroad accidents' causes and their correspondent descriptions in reports.
+
+- 🎓 `Text mining: concepts, applications, tools and issues-an overview <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.403.2426&rep=rep1&type=pdf>`__ Sumathy, K. L., and M. Chidambaram.  (2013).
+
+- 🎓 `Analysis of Railway Accidents' Narratives Using Deep Learning <https://ieeexplore.ieee.org/abstract/document/8614260/>`__ Heidarysafa, Mojtaba, et al. (2018).
+
+~~~~~~~~~~~~~~~~~~~~~~
+Document Summarization
+~~~~~~~~~~~~~~~~~~~~~~
+Text classification used for document summarizing which summary of a document may employ words or phrases which do not appear in the original document.  Multi-document summarization also is necessitated due to increasing online information rapidly. So, many researchers focus on this task using text classification to extract important feature out of a document.
+
+- 🎓 `Advances in automatic text summarization <https://books.google.com/books?hl=en&lr=&id=YtUZQaKDmzEC&oi=fnd&pg=PA215&dq=Advances+in+automatic+text+summarization&ots=ZpvCsrG-dC&sig=8ecTDTrQR4mMzDnKvI58sowh3Fg>`__ Mani, Inderjeet. 
+
+- 🎓 `Improving Multi-Document Summarization via Text Classification. <https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/viewPaper/14525>`__ Cao, Ziqiang, et al. (2017).
+
+================================
+Text Classification Support
+================================
+
+~~~~~~~~~~~~~~~~~~~~~~
+Health
+~~~~~~~~~~~~~~~~~~~~~~
+Most textual information in the medical domain is presented in an unstructured or narrative form with ambiguous terms and typographical errors. Such information needs to be available instantly throughout the patient-physicians encounters in different stages of diagnosis and treatment. Medical coding, which consists of assigning medical diagnoses to specific class values obtained from a large set of categories, is an area of healthcare applications where text classification techniques can be highly valuable. In the other research, J. Zhang et al. introduced Patient2Vec, to learn an interpretable deep representation of longitudinal electronic health record (EHR) data which is personalized for each patient. Patient2Vec is a novel technique of text dataset feature embedding that can learn a personalized interpretable deep representation of EHR data based on recurrent neural networks and the attention mechanism. Text classification has also been applied in the development of Medical Subject Headings (MeSH) and Gene Ontology (GO). 
+
+
+- 🎓 `Patient2Vec: A Personalized Interpretable Deep Representation of the Longitudinal Electronic Health Record <https://ieeexplore.ieee.org/abstract/document/8490816/>`__ Zhang, Jinghe, et al. (2018)
+
+- 🎓 `Combining Bayesian text classification and shrinkage to automate healthcare coding: A data quality analysis <https://dl.acm.org/citation.cfm?id=2063506>`__ Lauría, Eitel JM, and Alan D. March. (2011).
+
+- 🎓 `A <http://b/>`__ c. (2010).
+
+- 🎓 `MeSH Up: effective MeSH text classification for improved document retrieval <https://academic.oup.com/bioinformatics/article-abstract/25/11/1412/333120>`__ Trieschnigg, Dolf, et al.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Social Sciences
+~~~~~~~~~~~~~~~~~~~~~~
+Text classification and document categorization has increasingly been applied to understanding human behavior in past decades. Recent data-driven efforts in human behavior research have focused on mining language contained in informal notes and text datasets, including short message service (SMS), clinical notes, social media, etc. These studies have mostly focused on using approaches based on frequencies of word occurrence (i.e. how often a word appears in a document) or features based on Linguistic Inquiry Word Count (LIWC), a well-validated lexicon of categories of words with psychological relevance.
+
+- 🎓 `Identification of imminent suicide risk among young adults using text messages <https://dl.acm.org/citation.cfm?id=3173987>`__ Nobles, Alicia L., et al. (2018).
+
+- 🎓 `Textual Emotion Classification: An Interoperability Study on Cross-Genre Data Sets <https://link.springer.com/chapter/10.1007/978-3-319-63004-5_21>`__ Ofoghi, Bahadorreza, and Karin Verspoor. (2017).
+
+- 🎓 `Social Monitoring for Public Health <https://www.morganclaypool.com/doi/abs/10.2200/S00791ED1V01Y201707ICR060>`__ Paul, Michael J., and Mark Dredze (2017).
+
+~~~~~~~~~~~~~~~~~~~~~~
+Business and Marketing
+~~~~~~~~~~~~~~~~~~~~~~
+profitable companies and organizations are progressively using social media for marketing purposes. Opening mining from social media such as Facebook, Twitter, and so on is main target of companies to rapidly increase their profits. Text and documents classification is a powerful tool for companies to find their customers easier than ever.  
+
+- 🎓 `Opinion mining using ensemble text hidden Markov models for text classification <https://www.sciencedirect.com/science/article/pii/S0957417417304979>`__ Kang, Mangi, Jaelim Ahn, and Kichun Lee. (2018).
+
+- 🎓 `Classifying business marketing messages on Facebook <https://www.researchgate.net/profile/Bei_Yu2/publication/236246670_Classifying_Business_Marketing_Messages_on_Facebook/links/56bcb34408ae6cc737c6335b.pdf>`__ Yu, Bei, and Linchi Kwok.
+
+~~~~~~~~~~~~~~~~~~~~~~
+Law
+~~~~~~~~~~~~~~~~~~~~~~
+Huge volumes of legal text information and documents have been generated by governmental institutions. Retrieving this information and automatically classifying it can not only help lawyers but also their clients.
+In the United States, the law is derived from five sources: constitutional law, statutory law, treaties, administrative regulations, and the common law. Also, many new legal documents are created each year. Categorization of these documents is the main challenge of the lawyer community.
+
+- 🎓 `Represent yourself in court: How to prepare & try a winning case <https://books.google.com/books?hl=en&lr=&id=-lodDQAAQBAJ&oi=fnd&pg=PP1&dq=Represent+yourself+in+court:+How+to+prepare+%5C%26+try+a+winning+case&ots=tgJ8Q2MkH_&sig=9o3ILDn3LfO30BZKsyI2Ou7Q8Qs>`__ Bergman, Paul, and Sara J. Berman. (2016)
+
+- 🎓 `Text retrieval in the legal world <https://link.springer.com/article/10.1007/BF00877694>`__ Turtle, Howard.
+
+- 🎓 `A <http://b/>`__ c. (2010).
+
+- 🎓 `A <http://b/>`__ c. (2010).
+
+
 
 
 ==========
