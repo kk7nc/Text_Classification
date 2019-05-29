@@ -3069,7 +3069,7 @@ Information filtering refers to selection of relevant information or rejection o
 ~~~~~~~~~~~~~~~~~~~~~~
 Sentiment Analysis
 ~~~~~~~~~~~~~~~~~~~~~~
-Sentiment analysis is a computational approach toward identifying opinion, sentiment, and subjectivity in text. Sentiment classification methods classify a document associated with an opinion to be positive or negative. The assumption is that document d is expressing an opinion on a single entity $e$ and opinions are formed via a single opinion holder h. Naive Bayesian classification and SVM are some of the most popular supervised learning methods that have been used for sentiment classification. Features such as terms and their respective frequency, part of speech, opinion words and phrases, negations and syntactic dependency have been used in sentiment classification techniques.
+Sentiment analysis is a computational approach toward identifying opinion, sentiment, and subjectivity in text. Sentiment classification methods classify a document associated with an opinion to be positive or negative. The assumption is that document d is expressing an opinion on a single entity e and opinions are formed via a single opinion holder h. Naive Bayesian classification and SVM are some of the most popular supervised learning methods that have been used for sentiment classification. Features such as terms and their respective frequency, part of speech, opinion words and phrases, negations and syntactic dependency have been used in sentiment classification techniques.
 
 - 🎓 `Opinion mining and sentiment analysis <http://www.nowpublishers.com/article/Details/INR-011>`__ Pang, Bo, and Lillian Lee. (2008).
 
