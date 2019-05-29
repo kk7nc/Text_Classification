@@ -3154,13 +3154,6 @@ In the United States, the law is derived from five sources: constitutional law, 
 
 - 🎓 `Text retrieval in the legal world <https://link.springer.com/article/10.1007/BF00877694>`__ Turtle, Howard.
 
-- 🎓 `A <http://b/>`__ c. (2010).
-
-- 🎓 `A <http://b/>`__ c. (2010).
-
-
-
-
 ==========
 Citations:
 ==========
