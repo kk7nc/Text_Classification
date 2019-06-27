@@ -3199,4 +3199,4 @@ Citations:
    
    
 .. |medium| image:: https://img.shields.io/badge/Medium-Text%20Classification%20Algorithms-blueviolet.svg
-:target: https://medium.com/text-classification-algorithms/text-classification-algorithms-a-survey-a215b7ab7e2d
+    :target: https://medium.com/text-classification-algorithms/text-classification-algorithms-a-survey-a215b7ab7e2d
