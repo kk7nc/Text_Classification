@@ -2059,7 +2059,7 @@ convert text to word embedding (Using GloVe):
         return (X_train, X_test, word_index,embeddings_index)
 
 
-Build a RNN Model for Text:
+Build a CNN Model for Text:
 
 .. code:: python
 
@@ -2137,7 +2137,7 @@ Build a RNN Model for Text:
 
 
 
-run RNN and see our result:
+run CNN and see our result:
 
 
 .. code:: python
