@@ -3,7 +3,7 @@
 Text Classification Algorithms: A Survey
 ################################################
 
-|DOI| |medium| |contributions-welcome| |arXiv| |ansicolortags| |contributors| 
+|DOI| |medium| |mendeley| |contributions-welcome| |arXiv| |ansicolortags| |contributors| 
   
   
 .. figure:: docs/pic/WordArt.png 
@@ -3200,3 +3200,6 @@ Citations:
    
 .. |medium| image:: https://img.shields.io/badge/Medium-Text%20Classification%20Algorithms-blueviolet.svg
     :target: https://medium.com/text-classification-algorithms/text-classification-algorithms-a-survey-a215b7ab7e2d
+    
+.. |mendeley| image:: https://img.shields.io/badge/Mendeley-Add%20to%20Library-critical.svg
+    :target: https://www.mendeley.com/import/?url=https://doi.org/10.3390/info10040150
