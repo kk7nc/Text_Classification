@@ -3198,7 +3198,7 @@ Citations:
    :target: https://doi.org/10.3390/info10040150
    
    
-.. |medium| image:: https://img.shields.io/badge/Medium-Text%20Classification%20Algorithms-blueviolet.svg
+.. |medium| image:: https://img.shields.io/badge/Medium-Text%20Classification-blueviolet.svg
     :target: https://medium.com/text-classification-algorithms/text-classification-algorithms-a-survey-a215b7ab7e2d
     
 .. |mendeley| image:: https://img.shields.io/badge/Mendeley-Add%20to%20Library-critical.svg
