@@ -1886,7 +1886,7 @@ run RNN and see our result:
                                   batch_size=128,
                                   verbose=2)
 
-    predicted = Build_Model_RNN_Text.predict_classes(X_test_Glove)
+    predicted = model_RNN.predict_classes(X_test_Glove)
 
     print(metrics.classification_report(y_test, predicted))
 
