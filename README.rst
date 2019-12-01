@@ -425,7 +425,7 @@ Where N is number of documents and df(t) is the number of documents containing t
 
 .. code:: python
 
-    from sklearn.feature_extraction.text import TfidfTransformer
+    from sklearn.feature_extraction.text import TfidfVectorizer
     def loadData(X_train, X_test,MAX_NB_WORDS=75000):
         vectorizer_x = TfidfVectorizer(max_features=MAX_NB_WORDS)
         X_train = vectorizer_x.fit_transform(X_train).toarray()
