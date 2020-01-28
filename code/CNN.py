@@ -26,7 +26,7 @@ def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=50
     X_train = text[0:len(X_train), ]
     X_test = text[len(X_train):, ]
     embeddings_index = {}
-    f = open("C:\\Users\\kamran\\Documents\\GitHub\\RMDL\\Examples\\Glove\\glove.6B.100d.txt", encoding="utf8")
+    f = open(".\glove.6B.100d.txt", encoding="utf8") ## GloVe file which could be download https://nlp.stanford.edu/projects/glove/
     for line in f:
         values = line.split()
         word = values[0]
