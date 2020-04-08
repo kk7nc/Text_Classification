@@ -28,7 +28,7 @@ def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=50
     X_train = text[0:len(X_train), ]
     X_test = text[len(X_train):, ]
     embeddings_index = {}
-    f = open("C:\\Users\\kamran\\Documents\\GitHub\\RMDL\\Examples\\Glove\\glove.6B.50d.txt", encoding="utf8")
+    f = open(".\glove.6B.100d.txt", encoding="utf8")
     for line in f:
         values = line.split()
         word = values[0]
@@ -42,7 +42,7 @@ def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=50
     return (X_train, X_test, word_index,embeddings_index)
 
 
-def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses, MAX_SEQUENCE_LENGTH=500, EMBEDDING_DIM=50):
+def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses, MAX_SEQUENCE_LENGTH=500, EMBEDDING_DIM=100):
 
     kernel_size = 2
     filters = 256
