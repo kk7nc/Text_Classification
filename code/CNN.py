@@ -9,7 +9,7 @@ from sklearn.datasets import fetch_20newsgroups
 from keras.layers.merge import Concatenate
 
 
-def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=500):
+def loadData_Tokenizer(X_train, X_test,MAX_NB_WORDS=75000,MAX_SEQUENCE_LENGTH=1000):
     np.random.seed(7)
     text = np.concatenate((X_train, X_test), axis=0)
     text = np.array(text)
