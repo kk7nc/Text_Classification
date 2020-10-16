@@ -1641,7 +1641,7 @@ run DNN and see our result:
                                   batch_size=128,
                                   verbose=2)
 
-    predicted = model_DNN.predict(X_test_tfidf)
+    predicted = model_DNN.predict_class(X_test_tfidf)
 
     print(metrics.classification_report(y_test, predicted))
 
@@ -1795,7 +1795,7 @@ convert text to word embedding (Using GloVe):
         X_train = text[0:len(X_train), ]
         X_test = text[len(X_train):, ]
         embeddings_index = {}
-        f = open("C:\\Users\\kamran\\Documents\\GitHub\\RMDL\\Examples\\Glove\\glove.6B.50d.txt", encoding="utf8")
+        f = open(".\\Glove\\glove.6B.50d.txt", encoding="utf8")
         for line in f:
 
             values = line.split()
@@ -2045,7 +2045,7 @@ convert text to word embedding (Using GloVe):
         X_train = text[0:len(X_train), ]
         X_test = text[len(X_train):, ]
         embeddings_index = {}
-        f = open("C:\\Users\\kamran\\Documents\\GitHub\\RMDL\\Examples\\Glove\\glove.6B.50d.txt", encoding="utf8")
+        f = open(".\\Glove\\glove.6B.50d.txt", encoding="utf8")
         for line in f:
             values = line.split()
             word = values[0]
