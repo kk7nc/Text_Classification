@@ -3178,10 +3178,10 @@ Citations:
         publisher={Multidisciplinary Digital Publishing Institute}
     }
 
-.. |RMDL| image:: http://kowsari.net/onewebmedia/RMDL.jpg
+.. |RMDL| image:: docs/pic/RMDL.jpg
 .. |line| image:: docs/pic/line.png
           :alt: Foo
-.. |HDLTex| image:: http://kowsari.net/____impro/1/onewebmedia/HDLTex.png?etag=W%2F%22c90cd-59c4019b%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=821%2B326&extract=0%2B0%2B821%2B325?raw=false
+.. |HDLTex| image:: docs/pic/HTLtex.png
 
 
 .. |twitter| image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
