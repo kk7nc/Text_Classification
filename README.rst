@@ -3181,7 +3181,7 @@ Citations:
 .. |RMDL| image:: docs/pic/RMDL.jpg
 .. |line| image:: docs/pic/line.png
           :alt: Foo
-.. |HDLTex| image:: docs/pic/HTLtex.png
+.. |HDLTex| image:: docs/pic/HDLTex.png
 
 
 .. |twitter| image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
