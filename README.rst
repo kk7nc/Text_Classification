@@ -3,7 +3,7 @@
 Text Classification Algorithms: A Survey
 ################################################
 
-|DOI| |medium| |mendeley| |contributions-welcome| |arXiv| |ansicolortags| |contributors| 
+|DOI| |Best| |medium| |mendeley| |contributions-welcome| |arXiv| |ansicolortags| |contributors| 
   
   
 .. figure:: docs/pic/WordArt.png 
@@ -3206,3 +3206,8 @@ Citations:
     
 .. |mendeley| image:: https://img.shields.io/badge/Mendeley-Add%20to%20Library-critical.svg
     :target: https://www.mendeley.com/import/?url=https://doi.org/10.3390/info10040150
+    
+.. |Best| image::     https://img.shields.io/badge/Award-Best%20Paper%20Award%202019-brightgreen
+    :target: https://www.mdpi.com/journal/information/awards
+       
+
