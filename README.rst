@@ -9,7 +9,10 @@ Text Classification Algorithms: A Survey
 .. figure:: docs/pic/WordArt.png 
  
  
- Referenced paper : `Text Classification Algorithms: A Survey <https://arxiv.org/abs/1904.08067>`__
+ Referenced paper : `Text Classification Algorithms: A Survey <https://arxiv.org/abs/1904.08067>`__    
+ 
+|BPW|  
+
 
 
 ##################
@@ -24,8 +27,7 @@ Introduction
 ============
 
 .. figure:: docs/pic/OverviewTextClassification.png 
-
-    
+ 
     
 ====================================
 Text and Document Feature Extraction
@@ -3210,4 +3212,5 @@ Citations:
 .. |Best| image::     https://img.shields.io/badge/Award-Best%20Paper%20Award%202019-brightgreen
     :target: https://www.mdpi.com/journal/information/awards
        
-
+.. |BPW| image:: docs/pic/BPW.jpg
+    :target: https://www.mdpi.com/journal/information/awards
