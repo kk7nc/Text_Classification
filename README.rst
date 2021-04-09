@@ -3212,5 +3212,5 @@ Citations:
 .. |Best| image::     https://img.shields.io/badge/Award-Best%20Paper%20Award%202019-brightgreen
     :target: https://www.mdpi.com/journal/information/awards
        
-.. |BPW| image:: docs/pic/BPW.jpg
+.. |BPW| image:: docs/pic/BPW.png
     :target: https://www.mdpi.com/journal/information/awards
