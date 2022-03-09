@@ -29,6 +29,7 @@ Introduction
 .. figure:: docs/pic/OverviewTextClassification.png 
  
     
+    
 ====================================
 Text and Document Feature Extraction
 ====================================
