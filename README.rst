@@ -2620,7 +2620,7 @@ Using git
     git clone --recursive https://github.com/kk7nc/RMDL.git
 
 The primary requirements for this package are Python 3 with Tensorflow. The requirements.txt file
-contains a listing of the required Python packages; to install all requirements, run the following:
+contains a listing of the required `Python packages <https://www.scaler.com/topics/python/python-packages/>`__ to install all requirements, run the following:
 
 .. code:: bash
 
