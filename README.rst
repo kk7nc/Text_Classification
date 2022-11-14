@@ -2649,18 +2649,18 @@ success of these deep learning algorithms rely on their capacity to model comple
 relationships within the data. However, finding suitable structures for these models has been a challenge
 for researchers. This paper introduces Random Multimodel Deep Learning (RMDL): a new ensemble, deep learning
 approach for classification. RMDL aims to solve the problem of finding the best deep learning architecture while simultaneously improving the robustness and accuracy through ensembles of multiple deep
-learning architectures. In short, RMDL trains multiple models of Deep Neural Network (DNN),
-Convolutional Neural Network (CNN) and Recurrent Neural Network (RNN) in parallel and combines
-their results to produce better result of any of those models individually. To create these models,
+learning architectures. In short, RMDL trains multiple models of Deep Neural Networks (DNN),
+Convolutional Neural Network (CNN) and Recurrent Neural Network (RNN) in parallel and combine
+their results to produce the better results of any of those models individually. To create these models,
 each deep learning model has been constructed in a random fashion regarding the number of layers and
 nodes in their neural network structure. The resulting RDML model can be used in various domains such
-as text, video, images, and symbolic. In this Project, we describe RMDL model in depth and show the results
+as text, video, images, and symbolism. In this Project, we describe the RMDL model in depth and show the results
 for image and text classification as well as face recognition. For image classification, we compared our
 model with some of the available baselines using MNIST and CIFAR-10 datasets. Similarly, we used four
-datasets namely, WOS, Reuters, IMDB, and 20newsgroup and compared our results with available baselines.
-Web of Science (WOS) has been collected  by authors and consists of three sets~(small, medium and large set).
+datasets namely, WOS, Reuters, IMDB, and 20newsgroup, and compared our results with available baselines.
+Web of Science (WOS) has been collected by authors and consists of three sets~(small, medium, and large sets).
 Lastly, we used ORL dataset to compare the performance of our approach with other face recognition methods.
-These test results show that RDML model consistently outperform standard methods over a broad range of
+These test results show that the RDML model consistently outperforms standard methods over a broad range of
 data types and classification problems.
 
 --------------------------------------------
@@ -3039,8 +3039,6 @@ keywords : is authors keyword of the papers
   This dataset contains 5,736 documents with 11 categories which include 3 parents categories.
 
 Referenced paper: HDLTex: Hierarchical Deep Learning for Text Classification
-
-     
      
 ================================
 Text Classification Applications
